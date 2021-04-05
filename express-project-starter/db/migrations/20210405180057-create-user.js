@@ -23,7 +23,6 @@ module.exports = {
       },
       about: {
         type: Sequelize.TEXT,
-        allowNull: false
       },
       hashedPW: {
         type: Sequelize.STRING.BINARY,
