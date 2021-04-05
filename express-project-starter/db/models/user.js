@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     about: {
       type: DataTypes.TEXT,
-      allowNull: false
     },
     hashedPW: {
       type: DataTypes.STRING.BINARY,
