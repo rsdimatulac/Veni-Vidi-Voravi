@@ -1,3 +1,4 @@
+/********************************** REQUIRES *****************************************/
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -11,6 +12,7 @@ const usersRouter = require('./routes/users');
 
 const { sessionSecret } = require('./config');
 
+/********************************** APP SETUP *****************************************/
 const app = express();
 
 // view engine setup
@@ -56,4 +58,5 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+/********************************** EXPORTS *****************************************/
 module.exports = app;
