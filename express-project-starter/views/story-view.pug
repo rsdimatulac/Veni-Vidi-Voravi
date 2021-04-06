@@ -4,6 +4,7 @@ include utils.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/story-view.css")
+  script(type="text/javascript" src="/javascripts/display-comments.js")
 
 block content
   .nav__container
@@ -27,10 +28,10 @@ block content
     .story__claps-comments
       img(src="../images/clap.png")
       span=3
-      img(src="../images/comment.png")
-      span=5
+      img(id="comment-button" src="../images/comment.png")
+      span=comments.length
     +validationErrorSummary(errors)
-    .form
+    .form.hidden
       form(action=`/stories/${story.id}/comments` method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         .form__inputs
@@ -38,7 +39,7 @@ block content
               input(type="text" name="comment" placeholder="Your comment")
             .form__button
               button(type="submit") Post
-    .comments__container
+    .comments__container.hidden
       each comment in comments
         .comments__info
           .comments__pic
@@ -47,7 +48,8 @@ block content
             p #{user.firstName} #{user.lastName}
           .comments__content
             p=comment.content
-  //- .footer
-  //-   .footer__links
-  //-     a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
-  //-       i(class="fab fa-github" aria-hidden="true")
+        br
+  .footer
+    .footer__links
+      a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
+        i(class="fab fa-github" aria-hidden="true")
