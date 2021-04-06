@@ -40,7 +40,7 @@ router.get('/create', csrfProtection, (req, res) => {
 router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req, res) => {
     const { title, content, titleImage } = req.body;
     const { userId } = req.session.auth;
-    
+
     const story = db.Story.build({
         title, content, imageSrc: titleImage, userId
     });
@@ -66,21 +66,28 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
-    
+    const comments = await db.Comment.findAll({
+        where: {
+            storyId
+        },
+        order: [['createdAt', 'DESC']]
+    })
+
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
-    
+
     res.render('story-view', {
         title: story.title,
         story,
         csrfToken: req.csrfToken(),
-        user
+        user,
+        comments
     });
 }));
 
 
 // GETTING THE EDIT FORM
-router.get('/stories/:id', csrfProtection, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
     res.render('story-edit', {
@@ -91,7 +98,7 @@ router.get('/stories/:id', csrfProtection, asyncHandler(async (req, res) => {
 }));
 
 // EDITING AND UPDATING THE STORY
-router.post('/stories/:id', csrfProtection, storyValidators, asyncHandler(async (req, res) => {
+router.post('/:id(\\d+)', csrfProtection, storyValidators, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const storyToUpdate = await db.Story.findByPk(storyId);
 
@@ -115,7 +122,51 @@ router.post('/stories/:id', csrfProtection, storyValidators, asyncHandler(async 
     }
 }));
 
+const commentValidators = [
+    check('comment')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for the comment')
+        .isLength({ max: 280 })
+        .withMessage('Comment must not be more than 280 characters long'),
+];
 
+// POSTING A COMMENT
+router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandler(async (req, res) => {
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    const { comment } = req.body;
+    const comments = await db.Comment.findAll({
+        where: {
+            storyId
+        },
+        order: [['createdAt', 'DESC']]
+    })
+
+    const newComment = db.Comment.build({
+        storyId,
+        content: comment,
+        userId
+    })
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await newComment.save();
+        res.redirect(`/stories/${storyId}`);
+        //TODO: Maybe change redirect to just display comment on page without refreshing
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('story-view', {
+            comments,
+            csrfToken: req.csrfToken(),
+            errors,
+            user,
+            story
+        });
+    }
+}))
 
 
 
