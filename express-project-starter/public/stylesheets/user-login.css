@@ -1,0 +1,132 @@
+body {
+    box-sizing: border-box;
+    background-image: url("../images/splash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: 31px;
+    height: 600px;
+    width: 833px;
+    background-color: #fff;
+    border: solid 1px #929292;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 4%);
+    border-radius: 3px;
+}
+
+.header {
+    grid-column: 3 / 7;
+    grid-row: 1 / 1;
+    align-self: end;
+}
+
+.header > * {
+    display: flex;
+}
+
+.header__title {
+    grid-column: 3 / 7;
+    grid-row: 1 / 1;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.header__subtitle {
+    grid-column: 3 / 7;
+    grid-row: 1 / 1;
+    justify-content: center;
+    font-size: 30px;
+    color: #707070;
+}
+
+.form {
+    padding-top: 30px;
+    grid-column: 3 / 7;
+    grid-row: 2 / 4;
+}
+
+form * {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.form__title {
+    padding: 0px;
+    border-bottom: solid 1px #929292;
+}
+
+.form__inputs > input {
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+.login {
+    display: flex;
+    font-size: 15px;
+    color: #929292;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 10px;
+    font-weight: 400;
+}
+
+.login * {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.login > a {
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.login > a:hover {
+    text-decoration: underline;
+}
+
+.login > button {
+    border-radius: 22px;
+    background-color: #DCDCDC;
+    color: #929292;
+    border: none;
+    padding: 10px 25px;
+    margin-left: auto;
+}
+
+.footer {
+    background-color: #E9EAEB;
+    height: 70px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 31px;
+    grid-column: 1 / 9;
+    grid-row: 4;
+    column-gap: 31px;
+    align-self: end;
+    align-items: center;
+}
+
+.footer__links {
+    grid-column: 1 / 1;
+    justify-self: center;
+}
+
+.footer__links i {
+    font-size: 40px;
+}

@@ -1,0 +1,27 @@
+.errors > * {
+    padding-left: 10px;
+    color: #721c24;
+}
+
+.errors > p {
+    font-weight: bold;
+}
+
+.errors li {
+    list-style: inside;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.errors {
+    font-family: 'Roboto', sans-serif;
+    color: #721c24
+    height: auto;
+    width: 833px;
+    background: #f8d7da;
+    margin: auto;
+    margin-top: 5%;
+    border: solid 1px #f5c6cb;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 4%);
+    border-radius: 3px;
+}

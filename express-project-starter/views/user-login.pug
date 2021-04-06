@@ -2,14 +2,26 @@ extends layout.pug
 
 include utils.pug
 
+append head
+  link(rel="stylesheet" href="/stylesheets/user-login.css")
+
 block content
   +validationErrorSummary(errors)
-  form(action='/users/login' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Email Address', 'emailAddress', emailAddress)
-    +field('Password', 'password', null, 'password')
-    div(class='py-4')
-      button(type='submit' class='btn btn-primary') Login
-      a(href='/' class='btn btn-warning ml-2') Cancel
-  div
-    p: a(href='/users/register') Don't Have An Account?
+  .container
+    .header
+      .header__title Veni, Vidi, Voravi
+      .header__subtitle where good food finds you
+    .form
+      form(action='/users/login' method='post')
+        input(type='hidden' name='_csrf' value=csrfToken)
+        .form__title
+          label Login
+        +field('Email', 'emailAddress', emailAddress, "email", "example@mail.com")
+        +field('Password', 'password', null, 'password', "Your password")
+        .login Don't have an account? &nbsp;
+            a(href="/users/register") Register now
+            button(type="submit") Log In
+    .footer
+      .footer__links
+        a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
+        i(class="fab fa-github" aria-hidden="true")
