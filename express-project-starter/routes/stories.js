@@ -49,7 +49,7 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
 
     if (validatorErrors.isEmpty()) {
         await story.save();
-        res.redirect('/stories/:id');
+        res.redirect(`/stories/${story.id}`);
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('story-create', {
@@ -60,6 +60,24 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
         });
     }
 }));
+
+// VIEWING THE STORY
+
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
+    
+    res.render('story-view', {
+        title: story.title,
+        story,
+        csrfToken: req.csrfToken(),
+        user
+    });
+}));
+
 
 // GETTING THE EDIT FORM
 router.get('/stories/:id', csrfProtection, asyncHandler(async (req, res) => {
@@ -108,22 +126,22 @@ router.post('/stories/:id', csrfProtection, storyValidators, asyncHandler(async 
 
 
 
-router.get('/park/delete/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
-    const parkId = parseInt(req.params.id, 10);
-    const park = await db.Park.findByPk(parkId);
-    res.render('park-delete', {
-        title: 'Delete Park',
-        park,
-        csrfToken: req.csrfToken(),
-    });
-}));
+// router.get('/park/delete/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
+//     const parkId = parseInt(req.params.id, 10);
+//     const park = await db.Park.findByPk(parkId);
+//     res.render('park-delete', {
+//         title: 'Delete Park',
+//         park,
+//         csrfToken: req.csrfToken(),
+//     });
+// }));
 
-router.post('/park/delete/:id(\\d+)', csrfProtection,
-    asyncHandler(async (req, res) => {
-        const parkId = parseInt(req.params.id, 10);
-        const park = await db.Park.findByPk(parkId);
-        await park.destroy();
-        res.redirect('/parks');
-    }));
+// router.post('/park/delete/:id(\\d+)', csrfProtection,
+//     asyncHandler(async (req, res) => {
+//         const parkId = parseInt(req.params.id, 10);
+//         const park = await db.Park.findByPk(parkId);
+//         await park.destroy();
+//         res.redirect('/parks');
+//     }));
 
 module.exports = router;
