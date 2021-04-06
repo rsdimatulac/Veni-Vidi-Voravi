@@ -96,7 +96,6 @@ div {
     width: 40%;
 }
 
-
 .body__image {
     height: 500px;
     width: 60%;
@@ -153,6 +152,18 @@ div {
     justify-content: space-evenly;
 }
 
+.team__ourstory {
+    grid-column: 6 / 7;
+    grid-row: 4 / 5;
+    margin: auto;
+    justify-content: space-evenly;
+    width: 30px;
+}
+
+.team-ourStory {
+    font-size: 25px;
+}
+
 .team__title {
     grid-column: 2 / span 4;
 }
@@ -174,7 +185,23 @@ div {
     font-size: 25px;
 }
 
+.footer__links {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+}
+
 .developer__links i {
     font-size: 40px;
     padding: 10px;
+}
+ .footer__links i {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.copyright,
+.copyright i {
+    font-size: 20px;
+    opacity: 50%;
 }

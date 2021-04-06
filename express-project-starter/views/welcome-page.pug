@@ -2,7 +2,7 @@ extends layout
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/welcome-nav.css")
+  link(rel="stylesheet" href="/stylesheets/welcome.css")
   //- add page specific js
   script(src="/javascripts/welcome.js" type="module" defer)
 
@@ -68,6 +68,8 @@ block content
               i(class="fab fa-github" aria-hidden="true")
             a(href="https://www.linkedin.com/in/schuler-small/")
               i(class="fab fa-linkedin-in" aria-hidden="true")
+      .team__ourstory
+        a(href="/welcome/our-story" class="team-ourStory") Our Story
 
 
 
@@ -88,6 +90,8 @@ block content
       .footer__links
         a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
           i(class="fab fa-github" aria-hidden="true")
+        .copyright 
+          i(class="far fa-copyright" aria-hidden="true") 2021
 
 
 
