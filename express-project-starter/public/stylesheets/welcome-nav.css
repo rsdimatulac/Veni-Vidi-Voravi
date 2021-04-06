@@ -1,0 +1,11 @@
+.welcome__nav {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/* DON'T FORGET LOGO AND TITLE */
+
+.wn__info {
+    display: flex;
+    justify-content: space-between;
+}

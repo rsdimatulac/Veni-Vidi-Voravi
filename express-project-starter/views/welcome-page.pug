@@ -2,23 +2,51 @@ extends layout
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/welcome-nav.css")
   //- add page specific js
   script(src="/javascripts/welcome.js" type="module" defer)
 
 block content
   title Welcome to VVV!
-  h1 Veni Vidi Voravi
-  p I came, I saw, I devoured
-  p
-    a(href='/users/register')
-    button(class="welcome-register") Register
-  p
-    a(href="/users/login") 
-    button(class="welcome-login") Login
-  p
-    a(href="/welcome/our-story") 
-    button(class="welcome-ourStory") Our Story
+
+  .welcome__nav
+    .wn__logo LOGO HERE 
+    .wn__title Veni Vidi Voravi
+    .wn__info
+      .wn__features Features
+      .wn__team Team
+      .wn__technologies Technologies
+    .wn__actions
+      .wn__story
+        a(href="/welcome/our-story") 
+        button(class="welcome-ourStory") Our Story
+      .wn__login
+        a(href="/users/login") 
+        button(class="welcome-login") Login
+      .wn__demo
+        a(href='/users/demo-login')
+        button(class="welcome-demo") Log In As Demo
+      .wn__register
+        a(href='/users/register')
+        button(class="welcome-register") Register
+
+  .overview 
+    h1 Veni, Vidi, Voravi
+
+  .features 
+    h1 Features
+
+  .team 
+    h1 Team
+
+  .technologies
+    h1 Technologies
+
+  .footer
+      .footer__links
+        a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
+        i(class="fab fa-github" aria-hidden="true")
 
 
-    
+
+  
