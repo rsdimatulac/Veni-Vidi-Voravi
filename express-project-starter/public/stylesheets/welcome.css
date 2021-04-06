@@ -185,16 +185,18 @@ div {
     font-size: 25px;
 }
 
+.developer__links i {
+    font-size: 40px;
+    padding: 10px;
+}
+
+/* FOOTER CONTENT */
 .footer__links {
     display: flex;
     justify-content: space-between;
     padding-top: 5px;
 }
 
-.developer__links i {
-    font-size: 40px;
-    padding: 10px;
-}
  .footer__links i {
     font-size: 40px;
     padding: 10px;

@@ -2,10 +2,47 @@ extends layout
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/welcome.css")
+  link(rel="stylesheet" href="/stylesheets/our-story.css")
   //- add page specific js
   script(src="/javascripts/our-story.js" type="module" defer)
 
 block content
   title Welcome to VVV!
-  h1 Our Story 
+
+  include nav-bar-welcome
+
+  .stories
+    .developer__stories
+      .body__developer
+        .developer__name Bianca Salinas
+          img(src="/images/b.png" class="image__developer") 
+          .developer__links
+            a(href="https://github.com/B-Salinas")
+              i(class="fab fa-github" aria-hidden="true")
+            a(href=" https://www.linkedin.com/in/b-salinas/")
+              i(class="fab fa-linkedin-in" aria-hidden="true")
+      .body__developer
+        .developer__name David Kim
+          img(src="/images/d.png" class="image__developer") 
+          .developer__links
+            a(href="https://github.com/hye-kim")
+              i(class="fab fa-github" aria-hidden="true")
+            a(href="https://www.linkedin.com/in/hye-kim/")
+              i(class="fab fa-linkedin-in" aria-hidden="true")
+      .body__developer
+        .developer__name Renerose Dimatulac
+          img(src="/images/r.png" class="image__developer") 
+          .developer__links
+            a(href="https://github.com/rsdimatulac")
+              i(class="fab fa-github" aria-hidden="true")
+            a(href="https://www.linkedin.com/in/renerosedimatulac/")
+              i(class="fab fa-linkedin-in" aria-hidden="true")
+      .body__developer
+        .developer__name Schuler Small 
+          img(src="/images/s.png" class="image__developer") 
+          .developer__links
+            a(href="https://github.com/ssmall1")
+              i(class="fab fa-github" aria-hidden="true")
+            a(href="https://www.linkedin.com/in/schuler-small/")
+              i(class="fab fa-linkedin-in" aria-hidden="true")
