@@ -1,15 +1,18 @@
+append head
+  link(rel="stylesheet" href="/stylesheets/errors.css")
+
 mixin validationErrorSummary(errors)
   if errors
-    div(class='alert alert-danger' role='alert')
+    div(class="errors")
       p The following error(s) occurred:
       ul
         each error in errors
           li= error
 
 mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = null)
-  div(class='form-group')
+  div(class='form__inputs')
     label(for=fieldName)= labelText
     if fieldType === 'textarea'
-      textarea(id=fieldName name=fieldName class='form-control' rows='5')= fieldValue
+      textarea(id=fieldName name=fieldName class='form__input-field' rows='5')= fieldValue
     else
-      input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
+      input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form__input-field')
