@@ -1,11 +1,131 @@
-.welcome__nav {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+body {
+    box-sizing: border-box;
 }
 
-/* DON'T FORGET LOGO AND TITLE */
+div {
+    font-family: 'Roboto', sans-serif;
+}
 
-.wn__info {
+/********************** NAV BAR *************************/
+.nav__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 31px;
+    height: 65px;
+    padding: 0 38px;
+}
+
+.nav__container > * {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    grid-column: 1 / 2;
+}
+
+.nav__title {
+    grid-column: 2 / span 3;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nav__info {
+    grid-column: 5 / span 2;
+    height: inherit;
+}
+
+.nav__info > * {
+    display: flex;
+    align-items: left;
+    padding-right: 25px;
+    text-decoration: none;
+}
+
+.nav__links {
+    grid-column: 9 / 13;
+    height: inherit;
+}
+
+.nav__links a {
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+.nav__links a:hover {
+    text-decoration: underline;
+}
+
+/********************************** MAIN CONTENT *****************************/
+.overview {
+    display: flex;
+    height: 666px;
+    background-color: #e9eaeb;
+}
+
+.features {
+    display: flex;
+    height: 666px;
+    background-color: #ffffff;
+}
+
+.team {
+    display: flex;
+    height: 570px;
+    background-color: #e9eaeb;
+}
+
+.technologies {
+    display: flex;
+    height: 545px;
+    background-color: #ffffff;
+}
+
+.footer {
+    height: 68px;
+    background-color: #e9eaeb;
+}
+
+.body__content {
+    height: 500px;
+    width: 40%;
+    justify-content: center;
+}
+
+.body__image {
+    height: 500px;
+    width: 60%;
+    padding: 75px;
+}
+
+.body__title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.body__text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    padding: 25px;
+}
+
+.image__overview {
+    height: 466px;
+    width: 629px;
+    padding: 25px;
+}
+.image__features {
+    height: 457px;
+    width: 629px;
+    padding-top: 75px;
+    padding-right: 25px;
+
+}
+
+.image__technologies {
+    height: 295px;
+    width: 519px;
+    padding: 75px 25px 25px 25px; 
 }

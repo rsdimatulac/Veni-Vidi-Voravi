@@ -8,41 +8,52 @@ append head
 
 block content
   title Welcome to VVV!
+  include nav-bar-welcome 
+  
+  .body__container
+    
+    .overview
+      .body__content 
+        .body__title(class="")
+          h1 Veni, Vidi, Voravi
+        .body__text(class="")
+          p is a social media platform that allows users to share and discovery experiences from different restaurants.
+      .body__image
+        .image__container(class="image_overview")
+          img(src="/images/eating-together.jpg")
 
-  .welcome__nav
-    .wn__logo LOGO HERE 
-    .wn__title Veni Vidi Voravi
-    .wn__info
-      .wn__features Features
-      .wn__team Team
-      .wn__technologies Technologies
-    .wn__actions
-      .wn__story
-        a(href="/welcome/our-story") 
-        button(class="welcome-ourStory") Our Story
-      .wn__login
-        a(href="/users/login") 
-        button(class="welcome-login") Login
-      .wn__demo
-        a(href='/users/demo-login')
-        button(class="welcome-demo") Log In As Demo
-      .wn__register
-        a(href='/users/register')
-        button(class="welcome-register") Register
+    .features
+     .body__image
+       .image__container(class="image_features")
+         img(src="/images/features.png")
+     .body__content 
+       .body__title(class="")
+          h1 Key Features
+       .body__text(class="")
+          ul
+            li Read, Create, and Share Stories 
+            li Comment and Clap on Stories 
+            li Follow your Friends 
+            li Discover and experience shared experiences
 
-  .overview 
-    h1 Veni, Vidi, Voravi
+    .team 
+      h1 Team
 
-  .features 
-    h1 Features
 
-  .team 
-    h1 Team
+    .technologies
+      .body__image
+        .image__container(class="image_technologies")
+          img(src="/images/technologies.png")
+      .body__content
+        .body__title(class="")
+          h1 Technologies
+        .body__text(class="")
+          ul
+            li Express.js 
+            li Node.js
+            li PostgreSQL 
 
-  .technologies
-    h1 Technologies
-
-  .footer
+    .footer
       .footer__links
         a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
         i(class="fab fa-github" aria-hidden="true")

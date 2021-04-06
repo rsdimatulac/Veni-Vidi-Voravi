@@ -1,1 +1,19 @@
-extends 
+extends layout 
+
+block content 
+  nav(class="nav__create")
+    .nav__container
+        .nav__logo 
+          a(href='/welcome')
+            p LOGO HERE
+        .nav__title Veni Vidi Voravi
+        .nav__info
+          .nav__features Features
+          .nav__team Team
+          .nav__technologies Technologies
+        .nav__links
+            a(href="/welcome/our-story" class="welcome-ourStory") Our Story
+            a(href="/users/login" class="welcome-login") Login
+            a(href='/users/demo-login' class="welcome-demo") Log In As Demo
+            a(href='/users/register' class="welcome-register") Register
+  
