@@ -85,43 +85,6 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     });
 }));
 
-
-// GETTING THE EDIT FORM
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
-    const storyId = parseInt(req.params.id, 10);
-    const story = await db.Story.findByPk(storyId);
-    res.render('story-edit', {
-        title: 'Edit your Story',
-        story,
-        csrfToken: req.csrfToken(),
-    });
-}));
-
-// EDITING AND UPDATING THE STORY
-router.post('/:id(\\d+)', csrfProtection, storyValidators, asyncHandler(async (req, res) => {
-    const storyId = parseInt(req.params.id, 10);
-    const storyToUpdate = await db.Story.findByPk(storyId);
-
-    const { title, imageSrc, content } = req.body;
-
-    const story = { title, imageSrc, content };
-
-    const validatorErrors = validationResult(req);
-
-    if (validatorErrors.isEmpty()) {
-        await storyToUpdate.update(story);
-        res.redirect(`/stories/${storyId}`);
-    } else {
-        const errors = validatorErrors.array().map((error) => error.msg);
-        res.render('story-edit', {
-            title: 'Edit your Story',
-            story: { ...story, id: storyId },
-            errors,
-            csrfToken: req.csrfToken(),
-        });
-    }
-}));
-
 const commentValidators = [
     check('comment')
         .exists({ checkFalsy: true })
@@ -142,7 +105,7 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
             storyId
         },
         order: [['createdAt', 'DESC']]
-    })
+    });
 
     const newComment = db.Comment.build({
         storyId,
@@ -168,31 +131,58 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
     }
 }))
 
+// GET THE EDIT FORM
+router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
+    res.render('story-edit', {
+        title: 'Edit your Story',
+        story,
+        csrfToken: req.csrfToken(),
+        user
+    });
+}));
 
+// EDITING AND UPDATING THE STORY
+// TODO: Edit button on the Profile Page
 
+router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const storyToUpdate = await db.Story.findByPk(storyId);
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
 
+    const { title, imageSrc, content } = req.body;
 
+    const story = { title, imageSrc, content };
 
+    const validatorErrors = validationResult(req);
 
+    if (validatorErrors.isEmpty()) {
+        await storyToUpdate.update(story);
+        res.redirect(`/stories/${storyId}`);
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('story-edit', {
+            title: 'Edit your Story',
+            story: { ...story, id: storyId },
+            errors,
+            csrfToken: req.csrfToken(),
+            user
+        });
+    }
+}));
 
+// DELETING A STORY
+// TODO: Delete button on the Profile Page, Popup Window
 
-
-// router.get('/park/delete/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
-//     const parkId = parseInt(req.params.id, 10);
-//     const park = await db.Park.findByPk(parkId);
-//     res.render('park-delete', {
-//         title: 'Delete Park',
-//         park,
-//         csrfToken: req.csrfToken(),
-//     });
-// }));
-
-// router.post('/park/delete/:id(\\d+)', csrfProtection,
-//     asyncHandler(async (req, res) => {
-//         const parkId = parseInt(req.params.id, 10);
-//         const park = await db.Park.findByPk(parkId);
-//         await park.destroy();
-//         res.redirect('/parks');
-//     }));
+router.post('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+        const storyId = parseInt(req.params.id, 10);
+        const story = await db.Story.findByPk(storyId);
+        await story.destroy();
+        res.redirect('/');
+}));
 
 module.exports = router;
