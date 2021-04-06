@@ -1,0 +1,11 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/our-story.js" type="module" defer)
+
+block content
+  title Welcome to VVV!
+  h1 Our Story 

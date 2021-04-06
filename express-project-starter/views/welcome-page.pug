@@ -1,0 +1,24 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/welcome.js" type="module" defer)
+
+block content
+  title Welcome to VVV!
+  h1 Veni Vidi Voravi
+  p I came, I saw, I devoured
+  p
+    a(href='/users/register')
+    button(class="welcome-register") Register
+  p
+    a(href="/users/login") 
+    button(class="welcome-login") Login
+  p
+    a(href="/welcome/our-story") 
+    button(class="welcome-ourStory") Our Story
+
+
+    
