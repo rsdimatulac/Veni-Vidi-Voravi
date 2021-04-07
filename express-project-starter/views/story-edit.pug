@@ -6,18 +6,7 @@ append head
   link(rel="stylesheet" href="/stylesheets/story-create.css")
     //- NOTE THAT WE ARE USING STORY-CREATE.CSS HERE
 block content
-  nav(class="nav__create")
-    .nav__container
-      div(class="nav__logo")
-        a(href="/")
-          //- img(src="")
-          p LOGO HERE
-      div(class="nav__title") Veni, Vidi, Voravi
-      div(class="nav__links")
-        a(href="/our-story") Our Story
-        a(href="/stories/create") Write a Story
-        a(href="/welcome") Log Out
-        a(href=`/users/${user.id}`) Profile
+  include story-navbar.pug 
   +validationErrorSummary(errors)
   .form__container
     .form

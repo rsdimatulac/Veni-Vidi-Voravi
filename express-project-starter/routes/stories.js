@@ -27,7 +27,7 @@ const storyValidators = [
 
 
 // GETTING THE PAGE FOR CREATING A STORY
-router.get('/create', csrfProtection, (req, res) => {
+router.get('/create', csrfProtection, requireAuth, (req, res) => {
     const story = db.Story.build();
     res.render('story-create', {
         title: 'Create a Story',
@@ -63,25 +63,37 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
 
 // VIEWING THE STORY
 
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
-    const story = await db.Story.findByPk(storyId);
+    const story = await db.Story.findByPk(storyId, { include: db.User }); // I added the include
+    const clapCount = await db.Clap.findAndCountAll({ 
+        where: {
+            storyId
+        },
+    });
+    // console.log("CLAPPPPP", clapCount.count);
     const comments = await db.Comment.findAll({
         where: {
             storyId
         },
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC']],
+        include: db.User
     })
 
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
+
+    const userClap = await db.Clap.findOne({ where: { storyId, userId }});
+    // console.log("USER CLAPPPPPPP", userClap);
 
     res.render('story-view', {
         title: story.title,
         story,
         csrfToken: req.csrfToken(),
         user,
-        comments
+        comments,
+        clapCount: clapCount.count,
+        userClap
     });
 }));
 
@@ -104,8 +116,10 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
         where: {
             storyId
         },
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC']],
+        include: db.User // ADDED
     });
+    console.log("TESTTTTT", comments)
 
     const newComment = db.Comment.build({
         storyId,
@@ -132,11 +146,19 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
 }))
 
 // GET THE EDIT FORM
-router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
+
+    // to check if the user made that story
+    if ( userId !== story.userId ) {
+        res.status(403); // Forbidden
+        throw new Error("Forbidden")
+        // TODO: Instead to throw error, redirect to a stylized Error Page
+    };
+
     res.render('story-edit', {
         title: 'Edit your Story',
         story,

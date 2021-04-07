@@ -2,6 +2,7 @@
 
 body {
     box-sizing: border-box;
+    background-color: #fff;
 }
 
 div {
@@ -14,6 +15,18 @@ p {
 
 .hidden {
     display: none;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+#profile-pic-story {
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
 }
 
 /* NAVBAR */
@@ -56,6 +69,20 @@ p {
     text-decoration: underline;
 }
 
+.logout-button {
+    background-color: inherit;
+    border: none;
+    text-decoration: none;
+    padding-left: 20px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}
+
 /* STORIES */
 
 .story__container {
@@ -78,9 +105,17 @@ p {
 .story__author {
     grid-column: 4 / 10;
     justify-self: start;
-    font-size: 20px;
+    font-size: 14px;
     margin-bottom: 20px;
-    height: fit-content
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.story__author > a {
+    text-decoration: none;
+    color: #1A8917;
+    padding: 0px 15px;
 }
 
 .story__image {
@@ -98,6 +133,8 @@ p {
     grid-column: 4 / 10;
     line-height: 30px;
     white-space: pre-line;
+    font-size: 21px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .story__claps-comments {
@@ -204,27 +241,30 @@ form * {
 }
 
 .comments__name {
-    grid-area: 1 / 2 / 2 / 5;
+    grid-area: 1 / 2 / 2 / 8;
     font-weight: bold;
     align-self: center;
     padding-left: 10px;
+    padding-top: 10px;
 }
 
-/* .comments__name > a {
+.comments__timestamp {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.comments__name > a {
     text-decoration: none;
+    color: #1A8917;
     font-weight: bold;
 }
-
-.comments__name > a:hover {
-    text-decoration: underline;
-} */
 
 .comments__content {
     grid-area: 2 / 2 / 3 / 9;
     align-self: center;
     padding-left: 10px;
     padding-right: 10px;
-    /* margin: 0px; */
 }
 
 

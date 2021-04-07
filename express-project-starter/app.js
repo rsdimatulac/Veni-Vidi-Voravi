@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
+const { restoreUser } = require("./auth");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const indexRouter = require('./routes/index');
@@ -13,7 +14,7 @@ const usersRouter = require('./routes/users');
 const storiesRouter = require("./routes/stories");
 const welcomeRouter = require('./routes/welcome');
 const ourStoryRouter = require('./routes/our-story');
-
+const clapsRouter = require("./routes/claps");
 
 const { sessionSecret } = require('./config');
 
@@ -39,16 +40,18 @@ app.use(
     saveUninitialized: false,
     resave: false,
   })
-);
-
-// create Session table if it doesn't already exist
-store.sync();
-
+  );
+  
+  // create Session table if it doesn't already exist
+  store.sync();
+  
+app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/stories", storiesRouter);
 app.use('/welcome', welcomeRouter);
 app.use('/our-story', ourStoryRouter);
+app.use(clapsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

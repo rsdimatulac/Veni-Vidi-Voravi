@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
     hashedPW: {
       type: DataTypes.STRING.BINARY,
       allowNull: false
-    }
+    },
+    profilePic: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
   }, {});
   User.associate = function(models) {
     User.hasMany(models.Story, { foreignKey: "userId" });
