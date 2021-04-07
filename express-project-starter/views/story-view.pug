@@ -21,8 +21,8 @@ block content
   .story__container
     .story__title= story.title
     .story__author By #{user.firstName} #{user.lastName}
-    .story__image
-        img(src=story.imageSrc)
+    .story__image(style=`background-image: url(${story.imageSrc})`)
+        //- img(src=story.imageSrc)
     .story__content
         p= story.content
     .story__claps-comments
