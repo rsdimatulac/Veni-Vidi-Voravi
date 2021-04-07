@@ -137,6 +137,14 @@ router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (r
     const story = await db.Story.findByPk(storyId);
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
+
+    // to check if the user made that story
+    if ( userId !== story.userId ) {
+        res.status(403); // Forbidden
+        throw new Error("Forbidden")
+        // TODO: Instead to throw error, redirect to a stylized Error Page
+    };
+
     res.render('story-edit', {
         title: 'Edit your Story',
         story,

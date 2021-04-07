@@ -86,7 +86,8 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
   const user = db.User.build({
     firstName,
     lastName,
-    emailAddress
+    emailAddress,
+    profilePic: "../images/default-profile-picture.jpg"
   });
 
   const validatorErrors = validationResult(req);

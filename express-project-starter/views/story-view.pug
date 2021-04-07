@@ -7,22 +7,11 @@ append head
   script(type="text/javascript" src="/javascripts/display-comments.js")
 
 block content
-  .nav__container
-    div(class="nav__logo")
-      a(href="/")
-        //- img(src="")
-        p LOGO HERE
-    div(class="nav__title") Veni, Vidi, Voravi
-    div(class="nav__links")
-      a(href="/our-story") Our Story
-      a(href="/stories/create") Write a Story
-      a(href="/welcome") Log Out
-      a(href=`/users/${user.id}`) Profile
+  include story-navbar.pug
   .story__container
     .story__title= story.title
     .story__author By #{user.firstName} #{user.lastName}
     .story__image(style=`background-image: url(${story.imageSrc})`)
-        //- img(src=story.imageSrc)
     .story__content
         p= story.content
     .story__claps-comments
@@ -43,7 +32,7 @@ block content
       each comment in comments
         .comments__info
           .comments__pic
-            p PICTURE HERE
+            img(src=`${user.profilePic}`)
           .comments__name
             p #{user.firstName} #{user.lastName}
           .comments__content
