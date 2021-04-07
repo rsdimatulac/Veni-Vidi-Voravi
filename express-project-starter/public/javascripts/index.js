@@ -1,3 +1,4 @@
+// HOME PAGE
 window.addEventListener("load", (event)=>{
-    console.log("hello from javascript!")
+    console.log("Veni Vidi Voravi")
 })
