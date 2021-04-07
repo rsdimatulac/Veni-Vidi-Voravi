@@ -131,7 +131,6 @@ div {
 .body__text {
     font-size: 20px;
     padding: 10px 40px 0px 80px;
-
 }
 
 .image__overview {
@@ -232,6 +231,12 @@ div {
  .footer__links i {
     font-size: 40px;
     padding: 10px;
+}
+
+.github i {
+    font-size: 18px;
+    opacity: 30%;
+    padding-top: 20px;
 }
 
 .copyright i {

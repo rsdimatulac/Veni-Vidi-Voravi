@@ -9,6 +9,11 @@ div {
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    align-items: center;
+}
+
 .container {
     margin: auto;
     margin-top: 5%;
