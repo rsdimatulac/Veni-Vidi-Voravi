@@ -131,7 +131,6 @@ div {
 .body__text {
     font-size: 20px;
     padding: 10px 40px 0px 80px;
-
 }
 
 .image__overview {
@@ -172,15 +171,28 @@ div {
 }
 
 .team__ourstory {
-    grid-column: 6 / 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 6 / 8;
     grid-row: 4 / 5;
     margin: auto;
     justify-content: space-evenly;
-    width: 30px;
+    background-color: rgba(66, 66 ,66, 0.4);
+    padding: 8px;
+    border-radius: 29px;
+    opacity: 1;
+    color: white;
 }
 
-.team-ourStory {
-    font-size: 25px;
+.ourstory-link {
+    font-size: 35px;
+    font-weight: 250;
+    text-decoration: none;
+}
+
+.team__ourstory:hover {
+    box-shadow: 1px 1px 1px 1px rgba(25, 26, 25, 0.8);
 }
 
 .team__title {
@@ -219,6 +231,12 @@ div {
  .footer__links i {
     font-size: 40px;
     padding: 10px;
+}
+
+.github i {
+    font-size: 18px;
+    opacity: 30%;
+    padding-top: 20px;
 }
 
 .copyright i {

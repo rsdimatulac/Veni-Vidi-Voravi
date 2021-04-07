@@ -9,7 +9,9 @@ block content
   +validationErrorSummary(errors)
   .container
     .header
-      .header__title Veni, Vidi, Voravi
+      a(href="/welcome")
+        .header__title Veni, Vidi, Voravi
+        //- FIX CENTERING ON TITLE AND SUBTITLE
       .header__subtitle where good food finds you
     .form
       form(action='/users/register' method='post')
@@ -24,6 +26,8 @@ block content
         .login Already have an account? &nbsp;
             a(href="/users/login") Log In
             button(type="submit") Register
+        .login Don't want an account? &nbsp;
+            a(href="/users/demouser") Try Our Demo
     .footer
       .footer__links
         a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")

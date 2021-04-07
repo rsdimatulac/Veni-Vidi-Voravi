@@ -13,10 +13,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     window.location.href = "/users/login";
   });
 
-  welcomeDemo.addEventListener('click', (event) => {
-    window.location.href = '/';
-  })
-
   welcomeOurStory.addEventListener('click', (event) => {
     window.location.href = "/welcome/our-story";
   })
