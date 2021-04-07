@@ -15,6 +15,7 @@ div {
     padding: 0 38px;
     position: fixed;
     background-color: #FFFFFF;
+    opacity: 90%;
 }
 
 .nav__container > * {
@@ -27,13 +28,13 @@ div {
 }
 
 .nav__title {
-    grid-column: 2 / span 3;
+    grid-column: 2 / span 2;
     font-size: 25px;
     font-weight: bold;
 }
 
 .nav__info {
-    grid-column: 5 / span 2;
+    grid-column: 4 / span 2;
     height: inherit;
 }
 
@@ -45,17 +46,32 @@ div {
 }
 
 .nav__links {
-    grid-column: 9 / 13;
+    grid-column: 10 / 13;
     height: inherit;
 }
 
 .nav__links a {
-    padding-left: 20px;
+    margin: 10px;
     text-decoration: none;
 }
 
 .nav__links a:hover {
     text-decoration: underline;
+}
+
+#demo-btn {
+    color: white;
+    background-color: rgba(70, 211, 70, 0.8);
+    border-radius: 12%;
+    padding: 3px 6px;
+    width: 135px;
+}
+
+#register-btn{
+    color: white;
+    background-color: rgba(25, 26, 25, 0.8);
+    border-radius: 12%;
+    padding: 3px 6px;
 }
 
 /********************************** MAIN CONTENT *****************************/
@@ -105,7 +121,11 @@ div {
 .body__title {
     font-size: 40px;
     font-weight: bold;
-    padding: 80px 40px 0px 80px;
+    padding: 40px 40px 0px 80px;
+}
+
+#vvv__title {
+    padding-top: 150px;
 }
 
 .body__text {
@@ -132,8 +152,7 @@ div {
     padding: 75px 25px 25px 25px; 
 }
 
-/* TEAM CONTENT */
-
+/********************************* TEAM CONTENT ***********************************/
 .team {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -190,7 +209,7 @@ div {
     padding: 10px;
 }
 
-/* FOOTER CONTENT */
+/*************************** FOOTER CONTENT *****************************/
 .footer__links {
     display: flex;
     justify-content: space-between;
@@ -202,8 +221,8 @@ div {
     padding: 10px;
 }
 
-.copyright,
 .copyright i {
-    font-size: 20px;
-    opacity: 50%;
+    font-size: 18px;
+    opacity: 30%;
+    padding-top: 20px;
 }
