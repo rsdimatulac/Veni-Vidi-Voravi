@@ -1,0 +1,120 @@
+body {
+    box-sizing: border-box;
+}
+
+div {
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 31px;
+    height: 65px;
+    padding: 0 38px;
+}
+
+.nav__container > * {
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo {
+    grid-column: 1 / 2;
+}
+
+.nav__title {
+    grid-column: 2 / span 5;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.nav__links {
+    grid-column: 9 / 13;
+    height: inherit;
+}
+
+.nav__links a {
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+.nav__links a:hover {
+    text-decoration: underline;
+}
+
+.form__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 31px;
+    padding: 0 38px;
+}
+
+form * {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.form {
+    grid-column: 2 / 12;
+}
+
+.form__title {
+    padding: 0px;
+    border-bottom: solid 1px #929292;
+}
+
+.form__inputs > input {
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+.form__inputs > textarea {
+    font-weight: 400;
+    padding-left: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form__button {
+    display: flex;
+    font-size: 15px;
+    color: #929292;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 10px;
+    font-weight: 400;
+}
+
+.form__button * {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.form__button > a {
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.form__button > a:hover {
+    text-decoration: underline;
+}
+
+.form__button > button {
+    border-radius: 22px;
+    font-size: 20px;
+    background-color: #929292;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.form__button > button:hover {
+    background-color: #2ece8b;
+}

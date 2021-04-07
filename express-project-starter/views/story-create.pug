@@ -1,0 +1,31 @@
+extends layout.pug
+
+include utils.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/story-create.css")
+
+block content
+  nav(class="nav__create")
+    .nav__container
+      div(class="nav__logo")
+        a(href="/")
+          //- img(src="")
+          p LOGO HERE
+      div(class="nav__title") Veni, Vidi, Voravi
+      div(class="nav__links")
+        a(href="/our-story") Our Story
+        a(href="/stories/create") Write a Story
+        a(href="/welcome") Log Out
+        a(href="/users/:id") Profile
+  +validationErrorSummary(errors)
+  .form__container
+    .form
+      form(action='/stories/create' method='post')
+        input(type="hidden", name="_csrf" value=csrfToken)
+        +field('Title', 'title', story.title, "text", "Your title")
+        +field('Title Image', 'titleImage', story.imageSrc, "url", "Your image URL")
+        +field('Body', 'content', story.content, "textarea")
+        .form__button
+          a(href='/') Cancel
+          button(type='submit') Publish
