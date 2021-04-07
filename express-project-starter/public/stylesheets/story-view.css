@@ -16,6 +16,10 @@ p {
     display: none;
 }
 
+.profile-pic {
+    border-radius: 50%;
+}
+
 /* NAVBAR */
 
 .nav__container {
