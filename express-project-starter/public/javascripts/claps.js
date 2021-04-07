@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const clapImage = document.getElementById('clap-button');
         const clapCount = document.getElementById('clap-count');
         if (clapImage.classList.contains("has-been-clapped")) { // if the classList has-been-clapped
-            clapImage.src = '../images/clap.png';
+            clapImage.src = '../images/unclapped.png'; // turns black when it's unclapped
             clapImage.classList.remove('has-been-clapped');
             clapCount.innerHTML--;
         } else { // if it hasn't been clapped
-            clapImage.src = '../images/comment.png';
+            clapImage.src = '../images/clapped.png';
             clapImage.classList.add('has-been-clapped');
             clapCount.innerHTML++;
         }

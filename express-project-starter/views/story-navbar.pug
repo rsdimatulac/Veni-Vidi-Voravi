@@ -10,6 +10,7 @@
       a(href="/our-story") Our Story
       a(href="/stories/create") Write a Story
       form(action="/users/logout" method="post") 
-        button(type="submit") Log Out
-      a(href=`/users/${user.id}`) Profile
-        img(class="profile-pic" src=`${user.profilePic}`)
+        button(class="logout-button" type="submit") Log Out
+      a(href=`/users/${user.id}`)
+        img(class="profile-pic" src=`${user.profilePic}`) 
+        //- whoever is the logged in user, must have the picture here

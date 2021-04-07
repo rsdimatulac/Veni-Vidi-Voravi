@@ -65,25 +65,26 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
 
 router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
-    const story = await db.Story.findByPk(storyId);
+    const story = await db.Story.findByPk(storyId, { include: db.User }); // I added the include
     const clapCount = await db.Clap.findAndCountAll({ 
         where: {
             storyId
-        }
+        },
     });
     // console.log("CLAPPPPP", clapCount.count);
     const comments = await db.Comment.findAll({
         where: {
             storyId
         },
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC']],
+        include: db.User
     })
 
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
 
     const userClap = await db.Clap.findOne({ where: { storyId, userId }});
-    console.log("USER CLAPPPPPPP", userClap);
+    // console.log("USER CLAPPPPPPP", userClap);
 
     res.render('story-view', {
         title: story.title,
@@ -115,8 +116,10 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
         where: {
             storyId
         },
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC']],
+        include: db.User // ADDED
     });
+    console.log("TESTTTTT", comments)
 
     const newComment = db.Comment.build({
         storyId,

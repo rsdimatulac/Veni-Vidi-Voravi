@@ -11,16 +11,19 @@ block content
   include story-navbar.pug
   .story__container
     .story__title= story.title
-    .story__author By #{user.firstName} #{user.lastName}
+    .story__author 
+      img(id="profile-pic-story" src=`${story.User.profilePic}`)
+      a(href=`/users/${story.userId}`)  #{story.User.firstName} #{story.User.lastName}
+      p #{story.createdAt}
+      //- TODO ADD HOW LONG IS THE READ
     .story__image(style=`background-image: url(${story.imageSrc})`)
     .story__content
         p= story.content
     .story__claps-comments
       if userClap 
-        img(id="clap-button" class=`${story.id} has-been-clapped` src="../images/clap.png")
+        img(id="clap-button" class=`${story.id} has-been-clapped` src="../images/clapped.png")
       else
-        img(id="clap-button" class=`${story.id}` src="../images/comment.png")
-        //- TODO: style the clap when it's CLAPPED
+        img(id="clap-button" class=`${story.id}` src="../images/unclapped.png")
       span(id="clap-count")=clapCount
       img(id="comment-button" src="../images/comment.png")
       span=comments.length
@@ -37,9 +40,10 @@ block content
       each comment in comments
         .comments__info
           .comments__pic
-            img(class="profile-pic" src=`${user.profilePic}`)
+            img(class="profile-pic" src=`${comment.User.profilePic}`)
           .comments__name
-            p #{user.firstName} #{user.lastName}
+            a(href=`/users/${story.userId}`)  #{comment.User.firstName} #{comment.User.lastName}
+            p(class="comments__timestamp") #{comment.createdAt}
           .comments__content
             p=comment.content
         br
