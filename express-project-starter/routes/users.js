@@ -65,7 +65,6 @@ const loginValidators = [
 ];
 
 
-
 /********************************** ROUTERS *****************************************/
 router.get('/register', csrfProtection, (req, res) => {
   const user = db.User.build();
