@@ -179,16 +179,21 @@ div {
     grid-row: 4 / 5;
     margin: auto;
     justify-content: space-evenly;
-    border: 1px black solid;
+    background-color: rgba(66, 66 ,66, 0.4);
+    padding: 8px;
+    border-radius: 29px;
+    opacity: 1;
+    color: white;
 }
 
 .ourstory-link {
-    font-size: 25px;
+    font-size: 35px;
+    font-weight: 250;
     text-decoration: none;
 }
 
-.ourstory-link:hover {
-    text-decoration: underline; 
+.team__ourstory:hover {
+    box-shadow: 1px 1px 1px 1px rgba(25, 26, 25, 0.8);
 }
 
 .team__title {
