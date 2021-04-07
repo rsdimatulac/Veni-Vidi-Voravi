@@ -12,3 +12,4 @@
       form(action="/users/logout" method="post") 
         button(type="submit") Log Out
       a(href=`/users/${user.id}`) Profile
+        img(class="profile-pic" src=`${user.profilePic}`)
