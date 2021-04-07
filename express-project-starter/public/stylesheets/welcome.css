@@ -230,17 +230,30 @@ div {
 
  .footer__links i {
     font-size: 40px;
-    padding: 10px;
+    padding: 20px;
 }
 
-.github i {
+.github {
     font-size: 18px;
-    opacity: 30%;
+    color: rgb(66, 66, 66);
     padding-top: 20px;
+    font-family: ‘Roboto’, sans-serif;
+    display: inline;
 }
 
-.copyright i {
+a {
+    text-decoration: none;
+}
+
+.copyright {
     font-size: 18px;
-    opacity: 30%;
+    color: rgb(66, 66, 66);
     padding-top: 20px;
+    font-family: ‘Roboto’, sans-serif;
+    display: inline;
+}
+
+.fab.fa-github, .far.fa-copyright {
+    font-size: 18px;
+    color: rgb(66, 66, 66);
 }
