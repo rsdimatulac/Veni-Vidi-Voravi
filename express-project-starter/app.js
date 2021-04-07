@@ -14,7 +14,7 @@ const usersRouter = require('./routes/users');
 const storiesRouter = require("./routes/stories");
 const welcomeRouter = require('./routes/welcome');
 const ourStoryRouter = require('./routes/our-story');
-
+const clapsRouter = require("./routes/claps");
 
 const { sessionSecret } = require('./config');
 
@@ -51,6 +51,7 @@ app.use('/users', usersRouter);
 app.use("/stories", storiesRouter);
 app.use('/welcome', welcomeRouter);
 app.use('/our-story', ourStoryRouter);
+app.use(clapsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

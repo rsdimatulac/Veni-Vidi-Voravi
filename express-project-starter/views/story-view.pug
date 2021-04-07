@@ -5,6 +5,7 @@ include utils.pug
 append head
   link(rel="stylesheet" href="/stylesheets/story-view.css")
   script(type="text/javascript" src="/javascripts/display-comments.js")
+  script(type="text/javascript" src="/javascripts/claps.js")
 
 block content
   include story-navbar.pug
@@ -15,8 +16,12 @@ block content
     .story__content
         p= story.content
     .story__claps-comments
-      img(src="../images/clap.png")
-      span=3
+      if userClap 
+        img(id="clap-button" class=`${story.id} has-been-clapped` src="../images/clap.png")
+      else
+        img(id="clap-button" class=`${story.id}` src="../images/comment.png")
+        //- TODO: style the clap when it's CLAPPED
+      span(id="clap-count")=clapCount
       img(id="comment-button" src="../images/comment.png")
       span=comments.length
     +validationErrorSummary(errors)
@@ -32,7 +37,7 @@ block content
       each comment in comments
         .comments__info
           .comments__pic
-            img(src=`${user.profilePic}`)
+            img(class="profile-pic" src=`${user.profilePic}`)
           .comments__name
             p #{user.firstName} #{user.lastName}
           .comments__content

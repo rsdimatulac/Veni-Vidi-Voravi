@@ -66,6 +66,12 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
 router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
+    const clapCount = await db.Clap.findAndCountAll({ 
+        where: {
+            storyId
+        }
+    });
+    // console.log("CLAPPPPP", clapCount.count);
     const comments = await db.Comment.findAll({
         where: {
             storyId
@@ -76,12 +82,17 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
 
+    const userClap = await db.Clap.findOne({ where: { storyId, userId }});
+    console.log("USER CLAPPPPPPP", userClap);
+
     res.render('story-view', {
         title: story.title,
         story,
         csrfToken: req.csrfToken(),
         user,
-        comments
+        comments,
+        clapCount: clapCount.count,
+        userClap
     });
 }));
 
