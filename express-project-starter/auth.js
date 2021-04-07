@@ -11,10 +11,14 @@ const logoutUser = (req, res) => {
 };
 
 const requireAuth = (req, res, next) => {
-  if (!res.locals.authenticated) {
-    return res.redirect('/users/login'); //double check route accuracy w/ wiki front-end routes // maybe change to just login
+  try {
+    if (!res.locals.authenticated) {
+      return res.redirect('/users/login'); //double check route accuracy w/ wiki front-end routes // maybe change to just login
+    }
+    return next();
+  } catch (err) {
+    next(err);
   }
-  return next();
 };
 
 const restoreUser = async (req, res, next) => {

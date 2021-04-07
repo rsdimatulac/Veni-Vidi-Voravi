@@ -3,8 +3,13 @@ const express = require('express');
 const router = express.Router();
 
 /********************************** ROUTES *****************************************/
-router.get('/', (req, res) => {
-  res.render('welcome-page');
+router.get('/', (req, res, next) => {
+  try {
+    console.log("banana");
+    res.render('welcome-page');
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get('/register', (req, res) => {
