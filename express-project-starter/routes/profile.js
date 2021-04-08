@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
+    const { userId: loggedOnUserId } = req.session.auth;
     const user = await db.User.findByPk(userId);
 
     const userStories = await db.Story.findAll({
@@ -18,7 +19,9 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
 
     res.render('profile', { 
         title: "Profile Page", 
-        user, 
+        user,
+        userId,
+        loggedOnUserId,
         userStories, 
         csrfToken: req.csrfToken(),
         currentDate: Date.now() 
