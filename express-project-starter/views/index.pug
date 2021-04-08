@@ -3,6 +3,7 @@ extends layout
 append head
   link(rel="stylesheet" href="/stylesheets/index.css")
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+  link(rel="stylesheet" href="/stylesheets/footer.css")
 
 block content
   include story-navbar.pug
@@ -54,5 +55,23 @@ block content
     
     .main__col3.col
 
+  
   .body__container
+    .body__col1
+      - var n = 5;
+      while n < 12
+        div(class=`body__col1-story`)
+          .author
+            .picture
+              img(src=`${stories[n].User.profilePic}` class="profile-pic")
+            .name #{stories[n].User.firstName} #{stories[n].User.lastName}
+          .title #{stories[n].title}
+          .text #{stories[n].content.split(" ").splice(0, 10).join(" ")+"..."}
+        - n++
+      
 
+
+    .body__col2
+
+
+  include footer.pug
