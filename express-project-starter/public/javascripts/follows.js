@@ -16,9 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
         // the following should reflect on that followedUser's 
         await fetch(`/users/${followedUserId}/follows`, { method: 'POST' })
         return
-        // TODO LATER: figure this out
-        // if you your own profile page, and followd yourself
-        // console.log("USERSS", userId); // shows your ID 
-        // console.log("TO FOLLOWWWWW", followedUserId); // shows NaN
     });
 });
