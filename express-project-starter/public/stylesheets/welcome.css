@@ -114,20 +114,21 @@ li {
     grid-row: 4 / 5;
     margin: auto;
     justify-content: space-evenly;
-    background-color:#333333;
-    padding: 8px;
-    border-radius: 29px;
     opacity: 1;
     color: white;
 }
 
-.ourstory-link {
-    font-size: 35px;
-    font-weight: 250;
-    text-decoration: none;
+.ourstory-button {
+    padding: 8px 20px;
+    background-color:#474747;
+    border-radius: 22px;
+    color: white;
+    border: none;
+    font-size: 25px;
+    outline: none;
 }
 
-.team__ourstory:hover {
+.ourstory-button:hover {
     background-color: gray;
 }
 
@@ -160,18 +161,18 @@ li {
 /********************************** TECHNOLOGIES SECTION **********************************/
 
 .technologies__title {
-    grid-column: 2 / 6;
+    grid-column: 8 / 12;
     grid-row: 1 / 1;
 }
 
 .technologies__text {
-    grid-column: 2 / 6;
+    grid-column: 8 / 12;
     grid-row: 2 / 2;
 }
 
 .technologies__image {
-    grid-column: 6 / 12;
+    grid-column: 2 / 7;
     grid-row: 1 / 4;
-    text-align: right;
+    text-align: left;
     padding-top: 65px;
 }

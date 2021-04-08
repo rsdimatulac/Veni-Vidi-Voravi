@@ -21,7 +21,7 @@ a {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(5, 1fr);
     column-gap: 31px;
-    height: 850px;
+    height: 1050px;
     width: 833px;
     background-color: #fff;
     border: solid 1px #929292;
@@ -32,7 +32,7 @@ a {
 .header {
     grid-column: 3 / 7;
     grid-row: 1 / 1;
-    align-self: end;
+    align-self: center;
 }
 
 .header > * {
@@ -59,7 +59,6 @@ a {
 }
 
 .form {
-    padding-top: 30px;
     grid-column: 3 / 7;
     grid-row: 2 / 4;
 }
@@ -69,7 +68,7 @@ form * {
     flex-direction: column;
     font-size: 20px;
     font-weight: bold;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 
 .form__title {
@@ -110,15 +109,21 @@ form * {
 .login > button {
     border-radius: 22px;
     background-color: #DCDCDC;
-    color: #929292;
+    color: #333;
     border: none;
     padding: 10px 25px;
     margin-left: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login > button:hover {
+    background-color: gray;
+    color: white;
 }
 
 .demo-button {
     border-radius: 22px;
-    background-color: limegreen;
+    background-color: lime;
     color: white;
     border: none;
     padding: 10px 25px;
@@ -127,8 +132,13 @@ form * {
     margin-top: 10px;
     margin-left: auto;
     outline: none;
+    font-family: 'Roboto', sans-serif;
 }
 
+.demo-button:hover {
+    background-color: limegreen;
+
+}
 
 .footer {
     background-color: #E9EAEB;
