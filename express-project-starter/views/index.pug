@@ -10,52 +10,40 @@ block content
 
   .main__container
     .main__col1.col
-      .main__col1-image(style=`background-image: url(${stories[0].imageSrc})`)
+      div(class="main__col1-image")
+        a(href=`/stories/${stories[0].id}`)
+          .story-image.image(style=`background-image: url(${stories[0].imageSrc})`)
       .main__col1-info
         .author
           .picture
-            img(src=`${stories[0].User.profilePic}` class="profile-pic")
-          .name #{stories[0].User.firstName} #{stories[0].User.lastName}
-        .title #{stories[0].title}
+            a(href=`/users/${stories[0].User.id}`)
+              img(src=`${stories[0].User.profilePic}` class="profile-pic")
+          .name 
+            a(href=`/users/${stories[0].User.id}`) #{stories[0].User.firstName} #{stories[0].User.lastName}
+        .title 
+          a(href=`/stories/${stories[0].id}`) #{stories[0].title}
         .text #{stories[0].content.split(" ").splice(0, 25).join(" ")+"..."}
 
     .main__col2.col
-      .main__col2-story
-        .author
-          .picture
-            img(src=`${stories[1].User.profilePic}` class="profile-pic")
-          .name #{stories[1].User.firstName} #{stories[1].User.lastName}
-        .title #{stories[1].title}
-        .text #{stories[1].content.split(" ").splice(0, 10).join(" ")+"..."}
-      .main__col2-story-image-1.image(style=`background-image: url(${stories[1].imageSrc})`)
-      .main__col2-story
-        .author
-          .picture
-            img(src=`${stories[2].User.profilePic}` class="profile-pic")
-          .name #{stories[2].User.firstName} #{stories[2].User.lastName}
-        .title #{stories[2].title}
-        .text #{stories[2].content.split(" ").splice(0, 10).join(" ")+"..."}
-      .main__col2-story-image-2.image(style=`background-image: url(${stories[2].imageSrc})`)
-      .main__col2-story 
-        .author
-          .picture
-            img(src=`${stories[3].User.profilePic}` class="profile-pic")
-          .name #{stories[3].User.firstName} #{stories[3].User.lastName}
-        .title #{stories[3].title}
-        .text #{stories[3].content.split(" ").splice(0, 10).join(" ")+"..."}
-      .main__col2-story-image-3.image(style=`background-image: url(${stories[3].imageSrc})`)
-      .main__col2-story
-        .author
-          .picture
-            img(src=`${stories[4].User.profilePic}` class="profile-pic")
-          .name #{stories[4].User.firstName} #{stories[4].User.lastName}
-        .title #{stories[4].title}
-        .text #{stories[4].content.split(" ").splice(0, 10).join(" ")+"..."}
-      .main__col2-story-image-4.image(style=`background-image: url(${stories[4].imageSrc})`) 
-    
+      - var m = 1;
+        while m < 5
+          div(class=`main__col2-story`)
+            .author
+              .picture
+                a(href=`/users/${stories[m].User.id}`)
+                  img(src=`${stories[m].User.profilePic}` class="profile-pic")
+              .name 
+                a(href=`/users/${stories[m].User.id}`) #{stories[m].User.firstName} #{stories[m].User.lastName}
+            .title 
+              a(href=`/stories/${stories[m].id}`) #{stories[m].title}
+            .text #{stories[m].content.split(" ").splice(0, 10).join(" ")+"..."}
+          div(class=`main__col2-story-image-${m}` style="margin-bottom: 10px;")
+            a(href=`/stories/${stories[m].id}`)
+              div(class="image story-image" style=`background-image: url('${stories[m].imageSrc}')`)
+          - m++
+
     .main__col3.col
 
-  
   .body__container
     .body__col1
       - var n = 5;
@@ -63,16 +51,54 @@ block content
         div(class=`body__col1-story`)
           .author
             .picture
-              img(src=`${stories[n].User.profilePic}` class="profile-pic")
-            .name #{stories[n].User.firstName} #{stories[n].User.lastName}
-          .title #{stories[n].title}
-          .text #{stories[n].content.split(" ").splice(0, 10).join(" ")+"..."}
-        div(class=`body__col1-story-image-${n} image` style=`background-image: url('${stories[n].imageSrc}')`) 
+              a(href=`/users/${stories[n].User.id}`)
+                img(src=`${stories[n].User.profilePic}` class="profile-pic")
+            .name
+              a(href=`/users/${stories[n].User.id}`) #{stories[n].User.firstName} #{stories[n].User.lastName}
+          .title 
+            a(href=`/stories/${stories[n].id}`) #{stories[n].title}
+          .text #{stories[n].content.split(" ").splice(0, 30).join(" ")+"..."}
+        div(class=`body__col1-story-image-${n}` style="margin-bottom: 10px;")
+          a(href=`/stories/${stories[n].id}`)
+            div(class="image story-image" style=`background-image: url('${stories[n].imageSrc}')`) 
         - n++
-      
-
-
+  
     .body__col2
 
-
   include footer.pug
+              
+    //- .main__col2.col
+    //-   .main__col2-story
+    //-     .author
+    //-       .picture
+    //-         img(src=`${stories[1].User.profilePic}` class="profile-pic")
+    //-       .name #{stories[1].User.firstName} #{stories[1].User.lastName}
+    //-     .title #{stories[1].title}
+    //-     .text #{stories[1].content.split(" ").splice(0, 10).join(" ")+"..."}
+    //-   .main__col2-story-image-1.image(style=`background-image: url(${stories[1].imageSrc})`)
+    //-   .main__col2-story
+    //-     .author
+    //-       .picture
+    //-         img(src=`${stories[2].User.profilePic}` class="profile-pic")
+    //-       .name #{stories[2].User.firstName} #{stories[2].User.lastName}
+    //-     .title #{stories[2].title}
+    //-     .text #{stories[2].content.split(" ").splice(0, 10).join(" ")+"..."}
+    //-   .main__col2-story-image-2.image(style=`background-image: url(${stories[2].imageSrc})`)
+    //-   .main__col2-story 
+    //-     .author
+    //-       .picture
+    //-         img(src=`${stories[3].User.profilePic}` class="profile-pic")
+    //-       .name #{stories[3].User.firstName} #{stories[3].User.lastName}
+    //-     .title #{stories[3].title}
+    //-     .text #{stories[3].content.split(" ").splice(0, 10).join(" ")+"..."}
+    //-   .main__col2-story-image-3.image(style=`background-image: url(${stories[3].imageSrc})`)
+    //-   .main__col2-story
+    //-     .author
+    //-       .picture
+    //-         img(src=`${stories[4].User.profilePic}` class="profile-pic")
+    //-       .name #{stories[4].User.firstName} #{stories[4].User.lastName}
+    //-     .title #{stories[4].title}
+    //-     .text #{stories[4].content.split(" ").splice(0, 10).join(" ")+"..."}
+    //-   .main__col2-story-image-4.image(style=`background-image: url(${stories[4].imageSrc})`) 
+    
+    
