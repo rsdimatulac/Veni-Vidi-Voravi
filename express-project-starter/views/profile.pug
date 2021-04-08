@@ -4,14 +4,16 @@ append head
     link(rel="stylesheet" href="/stylesheets/profile.css")
     link(rel="stylesheet" href="/stylesheets/footer.css")
     link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+    script(type="text/javascript" src="/javascripts/follows.js")
 
 block content
     .nav__container
         div(class="nav__logo")
             a(href="/")
                 p LOGO HERE
-        div(class="nav__title") #{user.firstName} #{user.lastName}
+        div(class="nav__title" id="nav__username") #{user.firstName} #{user.lastName}
         div
+            button(class="nav__follow-button" type="submit") Follow
         div(class="nav__links")
             a(href="/our-story") Our Story
             a(href="/stories/create") Write a Story

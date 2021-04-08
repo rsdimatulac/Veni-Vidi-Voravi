@@ -8,7 +8,7 @@ body {
 
 .profile__container {
     display: grid;
-    padding: 10px 38px;
+    padding: 50px 38px 10px 38px;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 31px;
 }
@@ -98,4 +98,31 @@ body {
     margin-bottom: 20px;
     border-radius: 1%;
     background-position: center;
+}
+
+
+/******* NAV STYLES **********/
+
+.nav__follow-button {
+    background-color: rgb(47, 108, 250);
+    color: white;
+    border-radius: 22px;
+    outline: none;
+    border: none;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+#nav__username {
+    grid-column: 2 / span 2;
+}
+
+.nav__followed {
+    background-color: white;
+    color: rgb(47, 108, 250);
+    border-radius: 22px;
+    outline: none;
+    border: rgb(47, 108, 250);
+    padding: 8px 10px;
+    font-size: 13px; 
 }
