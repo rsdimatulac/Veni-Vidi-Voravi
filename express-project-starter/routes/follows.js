@@ -8,11 +8,11 @@ router.post('/users/:id(\\d+)/follows', asyncHandler(async (req, res) => {
     const { userId } = req.session.auth;
 
     const follow = await db.Follow.findOne({
-        where: { followedUserId, userId }
+        where: { userId, followedUserId }
     });
 
     if (!follow) {
-        await db.Follow.create({ followedUserId, userId });
+        await db.Follow.create({ userId, followedUserId });
     } else {
         follow.destroy();
     }

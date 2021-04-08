@@ -69,7 +69,7 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
     const story = await db.Story.findByPk(storyId, { include: db.User }); // I added the include
 
     if (!story) {
-        res.status(404)
+        res.status(404);
         next();
     }
 

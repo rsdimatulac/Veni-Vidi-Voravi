@@ -122,7 +122,7 @@ body {
     color: rgb(47, 108, 250);
     border-radius: 22px;
     outline: none;
-    border: rgb(47, 108, 250);
+    border: 1px solid rgb(47, 108, 250);
     padding: 8px 10px;
     font-size: 13px; 
 }
