@@ -1,0 +1,60 @@
+.nav__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 31px;
+    height: 65px;
+    padding: 0 38px;
+}
+
+.nav__container > * {
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo {
+    grid-column: 1 / 2;
+}
+
+.nav__title {
+    grid-column: 2 / span 5;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.nav__links {
+    grid-column: 9 / 13;
+    height: inherit;
+    justify-self: end;
+}
+
+.nav__links a {
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+.nav__links a:hover {
+    text-decoration: underline;
+}
+
+.logout-button {
+    background-color: inherit;
+    border: none;
+    text-decoration: none;
+    padding-left: 20px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}
+
+
+.profile-pic {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}

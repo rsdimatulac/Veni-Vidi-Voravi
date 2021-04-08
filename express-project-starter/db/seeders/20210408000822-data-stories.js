@@ -79,7 +79,7 @@ Ingredients
 
 – Olive Oil, salt, cayenne pepper, red pepper flakes, cilantro and soy sauce.
 
-Directions: Keep the beef and chicken separate when seasoning. Season the chicken with salt, and other seasoning. Repeat for the beef. Place the beef on an extreme side of the air fryer container and the chicken on another extreme side of the air fryer and leave a space in the middle. On the middle place the onions, sweet peppers and the jalapeños (See pics.) Drizzle everything a with a bit of olive oil or use an olive oil spray. Cook at 400 degrees for 20 minutes. If the chicken is not grilled enough add 5 more minutes. Enjoy!`, userId: 2, ccreatedAt: new Date('2016-09-06'), updatedAt: new Date('2016-09-06')
+Directions: Keep the beef and chicken separate when seasoning. Season the chicken with salt, and other seasoning. Repeat for the beef. Place the beef on an extreme side of the air fryer container and the chicken on another extreme side of the air fryer and leave a space in the middle. On the middle place the onions, sweet peppers and the jalapeños (See pics.) Drizzle everything a with a bit of olive oil or use an olive oil spray. Cook at 400 degrees for 20 minutes. If the chicken is not grilled enough add 5 more minutes. Enjoy!`, userId: 2, createdAt: new Date('2016-09-06'), updatedAt: new Date('2016-09-06')
         },
         {
           title: "Shrimp Favorite Recipe", imageSrc: "https://amyfoodstories.files.wordpress.com/2020/11/img_2188.jpg?w=2048", content: `This is my favorite shrimp recipe of all time! I love it because it’s delicious but also because it’s soooo easy! You’ll see what I mean.

@@ -4,7 +4,7 @@ const router = express.Router();
 
 /********************************** ROUTES *****************************************/
 router.get('/', (req, res, next) => {
-    res.render('welcome-page', {
+    res.render('welcome', {
       needsNavInfo: true
     });
 });

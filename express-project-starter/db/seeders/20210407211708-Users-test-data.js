@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Users', [
         {
           firstName: 'Demo',
@@ -106,9 +106,9 @@ module.exports = {
         },
         {
           firstName: 'Auguste',
-          lastName: 'Gustav',
+          lastName: 'Gusteau',
           emailAddress: 'ilovefood@gmail.com',
-          about: 'A chef makes. A thief takes.',
+          about: ' A chef makes. A thief takes.',
           hashedPW: await bcrypt.hash("Test10!", 10),
           profilePic: 'https://static.wikia.nocookie.net/disney/images/9/95/Profile_-_Auguste_Gusteau.jpg/revision/latest/scale-to-width-down/350?cb=20190626003645',
           createdAt: new Date(),
@@ -125,10 +125,10 @@ module.exports = {
           updatedAt: new Date()
         },
         {
-          firstName: 'Alfredo',
+          firstName: 'Alfredo ',
           lastName: 'Linguini',
           emailAddress: 'alfredosauce@gmail.com',
-          about: "I know this sounds insane, but... well, the truth sounds insane sometimes, but that doesn't mean it's not. Uh, the, the truth. And the truth is, I have no talent at all. But this rat, he's the one behind these recipes, he's the cook! The real cook.",
+          about: `I know this sounds insane, but... well, the truth sounds insane sometimes, but that doesn't mean it's not. Uh, the, the truth. And the truth is, I have no talent at all. But this rat, he's the one behind these recipes, he's the cook! The real cook.`,
           hashedPW: await bcrypt.hash("Test12!", 10),
           profilePic: 'https://static.wikia.nocookie.net/disney/images/1/16/Profile_-_Linguini.jpeg/revision/latest?cb=20210304151437',
           createdAt: new Date(),
@@ -158,7 +158,7 @@ module.exports = {
           firstName: 'Spongebob',
           lastName: 'Squarepants',
           emailAddress: 'spongepants@gmail.com',
-          about: "I'm ready!",
+          about: `I'm ready!`,
           hashedPW: await bcrypt.hash("Test15!", 10),
           profilePic: 'https://wpcdn.us-east-1.vip.tn-cloud.net/www.channel3000.com/content/uploads/2020/06/S108767171-1024x576.jpg',
           createdAt: new Date(),
@@ -166,9 +166,9 @@ module.exports = {
         },
         {
           firstName: 'Barnacle',
-          lastName: 'Mayhem',
+          lastName: 'Boy',
           emailAddress: 'mothermayhem@yahoo.com',
-          about: "I put all of Mermaid Man's white clothes in the washer, with a red sock!",
+          about: `I put all of Mermaid Man's white clothes in the washer, with a red sock!`,
           hashedPW: await bcrypt.hash("Test16!", 10),
           profilePic: 'https://pbs.twimg.com/media/D6jEXm_XkAATUuF.jpg',
           createdAt: new Date(),
@@ -213,8 +213,8 @@ module.exports = {
           profilePic: 'https://avatars.githubusercontent.com/u/76712928?v=4',
           createdAt: new Date(),
           updatedAt: new Date()
-        }
-      ], {});
+        },
+      ]);
   },
 
   down: (queryInterface, Sequelize) => {
