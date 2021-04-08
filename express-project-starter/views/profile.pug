@@ -45,7 +45,8 @@ block content
                             .story__button-edit
                                 a(href=`/stories/${story.id}/edit`) Edit
                             .story__button-delete
-                                a(href=`/stories/${story.id}/delete`) Delete
+                                form(action=`/stories/${story.id}/delete` method="post")
+                                    button(type="submit") Delete
                     .story__timestamp
                         if moment(currentDate).diff(story.createdAt, 'years') > 0
                             p #{`${moment(currentDate).diff(story.createdAt, 'years')} years ago`}

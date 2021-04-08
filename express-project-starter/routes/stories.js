@@ -219,7 +219,7 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
 // DELETING A STORY
 // TODO: Delete button on the Profile Page, Popup Window
 
-router.post('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
         const storyId = parseInt(req.params.id, 10);
         const story = await db.Story.findByPk(storyId);
         await story.destroy();

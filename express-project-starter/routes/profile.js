@@ -19,7 +19,8 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
     const userStories = await db.Story.findAll({
         where: {
             userId: followedUserId
-        }
+        },
+        order: [["createdAt", "DESC"]]
     });
 
     const isFollowing = await db.Follow.findOne({
