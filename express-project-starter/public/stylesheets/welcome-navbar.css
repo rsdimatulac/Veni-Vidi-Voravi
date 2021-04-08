@@ -1,0 +1,85 @@
+.nav__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 31px;
+    min-height: 65px;
+    padding: 0 38px;
+    position: fixed;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+.nav__container > * {
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo {
+    grid-column: 1 / 2;
+    justify-self: center;
+}
+
+.nav__title {
+    grid-column: 2 / 7;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nav__info {
+    display: flex;
+    padding-left: 30px;
+    height: inherit;
+}
+
+.nav__info > * {
+    display: flex;
+    align-items: left;
+    padding-right: 25px;
+    text-decoration: none;
+}
+
+.nav__links {
+    grid-column: 9 / 13;
+    height: inherit;
+    justify-self: end;
+}
+
+.nav__links a {
+    padding-left: 25px;
+    text-decoration: none;
+}
+
+.nav__links a:hover {
+    text-decoration: underline;
+}
+
+.demo-button {
+    color: white;
+    background-color: limegreen;
+    padding: 8px 8px;
+    border-radius: 22px;
+    width: 135px;
+    margin-left: 25px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.demo-button:hover {
+    background: lime;
+}
+
+.register-button {
+    color: white;
+    background-color: black;
+    padding: 8px 8px;
+    border-radius: 22px;
+    width: 135px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.register-button:hover {
+    background: gray;
+}

@@ -1,0 +1,20 @@
+.nav__container
+    .nav__logo
+      a(href='/welcome')
+        p LOGO HERE
+    .nav__title Veni Vidi Voravi
+      if needsNavInfo
+        .nav__info
+          .nav__features
+            a(href='#features' style="text-decoration: none;") Features
+          .nav__team
+            a(href='#team' style="text-decoration: none;") Team
+          .nav__technologies
+            a(href='#technologies' style="text-decoration: none;") Technologies
+    .nav__links
+        a(href="/welcome/our-story") Our Story
+        a(href="/users/login") Login
+        form(action="/users/demouser" method="post")
+          button(class="demo-button" type="submit") Demo Login
+        a(href='/users/register')
+          button(class="register-button" type="submit") Register

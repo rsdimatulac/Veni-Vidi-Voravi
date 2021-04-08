@@ -1,32 +1,17 @@
 extends layout
 
 append head
-  //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/welcome.css")
   link(rel="stylesheet" href="/stylesheets/our-story.css")
-  //- add page specific js
-  script(src="/javascripts/our-story.js" type="module" defer)
+  link(rel="stylesheet" href="/stylesheets/welcome-navbar.css")
 
 block content
-  title Welcome to VVV!
-
-  nav(class="nav__create")
-    .nav__container
-        .nav__logo 
-          a(href='/welcome')
-            p LOGO HERE
-        .nav__title Veni Vidi Voravi
-        .nav__links
-            a#our__story(href="/welcome/our-story" class="welcome-ourStory") Our Story
-            a(href="/users/login" class="welcome-login") Login
-            a#demo-btn(href="/users/demouser" class="welcome-demo") Demo Login
-            a#register-btn(href='/users/register' class="welcome-register") Register
+  include welcome-navbar.pug
 
   .stories
     .developers
       .body__developer#B
         .developer__name Bianca Salinas
-          img(src="/images/b.png" class="image__developer") 
+          img(src="/images/b.png" class="image__developer")
           .developer__links
             a(href="https://github.com/B-Salinas")
               i(class="fab fa-github" aria-hidden="true")
@@ -36,7 +21,7 @@ block content
 
       .body__developer#D
         .developer__name David Kim
-          img(src="/images/d.png" class="image__developer") 
+          img(src="/images/d.png" class="image__developer")
           .developer__links
             a(href="https://github.com/hye-kim")
               i(class="fab fa-github" aria-hidden="true")
@@ -45,7 +30,7 @@ block content
           .developer__story I graduated from Northwestern University in 2019 with a degree in Economics. After working in the finance industry for a year, I realized that I wanted to pursue something that I was more heartfelt about. As a hobby artist, I like making beautiful design ands channeling my inner creativity, and I felt that I could channel these passions into my work. From sleek single-page apps to interesting games, I enjoy making things that allow others to feel joy and be inspired.
       .body__developer#R
         .developer__name Renerose Dimatulac
-          img(src="/images/r.png" class="image__developer") 
+          img(src="/images/r.png" class="image__developer")
           .developer__links
             a(href="https://github.com/rsdimatulac")
               i(class="fab fa-github" aria-hidden="true")
@@ -53,8 +38,8 @@ block content
               i(class="fab fa-linkedin-in" aria-hidden="true")
           .developer__story I’m an aspiring Software Engineer with a degree in Electronics Engineering and a background in hospitality management and real estate tech operations. My genuine interest in software technology and innovation has led me to pursue education in Software Development. I am many things in this lifetime— a licensed pilot, an engineer, but what I consider myself the most, is a student. I am eager to both build my academic foundations in engineering while also gaining new skills and learning new technologies used in web development. My goal is to use the knowledge I have, and continuously hone my skills to find innovative solutions in solving real world problems. When I’m not coding, I am out in the world. I enjoy hiking, traveling, trying out new food, flying small planes, and discovering new hobbies.
       .body__developer#S
-        .developer__name Schuler Small 
-          img(src="/images/s.png" class="image__developer") 
+        .developer__name Schuler Small
+          img(src="/images/s.png" class="image__developer")
           .developer__links
             a(href="https://github.com/ssmall1")
               i(class="fab fa-github" aria-hidden="true")
