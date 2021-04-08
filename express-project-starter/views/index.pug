@@ -1,12 +1,15 @@
 extends layout
 
 append head
-  //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
+  link(rel="stylesheet" href="/stylesheets/story-navbar.css")
 
 block content
-  h1= title
-  p Welcome to your Project Skeleton
-  p THIS IS THE HOME PAGE!!!!!!!!!
+  include story-navbar.pug
+
+  .main__container
+    .main__col1.col
+      .main__col1-image(style=`background-image: url(${stories[0].imageSrc})`)
+    .main__col2.col
+    
+    .main__col3.col
