@@ -26,8 +26,8 @@ block content
         .login Already have an account? &nbsp;
             a(href="/users/login") Log In
             button(type="submit") Register
-        .login Don't want an account? &nbsp;
-            a(href="/users/demouser") Try Our Demo
+      form(action="/users/demouser" method="post")
+        button(class="demo-button" type="submit") Demo Login
     .footer
       .footer__links
         a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")

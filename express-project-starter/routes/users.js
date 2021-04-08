@@ -125,16 +125,16 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
   if (validatorErrors.isEmpty()) {
 
     const user = await db.User.findOne({ where: { emailAddress } });
-    if (user !== null) { 
+    if (user !== null) {
       const isPassword = await bcrypt.compare(password, user.hashedPW.toString());
       if (isPassword) {
-        loginUser(req, res, user); 
+        loginUser(req, res, user);
         res.redirect("/");
-      } else { 
+      } else {
         errors.push("Login failed for the provided email address and password")
       }
     }
-  } else { 
+  } else {
     errors = validatorErrors.array().map(error => error.msg)
   };
   res.render("user-login", {
@@ -150,7 +150,7 @@ router.post('/logout', (req, res) => {
   res.redirect('/welcome');
 });
 
-router.get('/demouser', asyncHandler(async(req, res)=>{
+router.post('/demouser', asyncHandler(async(req, res)=>{
   req.session.auth = { userId: 1 };
   res.redirect('/');
 }))

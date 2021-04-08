@@ -4,6 +4,8 @@ include utils.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/story-view.css")
+  link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+  link(rel="stylesheet" href="/stylesheets/footer.css")
   script(type="text/javascript" src="/javascripts/display-comments.js")
   script(type="text/javascript" src="/javascripts/claps.js")
 
@@ -11,16 +13,23 @@ block content
   include story-navbar.pug
   .story__container
     .story__title= story.title
-    .story__author 
+    .story__author
       img(id="profile-pic-story" src=`${story.User.profilePic}`)
       a(href=`/users/${story.userId}`)  #{story.User.firstName} #{story.User.lastName}
-      p #{story.createdAt}
+      if moment(currentDate).diff(story.createdAt, 'years') > 0
+        p #{`${moment(currentDate).diff(story.createdAt, 'years')} years ago`}
+      else if moment(currentDate).diff(story.createdAt, 'days') > 0
+        p #{`${moment(currentDate).diff(story.createdAt, 'days')} days ago`}
+      else if moment(currentDate).diff(story.createdAt, 'hours') > 0
+        p #{`${moment(currentDate).diff(story.createdAt, 'hours')} hours ago`}
+      else
+        p #{`${moment(currentDate).diff(story.createdAt, 'minutes')} minutes ago`}
       //- TODO ADD HOW LONG IS THE READ
     .story__image(style=`background-image: url(${story.imageSrc})`)
     .story__content
         p= story.content
     .story__claps-comments
-      if userClap 
+      if userClap
         img(id="clap-button" class=`${story.id} has-been-clapped` src="../images/clapped.png")
       else
         img(id="clap-button" class=`${story.id}` src="../images/unclapped.png")
@@ -43,11 +52,16 @@ block content
             img(class="profile-pic" src=`${comment.User.profilePic}`)
           .comments__name
             a(href=`/users/${story.userId}`)  #{comment.User.firstName} #{comment.User.lastName}
-            p(class="comments__timestamp") #{comment.createdAt}
+            //- p(class="comments__timestamp") #{moment(comment.createdAt).format('LLLL')}
+            if moment(currentDate).diff(comment.createdAt, 'years') > 0
+              p #{`${moment(currentDate).diff(comment.createdAt, 'years')} years ago`}
+            else if moment(currentDate).diff(comment.createdAt, 'days') > 0
+              p #{`${moment(currentDate).diff(comment.createdAt, 'days')} days ago`}
+            else if moment(currentDate).diff(comment.createdAt, 'hours') > 0
+              p #{`${moment(currentDate).diff(comment.createdAt, 'hours')} hours ago`}
+            else
+              p #{`${moment(currentDate).diff(comment.createdAt, 'minutes')} minutes ago`}
           .comments__content
             p=comment.content
         br
-  .footer
-    .footer__links
-      a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
-        i(class="fab fa-github" aria-hidden="true")
+  include footer.pug

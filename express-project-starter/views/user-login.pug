@@ -10,7 +10,7 @@ block content
   .container
     .header
       a(href='/welcome')
-        .header__title Veni, Vidi, Voravi 
+        .header__title Veni, Vidi, Voravi
         //- FIX CENTERING OF TITLE AND SUBTITLE
       .header__subtitle where good food finds you
     .form
@@ -23,8 +23,8 @@ block content
         .login Don't have an account? &nbsp;
             a(href="/users/register") Register now
             button(type="submit") Log In
-        .login Don't want an account? &nbsp;
-            a(href="/users/demouser") Try Our Demo
+      form(action="/users/demouser" method="post")
+        button(class="demo-button" type="submit") Demo Login
     .footer
       .footer__links
         a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")

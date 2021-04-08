@@ -5,8 +5,10 @@ include utils.pug
 append head
   link(rel="stylesheet" href="/stylesheets/story-create.css")
     //- NOTE THAT WE ARE USING STORY-CREATE.CSS HERE
+  link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+
 block content
-  include story-navbar.pug 
+  include story-navbar.pug
   +validationErrorSummary(errors)
   .form__container
     .form

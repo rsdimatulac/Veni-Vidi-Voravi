@@ -17,70 +17,10 @@ p {
     display: none;
 }
 
-.profile-pic {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-}
-
 #profile-pic-story {
     border-radius: 50%;
     height: 28px;
     width: 28px;
-}
-
-/* NAVBAR */
-
-.nav__container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 31px;
-    height: 65px;
-    padding: 0 38px;
-}
-
-.nav__container > * {
-    display: flex;
-    align-items: center;
-}
-
-.nav__logo {
-    grid-column: 1 / 2;
-}
-
-.nav__title {
-    grid-column: 2 / span 5;
-    font-size: 25px;
-    font-weight: bold;
-
-}
-
-.nav__links {
-    grid-column: 9 / 13;
-    height: inherit;
-}
-
-.nav__links a {
-    padding-left: 20px;
-    text-decoration: none;
-}
-
-.nav__links a:hover {
-    text-decoration: underline;
-}
-
-.logout-button {
-    background-color: inherit;
-    border: none;
-    text-decoration: none;
-    padding-left: 20px;
-    font-weight: normal;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-}
-
-.logout-button:hover {
-    text-decoration: underline;
 }
 
 /* STORIES */
@@ -140,6 +80,7 @@ p {
 .story__claps-comments {
     grid-column: 4 / 10;
     justify-self: start;
+    padding-top: 10px;
 }
 
 .story__claps-comments * {
@@ -242,27 +183,27 @@ form * {
 
 .comments__name {
     grid-area: 1 / 2 / 2 / 8;
-    font-weight: bold;
     align-self: center;
     padding-left: 10px;
     padding-top: 10px;
 }
 
-.comments__timestamp {
+.comments__name > p {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 400;
+    color: rgba(117, 117, 117, 1)
 }
 
 .comments__name > a {
     text-decoration: none;
-    color: #1A8917;
+    color: black;
     font-weight: bold;
 }
 
 .comments__content {
     grid-area: 2 / 2 / 3 / 9;
-    align-self: center;
+    align-self: start;
     padding-left: 10px;
     padding-right: 10px;
 }

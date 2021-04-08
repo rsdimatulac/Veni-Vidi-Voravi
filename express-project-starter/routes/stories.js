@@ -5,6 +5,7 @@ const { requireAuth, restoreUser } = require("../auth");
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 
+
 const router = express.Router();
 
 const storyValidators = [
@@ -63,15 +64,21 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
 
 // VIEWING THE STORY
 
-router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId, { include: db.User }); // I added the include
-    const clapCount = await db.Clap.findAndCountAll({ 
+
+    if (!story) {
+        res.status(404)
+        next();
+    }
+
+    const clapCount = await db.Clap.findAndCountAll({
         where: {
             storyId
         },
     });
-    // console.log("CLAPPPPP", clapCount.count);
+
     const comments = await db.Comment.findAll({
         where: {
             storyId
@@ -84,7 +91,18 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
     const user = await db.User.findByPk(userId);
 
     const userClap = await db.Clap.findOne({ where: { storyId, userId }});
-    // console.log("USER CLAPPPPPPP", userClap);
+
+    // const millisecondsElapsed = Date.now() - story.createdAt;
+    // const secondsElapsed = Math.floor(millisecondsElapsed / 1000);
+    // const minutesElapsed = Math.floor(secondsElapsed / 60);
+    // const hoursElapsed = Math.floor(minutesElapsed / 60);
+    // const daysElapsed = Math.floor(hoursElapsed / 24);
+    // const yearsElapsed = Math.floor(daysElapsed / 365);
+
+    // const timeElapsed = yearsElapsed > 0 ? `${yearsElapsed} years ago`
+    //                     : daysElapsed > 0 ? `${daysElapsed} days ago`
+    //                     : hoursElapsed > 0 ? `${hoursElapsed} hours ago`
+    //                     : `${minutesElapsed} minutes ago`
 
     res.render('story-view', {
         title: story.title,
@@ -93,7 +111,8 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
         user,
         comments,
         clapCount: clapCount.count,
-        userClap
+        userClap,
+        currentDate: Date.now()
     });
 }));
 

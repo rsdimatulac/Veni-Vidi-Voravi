@@ -8,6 +8,9 @@ const { sequelize } = require('./db/models');
 const session = require('express-session');
 const { restoreUser } = require("./auth");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { asyncHandler } = require("./routes/utils")
+
+const db = require('./db/models');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -20,6 +23,7 @@ const { sessionSecret } = require('./config');
 
 /********************************** APP SETUP *****************************************/
 const app = express();
+app.locals.moment = require('moment');
 
 // view engine setup
 app.set('view engine', 'pug');
@@ -41,10 +45,10 @@ app.use(
     resave: false,
   })
   );
-  
+
   // create Session table if it doesn't already exist
   store.sync();
-  
+
 app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -66,7 +70,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error-page');
 });
 
 /********************************** EXPORTS *****************************************/
