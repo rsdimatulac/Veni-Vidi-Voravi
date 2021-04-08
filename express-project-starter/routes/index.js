@@ -7,7 +7,8 @@ const { asyncHandler } = require('./utils');
 /* GET home page. */
 router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
   const stories = await db.Story.findAll({ 
-    order: [['createdAt', 'DESC']]
+    order: [['createdAt', 'DESC']],
+    include: db.User
   });
 
   res.render('index', { stories, title: 'a/A Express Skeleton Home' });
