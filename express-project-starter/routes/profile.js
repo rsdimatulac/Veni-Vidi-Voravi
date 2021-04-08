@@ -10,7 +10,13 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
     const userId = parseInt(req.params.id, 10);
     const user = await db.User.findByPk(userId);
 
-    res.render('profile', { title: "Profile Page", user, csrfToken: req.csrfToken() });
+    const userStories = await db.Story.findAll({
+        where: {
+            userId
+        }
+    });
+
+    res.render('profile', { title: "Profile Page", user, userStories, csrfToken: req.csrfToken() });
 }));
 
 
