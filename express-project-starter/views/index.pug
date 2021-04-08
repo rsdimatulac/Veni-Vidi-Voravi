@@ -67,6 +67,7 @@ block content
             .name #{stories[n].User.firstName} #{stories[n].User.lastName}
           .title #{stories[n].title}
           .text #{stories[n].content.split(" ").splice(0, 10).join(" ")+"..."}
+        div(class=`body__col1-story-image-${n} image` style=`background-image: url('${stories[n].imageSrc}')`) 
         - n++
       
 
