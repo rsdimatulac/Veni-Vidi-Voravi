@@ -16,7 +16,14 @@ block content
     .story__author
       img(id="profile-pic-story" src=`${story.User.profilePic}`)
       a(href=`/users/${story.userId}`)  #{story.User.firstName} #{story.User.lastName}
-      p #{timeElapsed}
+      if moment(currentDate).diff(story.createdAt, 'years') > 0
+        p #{`${moment(currentDate).diff(story.createdAt, 'years')} years ago`}
+      else if moment(currentDate).diff(story.createdAt, 'days') > 0
+        p #{`${moment(currentDate).diff(story.createdAt, 'days')} days ago`}
+      else if moment(currentDate).diff(story.createdAt, 'hours') > 0
+        p #{`${moment(currentDate).diff(story.createdAt, 'hours')} hours ago`}
+      else
+        p #{`${moment(currentDate).diff(story.createdAt, 'minutes')} minutes ago`}
       //- TODO ADD HOW LONG IS THE READ
     .story__image(style=`background-image: url(${story.imageSrc})`)
     .story__content
@@ -45,7 +52,15 @@ block content
             img(class="profile-pic" src=`${comment.User.profilePic}`)
           .comments__name
             a(href=`/users/${story.userId}`)  #{comment.User.firstName} #{comment.User.lastName}
-            p(class="comments__timestamp") #{comment.createdAt}
+            //- p(class="comments__timestamp") #{moment(comment.createdAt).format('LLLL')}
+            if moment(currentDate).diff(comment.createdAt, 'years') > 0
+              p #{`${moment(currentDate).diff(comment.createdAt, 'years')} years ago`}
+            else if moment(currentDate).diff(comment.createdAt, 'days') > 0
+              p #{`${moment(currentDate).diff(comment.createdAt, 'days')} days ago`}
+            else if moment(currentDate).diff(comment.createdAt, 'hours') > 0
+              p #{`${moment(currentDate).diff(comment.createdAt, 'hours')} hours ago`}
+            else
+              p #{`${moment(currentDate).diff(comment.createdAt, 'minutes')} minutes ago`}
           .comments__content
             p=comment.content
         br

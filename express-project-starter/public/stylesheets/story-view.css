@@ -183,27 +183,27 @@ form * {
 
 .comments__name {
     grid-area: 1 / 2 / 2 / 8;
-    font-weight: bold;
     align-self: center;
     padding-left: 10px;
     padding-top: 10px;
 }
 
-.comments__timestamp {
+.comments__name > p {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 400;
+    color: rgba(117, 117, 117, 1)
 }
 
 .comments__name > a {
     text-decoration: none;
-    color: #1A8917;
+    color: black;
     font-weight: bold;
 }
 
 .comments__content {
     grid-area: 2 / 2 / 3 / 9;
-    align-self: center;
+    align-self: start;
     padding-left: 10px;
     padding-right: 10px;
 }

@@ -23,6 +23,7 @@ const { sessionSecret } = require('./config');
 
 /********************************** APP SETUP *****************************************/
 const app = express();
+app.locals.moment = require('moment');
 
 // view engine setup
 app.set('view engine', 'pug');

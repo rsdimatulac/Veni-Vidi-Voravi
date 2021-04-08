@@ -92,17 +92,17 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
 
     const userClap = await db.Clap.findOne({ where: { storyId, userId }});
 
-    const millisecondsElapsed = Date.now() - story.createdAt;
-    const secondsElapsed = Math.floor(millisecondsElapsed / 1000);
-    const minutesElapsed = Math.floor(secondsElapsed / 60);
-    const hoursElapsed = Math.floor(minutesElapsed / 60);
-    const daysElapsed = Math.floor(hoursElapsed / 24);
-    const yearsElapsed = Math.floor(daysElapsed / 365);
+    // const millisecondsElapsed = Date.now() - story.createdAt;
+    // const secondsElapsed = Math.floor(millisecondsElapsed / 1000);
+    // const minutesElapsed = Math.floor(secondsElapsed / 60);
+    // const hoursElapsed = Math.floor(minutesElapsed / 60);
+    // const daysElapsed = Math.floor(hoursElapsed / 24);
+    // const yearsElapsed = Math.floor(daysElapsed / 365);
 
-    const timeElapsed = yearsElapsed > 0 ? `${yearsElapsed} years ago`
-                        : daysElapsed > 0 ? `${daysElapsed} days ago`
-                        : hoursElapsed > 0 ? `${hoursElapsed} hours ago`
-                        : `${minutesElapsed} minutes ago`
+    // const timeElapsed = yearsElapsed > 0 ? `${yearsElapsed} years ago`
+    //                     : daysElapsed > 0 ? `${daysElapsed} days ago`
+    //                     : hoursElapsed > 0 ? `${hoursElapsed} hours ago`
+    //                     : `${minutesElapsed} minutes ago`
 
     res.render('story-view', {
         title: story.title,
@@ -112,7 +112,7 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
         comments,
         clapCount: clapCount.count,
         userClap,
-        timeElapsed
+        currentDate: Date.now()
     });
 }));
 
