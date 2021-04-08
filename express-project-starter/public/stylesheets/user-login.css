@@ -117,6 +117,19 @@ form * {
     margin-left: auto;
 }
 
+.demo-button {
+    border-radius: 22px;
+    background-color: limegreen;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-left: auto;
+    outline: none;
+}
+
 .footer {
     background-color: #E9EAEB;
     height: 70px;

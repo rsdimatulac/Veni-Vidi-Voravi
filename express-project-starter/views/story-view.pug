@@ -5,6 +5,7 @@ include utils.pug
 append head
   link(rel="stylesheet" href="/stylesheets/story-view.css")
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+  link(rel="stylesheet" href="/stylesheets/footer.css")
   script(type="text/javascript" src="/javascripts/display-comments.js")
   script(type="text/javascript" src="/javascripts/claps.js")
 
@@ -15,7 +16,7 @@ block content
     .story__author
       img(id="profile-pic-story" src=`${story.User.profilePic}`)
       a(href=`/users/${story.userId}`)  #{story.User.firstName} #{story.User.lastName}
-      p #{story.createdAt}
+      p #{timeElapsed}
       //- TODO ADD HOW LONG IS THE READ
     .story__image(style=`background-image: url(${story.imageSrc})`)
     .story__content
@@ -48,7 +49,4 @@ block content
           .comments__content
             p=comment.content
         br
-  .footer
-    .footer__links
-      a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
-        i(class="fab fa-github" aria-hidden="true")
+  include footer.pug

@@ -80,6 +80,7 @@ p {
 .story__claps-comments {
     grid-column: 4 / 10;
     justify-self: start;
+    padding-top: 10px;
 }
 
 .story__claps-comments * {

@@ -1,0 +1,39 @@
+.footer {
+    background-color: #E9EAEB;
+    height: 70px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 31px;
+    align-items: center;
+    padding: 0 38px;
+    /* position: fixed;
+    bottom: 0; */
+    width: 100%;
+}
+
+.github {
+    grid-column: 1 / 5;
+    justify-self: start;
+}
+
+.github > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.github > a:hover {
+    color: gray;
+}
+
+.copyright {
+    display: flex;
+    grid-column: 10 / 13;
+    justify-self: end;
+    align-items: center;
+}
+
+.footer i {
+    font-size: 40px;
+    padding-right: 20px;
+}

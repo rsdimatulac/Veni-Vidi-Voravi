@@ -3,6 +3,7 @@ extends layout
 append head
   link(rel="stylesheet" href="/stylesheets/welcome.css")
   link(rel="stylesheet" href="/stylesheets/welcome-navbar.css")
+  link(rel="stylesheet" href="/stylesheets/footer.css")
 
 block content
   include welcome-navbar
@@ -67,10 +68,4 @@ block content
         li PostgreSQL
     .technologies__image.image
       img(src="/images/technologies.svg" class="image__technologies")
-  .footer
-    .github
-      a(href="https://github.com/rsdimatulac/Veni-Vidi-Voravi")
-        i(class="fab fa-github" aria-hidden="true")
-        div Check out our work on Github!
-    .copyright
-      div © 2021
+  include footer.pug

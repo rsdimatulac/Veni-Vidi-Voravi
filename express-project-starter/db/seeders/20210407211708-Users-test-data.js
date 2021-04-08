@@ -200,7 +200,7 @@ module.exports = {
           emailAddress: 'davidkim@gmail.com',
           about: 'I love boba!',
           hashedPW: await bcrypt.hash("Abc123!", 10),
-          profilePic: 'https://imgur.com/a/SlC80VH',
+          profilePic: 'https://i.imgur.com/Ptb7bVt.jpg',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -218,6 +218,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-      return queryInterface.bulkDelete('Users', null, {});
+      return queryInterface.bulkDelete('Users');
   }
 };

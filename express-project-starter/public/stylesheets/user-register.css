@@ -21,7 +21,7 @@ a {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(5, 1fr);
     column-gap: 31px;
-    height: 800px;
+    height: 850px;
     width: 833px;
     background-color: #fff;
     border: solid 1px #929292;
@@ -115,6 +115,20 @@ form * {
     padding: 10px 25px;
     margin-left: auto;
 }
+
+.demo-button {
+    border-radius: 22px;
+    background-color: limegreen;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-left: auto;
+    outline: none;
+}
+
 
 .footer {
     background-color: #E9EAEB;
