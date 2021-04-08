@@ -25,7 +25,7 @@ block content
       else
         p #{`${moment(currentDate).diff(story.createdAt, 'minutes')} minutes ago`}
       //- TODO ADD HOW LONG IS THE READ
-    .story__image(style=`background-image: url(${story.imageSrc})`)
+    .story__image(style=`background-image: url('${story.imageSrc}')`)
     .story__content
         p= story.content
     .story__claps-comments

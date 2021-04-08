@@ -1,82 +1,20 @@
-/*********************** NAV BAR STYLING *******************/
-.nav__container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 31px;
-    height: 65px;
-    padding: 0 38px;
-    border-bottom: 2px solid lightgray;
+/*********************** GLOBAL *******************/
+
+body {
+    box-sizing: border-box;
 }
-
-.nav__container > * {
-    display: flex;
-    align-items: center;
-}
-
-.nav__logo {
-    grid-column: 1 / 2;
-}
-
-.nav__title {
-    grid-column: 2 / span 5;
-    font-size: 25px;
-    font-weight: bold;
-
-}
-
-.nav__links {
-    grid-column: 9 / 13;
-    height: inherit;
-    justify-self: end;
-}
-
-.nav__links a {
-    padding-left: 20px;
-    text-decoration: none;
-}
-
-.nav__links a:hover {
-    text-decoration: underline;
-}
-
-.logout-button {
-    background-color: inherit;
-    border: none;
-    text-decoration: none;
-    padding-left: 20px;
-    font-weight: normal;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    outline: none;
-}
-
-.logout-button:hover {
-    text-decoration: underline;
-}
-
-
-.profile-pic {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-}
-
 
 /*********************** PROFILE STYLING *******************/
 
 .profile__container {
     display: grid;
-    height: 650px;
-    padding: 0 38px;
+    padding: 10px 38px;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(4, 1fr);
     column-gap: 31px;
-    padding-top: 25px;
 }
 
 .profile__user {
-    grid-column: 1 / span 2;
-
+    grid-column: 2 / span 2;
 }
 
 .profile-pic-main {
@@ -87,7 +25,6 @@
 .user__name {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    font-weight: bold;
 }
 
 .user__about {
@@ -96,3 +33,69 @@
     color: darkgray;
 }
 
+.profile__story {
+    grid-column: 4 / 10;
+    padding: 0px 0px 10px 15px;
+}
+
+.story__title-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.story__title-div > a {
+    display: flex;
+    align-items: center;
+}
+
+.profile__story a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.profile__story > div {
+    padding: 10px 0px;
+    border-bottom: 2px solid darkgray;
+}
+
+.story__timestamp {
+    font-size: 14px;
+    margin: 0px;
+}
+
+/* EDIT AND DELETE BUTTONS */
+
+.story__button-div {
+    display: flex;
+}
+
+.story__button-edit > a {
+    padding: 0px 5px;
+    color: lightgray;
+    font-size: 16px;
+}
+
+.story__button-delete > a {
+    padding: 0px 5px;
+    font-size: 16px;
+    color: lightgray;
+}
+
+.story__button-edit > a:hover,
+.story__button-delete > a:hover {
+    text-decoration: underline;
+    color: darkgray;
+}
+
+/* FROM STORY-VIEW */
+.story__image {
+    height: 40vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 20px;
+    border-radius: 1%;
+    background-position: center;
+}

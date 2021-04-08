@@ -3,6 +3,7 @@ extends layout
 append head
     link(rel="stylesheet" href="/stylesheets/profile.css")
     link(rel="stylesheet" href="/stylesheets/footer.css")
+    link(rel="stylesheet" href="/stylesheets/story-navbar.css")
 
 block content
     .nav__container
@@ -31,8 +32,23 @@ block content
         .profile__story
             each story in userStories
                 div
-                    p #{story.title}
-                
-
-
+                    div.story__title-div
+                        a(href=`/stories/${story.id}`) #{story.title}
+                        .story__button-div
+                            .story__button-edit
+                                a(href=`/stories/${story.id}/edit`) Edit
+                            .story__button-delete
+                                a(href=`/stories/${story.id}/delete`) Delete
+                    .story__timestamp
+                        if moment(currentDate).diff(story.createdAt, 'years') > 0
+                            p #{`${moment(currentDate).diff(story.createdAt, 'years')} years ago`}
+                        else if moment(currentDate).diff(story.createdAt, 'days') > 0
+                            p #{`${moment(currentDate).diff(story.createdAt, 'days')} days ago`}
+                        else if moment(currentDate).diff(story.createdAt, 'hours') > 0
+                            p #{`${moment(currentDate).diff(story.createdAt, 'hours')} hours ago`}
+                        else
+                            p #{`${moment(currentDate).diff(story.createdAt, 'minutes')} minutes ago`}
+                    div
+                        a(href=`/stories/${story.id}`)
+                            .story__image(style=`background-image: url('${story.imageSrc}')`)              
     include footer.pug

@@ -16,7 +16,13 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
         }
     });
 
-    res.render('profile', { title: "Profile Page", user, userStories, csrfToken: req.csrfToken() });
+    res.render('profile', { 
+        title: "Profile Page", 
+        user, 
+        userStories, 
+        csrfToken: req.csrfToken(),
+        currentDate: Date.now() 
+    });
 }));
 
 
