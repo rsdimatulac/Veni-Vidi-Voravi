@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Follow = sequelize.define('Follow', {
-    userId: { 
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: { model: "Users" }
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Follow.associate = function(models) {
-    Follow.belongsTo(models.User, { foreignKey: "userId" });
+    Follow.belongsTo(models.User, { foreignKey: 'userId' });
   };
   return Follow;
 };

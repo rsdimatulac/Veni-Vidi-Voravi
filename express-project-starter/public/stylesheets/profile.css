@@ -1,0 +1,128 @@
+/*********************** GLOBAL *******************/
+
+body {
+    box-sizing: border-box;
+}
+
+/*********************** PROFILE STYLING *******************/
+
+.profile__container {
+    display: grid;
+    padding: 50px 38px 10px 38px;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 31px;
+}
+
+.profile__user {
+    grid-column: 2 / span 2;
+}
+
+.profile-pic-main {
+    height: 175px;
+    width: 175px;
+}
+
+.user__name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.user__about {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: darkgray;
+}
+
+.profile__story {
+    grid-column: 4 / 10;
+    padding: 0px 0px 10px 15px;
+}
+
+.story__title-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.story__title-div > a {
+    display: flex;
+    align-items: center;
+}
+
+.profile__story a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.profile__story > div {
+    padding: 10px 0px;
+    border-bottom: 2px solid darkgray;
+}
+
+.story__timestamp {
+    font-size: 14px;
+    margin: 0px;
+}
+
+/* EDIT AND DELETE BUTTONS */
+
+.story__button-div {
+    display: flex;
+}
+
+.story__button-edit > a {
+    padding: 0px 5px;
+    color: lightgray;
+    font-size: 16px;
+}
+
+.story__button-delete > a {
+    padding: 0px 5px;
+    font-size: 16px;
+    color: lightgray;
+}
+
+.story__button-edit > a:hover,
+.story__button-delete > a:hover {
+    text-decoration: underline;
+    color: darkgray;
+}
+
+/* FROM STORY-VIEW */
+.story__image {
+    height: 40vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 20px;
+    border-radius: 1%;
+    background-position: center;
+}
+
+
+/******* NAV STYLES **********/
+
+.nav__follow-button {
+    background-color: rgb(47, 108, 250);
+    color: white;
+    border-radius: 22px;
+    outline: none;
+    border: none;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+#nav__username {
+    grid-column: 2 / span 2;
+}
+
+.nav__followed {
+    background-color: white;
+    color: rgb(47, 108, 250);
+    border-radius: 22px;
+    outline: none;
+    border: 1px solid rgb(47, 108, 250);
+    padding: 8px 10px;
+    font-size: 13px; 
+}

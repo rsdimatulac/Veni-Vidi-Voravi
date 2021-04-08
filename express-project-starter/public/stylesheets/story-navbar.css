@@ -4,6 +4,7 @@
     column-gap: 31px;
     height: 65px;
     padding: 0 38px;
+    border-bottom: 1px solid lightgray;
 }
 
 .nav__container > * {
@@ -41,7 +42,7 @@
     background-color: inherit;
     border: none;
     text-decoration: none;
-    padding-left: 20px;
+    padding: 0px 0px 0px 20px;
     font-weight: normal;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;

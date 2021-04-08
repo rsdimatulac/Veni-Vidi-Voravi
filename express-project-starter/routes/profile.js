@@ -5,19 +5,39 @@ const { csrfProtection, asyncHandler } = require('./utils');
 
 
 const router = express.Router();
+// GETTING PROFILE
+router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+    const followedUserId = parseInt(req.params.id, 10);
+    const followedUser = await db.User.findByPk(followedUserId);
+    
+    
+    // FOR THE FOLLOWS
+    const { userId } = req.session.auth; // user who's logged in
+    
+    const user = await db.User.findByPk(userId)
 
-router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (res, req, next) => {
-    // const { userId } = req.session.auth;
-    // console.log("this is the user", userId);
-    const userId = parseInt(req.params.id, 10);
-    const user = await db.User.findByPk(userId);
+    const userStories = await db.Story.findAll({
+        where: {
+            userId: followedUserId
+        },
+        order: [["createdAt", "DESC"]]
+    });
 
-    if (!user) {
-        res.status(404)
-        next();
-    }
+    const isFollowing = await db.Follow.findOne({
+        where: { userId, followedUserId }
+    });
 
-    res.render('profile', { title: "Hello", user, csrfToken: req.csrfToken() });
+    res.render('profile', { 
+        title: "Profile Page", 
+        followedUser,
+        userStories, 
+        csrfToken: req.csrfToken(),
+        currentDate: Date.now(),
+        userId,
+        followedUserId,
+        isFollowing,
+        user
+    });
 }));
 
 
