@@ -100,7 +100,7 @@ module.exports = {
           emailAddress: 'schuler.small.10@gmail.com',
           about: 'Hunting for the best pizza in the world',
           hashedPW: await bcrypt.hash("Voravi22!", 10),
-          profilePic: 'https://avatars.githubusercontent.com/u/76968726?v=4',
+          profilePic: 'https://i.imgur.com/djQeJTK.jpg',
           createdAt: new Date(),
           updatedAt: new Date()
         },
