@@ -4,10 +4,10 @@
 
 Veni, Vidi, Voravi is inspired by [Medium](https://medium.com/) and allows users to share and discover experiences from different culinary adventures. Users can browse, create, and edit their own stories, and leave comments or claps on other stories they found enjoyable. 
 
-#### Welcome View
+### Welcome View
 ![Welcome Page View - PLACEHOLDER](public/images/welcome-page.gif)
 
-#### Home View
+### Home View
 ![Home Page View - PLACEHOLDER](/public/images/home-page.gif)
 
 ## Prerequisites
@@ -16,14 +16,14 @@ Before you begin, ensure you have met the following requirements:
 - Check out our [mock up](https://xd.adobe.com/view/d624d3bf-eb54-41ef-9911-aa0c0d704abf-8377/specs/)
 
 ##  Technologies
-**Front-End**
+#### Front-End
 - Javascript
 - HTML (rendering through PUG templating)
 - CSS
 - Font Awesome
 - Hosted on Heroku
 
-**Back-End**
+#### Back-End
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 - [cookie-parser](https://www.npmjs.com/package/cookie-parser)
 - [csurf](https://www.npmjs.com/package/csurf)
@@ -47,6 +47,11 @@ Before you begin, ensure you have met the following requirements:
 - Includes csrf attack protection and performs front-end and back-end validation on forms
 
 ## Code Highlights / Challenges 
+
+#### Highlights 
+- Creating DRY Pug templates to render
+
+#### Challenges
 - We quickly found a huge bug dealing with storing cookies — when a user logged in and rerouted themselves back to welcome page that only logged out users can access, we were left hanging after trying to log back in (even though we never logged out).
 
 ## Future Implementations 
