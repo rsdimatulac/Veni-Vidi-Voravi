@@ -16,6 +16,10 @@
     grid-column: 1 / 2;
 }
 
+.nav__logo img {
+    height: 60px;
+}
+
 .nav__title {
     grid-column: 2 / span 5;
     font-size: 25px;

@@ -146,11 +146,13 @@ li {
     font-size: 25px;
 }
 
-.developer__image {
-    width: 200px;
+.image__developer {
+    min-width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 15px 0;
+    background-size: cover;
+    background-position: center;
 }
 
 .developer__links i {

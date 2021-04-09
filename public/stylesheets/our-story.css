@@ -1,12 +1,13 @@
 .stories {
     display: grid;
-    grid-template-columns: repeat(14, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(5, 1fr);
     column-gap: 31px;
+    padding: 0 38px;
 }
 
 .developers {
-    grid-column: 3 / 12;
+    grid-column: 2 / 12;
     /* grid-row: 2 / 4; */
     justify-content: space-evenly;
     padding-top: 100px;
@@ -14,11 +15,11 @@
 
 .body__developer {
    display: flex;
-   flex-direction: column;
+   /* flex-direction: column; */
    /* align-items: center; */
    /* width: auto; */
    height: 250px;
-   border: 1px solid black;
+   /* border: 1px solid black; */
    /* margin: 0px 30px; */
 }
 
@@ -50,21 +51,36 @@
     padding-left: 30px;
 }
 
+#B > p, #R > p {
+    padding-right: 15px;
+}
+
+#S > p, #D > p {
+    padding-left: 15px;
+}
+
+#B > .developer__story, #R > .developer__story {
+    padding-left: 15px;
+}
+
 .body__developer > * {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     align-items: center;
 }
 
 .image__developer {
-    width: 200px;
+    min-width: 200px;
     height: 200px;
     padding-top: 10px;
     border-radius: 50%;
+    background-size: cover;
+    background-position: center;
 }
 
 .developer__name {
     font-size: 25px;
+    padding-bottom: 25px;
 }
 
 .developer__links i {

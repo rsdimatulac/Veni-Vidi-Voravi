@@ -45,7 +45,7 @@ body {
     align-items: center;
 }
 
-.story__title-div > a {
+.story__title-div>a {
     display: flex;
     align-items: center;
 }
@@ -57,7 +57,7 @@ body {
     font-weight: bold;
 }
 
-.profile__story > div {
+.profile__story>div {
     padding: 10px 0px;
     border-bottom: 2px solid darkgray;
 }
@@ -68,33 +68,8 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* EDIT AND DELETE BUTTONS */
-
-.story__button-div {
-    display: flex;
-}
-
-.story__button-edit > a {
-    padding: 0px 5px;
-    color: lightgray;
-    font-size: 16px;
-    font-weight: normal;
-}
-
-.story__button-delete button {
-    border: none;
-    background-color: inherit;
-    font-size: 16px;
-    color: lightgray;
-}
-
-.story__button-edit > a:hover,
-.story__button-delete button:hover {
-    text-decoration: underline;
-    color: darkgray;
-}
-
 /* FROM STORY-VIEW */
+
 .story__image {
     height: 40vh;
     width: 100%;
@@ -104,7 +79,6 @@ body {
     border-radius: 1%;
     background-position: center;
 }
-
 
 /******* NAV STYLES **********/
 
