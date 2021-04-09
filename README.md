@@ -1,5 +1,5 @@
 # <p align="center">
-  <img src="public/images/logo.png" width="100" height="100">
+  <img src="public/images/logo.png" width="50" height="50">
 </p>
 
 🍽 Welcome to Veni, Vidi, Voravi! 🍽
