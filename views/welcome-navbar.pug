@@ -14,8 +14,11 @@
     .nav__links
         a(href="/our-story") Our Story
         if isLoggedIn
+          a(href="/") Home
           form(action="/users/logout" method="post")
             button(class="logout-button" type="submit") Log Out
+          a(href=`/users/${user.id}`)
+            img(class="profile-pic" src=`${user.profilePic}`)
         else
           a(href="/users/login") Login
           form(action="/users/demouser" method="post")

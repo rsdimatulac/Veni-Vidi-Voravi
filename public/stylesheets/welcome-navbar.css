@@ -97,7 +97,7 @@
     background-color: inherit;
     border: none;
     text-decoration: none;
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 25px;
     font-weight: normal;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -106,4 +106,10 @@
 
 .logout-button:hover {
     text-decoration: underline;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
 }

@@ -3,6 +3,7 @@ extends layout
 append head
   link(rel="stylesheet" href="/stylesheets/our-story.css")
   link(rel="stylesheet" href="/stylesheets/welcome-navbar.css")
+  link(rel="stylesheet" href="/stylesheets/footer.css")
 
 block content
   include welcome-navbar.pug
@@ -21,7 +22,7 @@ block content
           .developer__story After graduating with a B.S. in Mathematics, I decided to transition into tech and software development by attending App Academy as a full-time software engineering student in the midst of a global pandemic. I enjoy learning through challenges and teaching through collaboration. In my free time, I enjoy going on long walks and reading — I'm currently reading "all about love: new visions" by bell hooks and "In the Realm of Hungry Ghosts" by Gabor Maté.
 
       .body__developer
-        .developer__name#D 
+        .developer__name#D
           p David Kim
           div(style="background-image: url(/images/david.jpg)" class="image__developer")
           .developer__links
@@ -31,7 +32,7 @@ block content
               i(class="fab fa-linkedin-in" aria-hidden="true")
           .developer__story I graduated from Northwestern University in 2019 with a degree in Economics. After working in the finance industry for a year, I realized that I wanted to pursue something that I was more heartfelt about. As a hobby artist, I like making beautiful design and channeling my inner creativity, and I felt that I could channel these passions into my work. From sleek single-page apps to interesting games, I enjoy making things that allow others to feel joy and be inspired.
       .body__developer
-        .developer__name#R 
+        .developer__name#R
           p Renerose Dimatulac
           div(style="background-image: url(/images/ren.JPG)" class="image__developer")
           .developer__links
@@ -41,7 +42,7 @@ block content
               i(class="fab fa-linkedin-in" aria-hidden="true")
           .developer__story I’m an aspiring Software Engineer with a degree in Electronics Engineering and a background in hospitality management and real estate tech operations. My genuine interest in software technology and innovation has led me to pursue education in Software Development. I am many things in this lifetime— a licensed pilot, an engineer, but what I consider myself the most, is a student. I am eager to both build my academic foundations in engineering while also gaining new skills and learning new technologies used in web development. My goal is to use the knowledge I have, and continuously hone my skills to find innovative solutions in solving real world problems. When I’m not coding, I am out in the world. I enjoy hiking, traveling, trying out new food, flying small planes, and discovering new hobbies.
       .body__developer
-        .developer__name#S 
+        .developer__name#S
           p Schuler Small
           div(style="background-image: url(/images/schulz3.jpg)" class="image__developer")
           .developer__links
@@ -50,3 +51,4 @@ block content
             a(href="https://www.linkedin.com/in/schuler-small/")
               i(class="fab fa-linkedin-in" aria-hidden="true")
           .developer__story I am a software engineer in development with a background in geography and environmental science, for which I received a B.A. from UCLA. Graduating into a global pandemic catalyzed my interest in software engineering as I realized I wanted more skills to enhance my impact in this dynamic, unpredictable world. I plan to couple my programming abilities with an academic and business background in sustainability to help drive the global sustainability transformation. When I'm not voraciously seeking knowledge in the form of reading, watching films, or coding, I can be found cooking, doing yoga, or playing soccer wherever there's open space and a ball.
+  include footer.pug
