@@ -17,7 +17,8 @@ router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
     where: {
         userId
     },
-    order: [['createdAt', 'DESC']]
+    order: [['createdAt', 'DESC']],
+    limit: 16
   });
 
   const followedUserIds = followedUsers.map(el => el.followedUserId)
