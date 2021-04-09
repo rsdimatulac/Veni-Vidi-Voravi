@@ -13,7 +13,7 @@ const logoutUser = (req, res) => {
 const requireAuth = (req, res, next) => {
   try {
     if (!res.locals.authenticated) {
-      return res.redirect('/users/login'); //double check route accuracy w/ wiki front-end routes // maybe change to just login
+      return res.redirect('/welcome'); //double check route accuracy w/ wiki front-end routes // maybe change to just login
     }
     return next();
   } catch (err) {
