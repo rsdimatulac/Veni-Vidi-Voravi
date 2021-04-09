@@ -19,6 +19,10 @@
     justify-self: center;
 }
 
+.nav__logo img {
+    height: 60px;
+}
+
 .nav__title {
     grid-column: 2 / 7;
     font-size: 25px;
