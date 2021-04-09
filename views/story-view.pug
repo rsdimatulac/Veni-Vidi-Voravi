@@ -37,7 +37,7 @@ block content
                     //- You go back to the Viewing that same story
                     a(href=`/stories/${story.id}`) Cancel
                     //- TO FIX: THE Publish takes you back to your Profile
-                    button(type='submit') Publish
+                    button(type='submit' class="publish-button") Publish
         button(id="modal__button-delete") Delete
         .modal-delete
           .modal-content-delete
@@ -73,7 +73,7 @@ block content
       img(id="comment-button" src="../images/comment.png")
       span=comments.length
     +validationErrorSummary(errors)
-    .form.hidden
+    .form.hidden.comment-form
       form(action=`/stories/${story.id}/comments` method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         .form__inputs
@@ -85,9 +85,10 @@ block content
       each comment in comments
         .comments__info
           .comments__pic
-            img(class="profile-pic" src=`${comment.User.profilePic}`)
+            a(href=`/users/${comment.User.id}`)
+              img(class="profile-pic" src=`${comment.User.profilePic}`)
           .comments__name
-            a(href=`/users/${story.userId}`)  #{comment.User.firstName} #{comment.User.lastName}
+            a(href=`/users/${comment.User.id}`)  #{comment.User.firstName} #{comment.User.lastName}
             //- p(class="comments__timestamp") #{moment(comment.createdAt).format('LLLL')}
             if moment(currentDate).diff(comment.createdAt, 'years') > 0
               p #{`${moment(currentDate).diff(comment.createdAt, 'years')} years ago`}

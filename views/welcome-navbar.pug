@@ -12,9 +12,13 @@
           .nav__technologies
             a(href='#technologies' style="text-decoration: none;") Technologies
     .nav__links
-        a(href="/welcome/our-story") Our Story
-        a(href="/users/login") Login
-        form(action="/users/demouser" method="post")
-          button(class="demo-button" type="submit") Demo Login
-        a(href='/users/register')
-          button(class="register-button" type="submit") Register
+        a(href="/our-story") Our Story
+        if isLoggedIn
+          form(action="/users/logout" method="post")
+            button(class="logout-button" type="submit") Log Out
+        else
+          a(href="/users/login") Login
+          form(action="/users/demouser" method="post")
+            button(class="demo-button" type="submit") Demo Login
+          a(href='/users/register')
+            button(class="register-button" type="submit") Register

@@ -6,6 +6,10 @@ div {
     font-family: 'Roboto', sans-serif;
 }
 
+button {
+    outline: none;
+}
+
 .profile-pic {
     border-radius: 50%;
     height: 50px;
@@ -84,7 +88,7 @@ form * {
 }
 
 .form {
-    grid-column: 2 / 12;
+    grid-column: 4 / 11;
 }
 
 .form__title {
