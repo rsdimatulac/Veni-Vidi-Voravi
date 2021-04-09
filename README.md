@@ -1,7 +1,7 @@
 # 🍽 Welcome to Veni, Vidi, Voravi! 🍽
 
 <p align="center">
-  <img width="460" height="300" src="public/images/logo.png">
+  <img src="public/images/logo.png">
 </p>
 
 ### **Live Link: [Veni Vidi Voravi](https://venividivoravi.herokuapp.com/users/login)**
