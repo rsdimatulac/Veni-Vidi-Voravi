@@ -67,7 +67,6 @@ router.post('/create', csrfProtection, storyValidators, asyncHandler(async (req,
 router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId, { include: db.User }); // I added the include
-
     if (!story) {
         res.status(404);
         next();
@@ -86,23 +85,10 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
         order: [['createdAt', 'DESC']],
         include: db.User
     })
-
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
 
     const userClap = await db.Clap.findOne({ where: { storyId, userId }});
-
-    // const millisecondsElapsed = Date.now() - story.createdAt;
-    // const secondsElapsed = Math.floor(millisecondsElapsed / 1000);
-    // const minutesElapsed = Math.floor(secondsElapsed / 60);
-    // const hoursElapsed = Math.floor(minutesElapsed / 60);
-    // const daysElapsed = Math.floor(hoursElapsed / 24);
-    // const yearsElapsed = Math.floor(daysElapsed / 365);
-
-    // const timeElapsed = yearsElapsed > 0 ? `${yearsElapsed} years ago`
-    //                     : daysElapsed > 0 ? `${daysElapsed} days ago`
-    //                     : hoursElapsed > 0 ? `${hoursElapsed} hours ago`
-    //                     : `${minutesElapsed} minutes ago`
 
     res.render('story-view', {
         title: story.title,
@@ -112,7 +98,8 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
         comments,
         clapCount: clapCount.count,
         userClap,
-        currentDate: Date.now()
+        currentDate: Date.now(),
+        userId
     });
 }));
 
@@ -138,7 +125,6 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
         order: [['createdAt', 'DESC']],
         include: db.User // ADDED
     });
-    console.log("TESTTTTT", comments)
 
     const newComment = db.Comment.build({
         storyId,
@@ -150,6 +136,7 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
 
     if (validatorErrors.isEmpty()) {
         await newComment.save();
+
         res.redirect(`/stories/${storyId}`);
         //TODO: Maybe change redirect to just display comment on page without refreshing
     } else {
@@ -164,30 +151,30 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
     }
 }))
 
+// COMMENTED OUT SINCE WE'RE USING A MODAL INSTEAD OF RENDERING A WHOLE PAGE
 // GET THE EDIT FORM
-router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
-    const storyId = parseInt(req.params.id, 10);
-    const story = await db.Story.findByPk(storyId);
-    const { userId } = req.session.auth;
-    const user = await db.User.findByPk(userId);
+// router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+//     const storyId = parseInt(req.params.id, 10);
+//     const story = await db.Story.findByPk(storyId);
+//     const { userId } = req.session.auth;
+//     const user = await db.User.findByPk(userId);
 
-    // to check if the user made that story
-    if ( userId !== story.userId ) {
-        res.status(403); // Forbidden
-        throw new Error("Forbidden")
-        // TODO: Instead to throw error, redirect to a stylized Error Page
-    };
+//     // to check if the user made that story
+//     if ( userId !== story.userId ) {
+//         res.status(403); // Forbidden
+//         throw new Error("Forbidden")
+//         // TODO: Instead to throw error, redirect to a stylized Error Page
+//     };
 
-    res.render('story-edit', {
-        title: 'Edit your Story',
-        story,
-        csrfToken: req.csrfToken(),
-        user
-    });
-}));
+//     res.render('story-edit', {
+//         title: 'Edit your Story',
+//         story,
+//         csrfToken: req.csrfToken(),
+//         user
+//     });
+// }));
 
 // EDITING AND UPDATING THE STORY
-// TODO: Edit button on the Profile Page
 
 router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
@@ -203,7 +190,17 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
 
     if (validatorErrors.isEmpty()) {
         await storyToUpdate.update(story);
-        res.redirect(`/stories/${storyId}`);
+
+        console.log("URLLLLL", res.local.url)
+        // TODO: If you're on the view story page, you must redirect back to the view story
+        // TODO: If you're on the profile page, you must redirect back to the profile page
+        
+        if (req.baseUrl === "/stories") {
+            res.redirect(`/stories/${storyId}`)
+        } else {
+            res.redirect(`/users/${userId}`);
+        }
+
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('story-edit', {
@@ -211,19 +208,21 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
             story: { ...story, id: storyId },
             errors,
             csrfToken: req.csrfToken(),
-            user
+            user,
+            userId
         });
     }
 }));
 
 // DELETING A STORY
-// TODO: Delete button on the Profile Page, Popup Window
 
 router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
         const storyId = parseInt(req.params.id, 10);
         const story = await db.Story.findByPk(storyId);
+        const { userId } = req.session.auth;
         await story.destroy();
-        res.redirect('/');
+        // you go back to the user's page when delete button is clicked
+        res.redirect(`/users/${userId}`);
 }));
 
 module.exports = router;

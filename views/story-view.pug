@@ -6,13 +6,49 @@ append head
   link(rel="stylesheet" href="/stylesheets/story-view.css")
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
   link(rel="stylesheet" href="/stylesheets/footer.css")
+  link(rel="stylesheet" href="/stylesheets/modal-buttons.css")
+  link(rel="stylesheet" href="/stylesheets/story-create.css")
   script(type="text/javascript" src="/javascripts/display-comments.js")
   script(type="text/javascript" src="/javascripts/claps.js")
+  script(type="text/javascript" src="/javascripts/modals.js")
+
 
 block content
   include story-navbar.pug
   .story__container
     .story__title= story.title
+    //- If you are the loggedIn User, you can see the Edit/Delete Button
+    if userId === story.User.id
+      .story__button-div
+        button(id="modal__button-edit") Edit
+        .modal-edit
+          .modal-content-edit
+            span(class="close-btn-edit")
+            //- TO FIX: ERRORS NOT RENDERING PROPERLY
+            +validationErrorSummary(errors)
+            .form__container
+              .form
+                form(action=`/stories/${story.id}/edit` method='post')
+                  input(type="hidden", name="_csrf" value=csrfToken)
+                  +field('Title', 'title', story.title, "text", "Your title")
+                  +field('Title Image', 'titleImage', story.imageSrc, "url", "Your image URL")
+                  +field('Body', 'content', story.content, "textarea")
+                  .form__button
+                    //- You go back to the Viewing that same story
+                    a(href=`/stories/${story.id}`) Cancel
+                    //- TO FIX: THE Publish takes you back to your Profile
+                    button(type='submit') Publish
+        button(id="modal__button-delete") Delete
+        .modal-delete
+          .modal-content-delete
+            span(class="close-btn-delete")
+            p Are you sure you want to delete?
+            .modal__delete-buttons
+              //- you go back to Viewing that story
+              a(href=`/stories/${story.id}`) Cancel
+              form(action=`/stories/${story.id}/delete` method="post")
+                //- TO FIX: THE Publish takes you back to your Profile
+                button(type="submit") Delete
     .story__author
       img(id="profile-pic-story" src=`${story.User.profilePic}`)
       a(href=`/users/${story.userId}`)  #{story.User.firstName} #{story.User.lastName}
