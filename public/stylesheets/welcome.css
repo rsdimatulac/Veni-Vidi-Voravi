@@ -104,7 +104,7 @@ li {
     grid-column: 2 / 12;
     grid-row: 2 / 4;
     justify-content: space-evenly;
-    padding-top: 30px;
+    padding-top: 15px;
 }
 
 .team__ourstory {
@@ -113,8 +113,9 @@ li {
     align-items: center;
     grid-column: 6 / 8;
     grid-row: 4 / 5;
-    margin: auto;
-    justify-content: space-evenly;
+    /* margin: auto; */
+    justify-content: flex-end;
+    margin-bottom: 40px;
     opacity: 1;
     color: white;
 }
@@ -145,6 +146,7 @@ li {
 
 .developer__name {
     font-size: 25px;
+    text-align: center;
 }
 
 .image__developer {
