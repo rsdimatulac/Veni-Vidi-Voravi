@@ -24,7 +24,7 @@ block content
         .modal-edit
           .modal-content-edit
             span(class="close-btn-edit")
-            //- TO FIX: ERRORS NOT RENDERING PROPERLY
+            //- include story-edit.pug
             +validationErrorSummary(errors)
             .form__container
               .form
@@ -36,7 +36,6 @@ block content
                   .form__button
                     //- You go back to the Viewing that same story
                     a(href=`/stories/${story.id}`) Cancel
-                    //- TO FIX: THE Publish takes you back to your Profile
                     button(type='submit') Publish
         button(id="modal__button-delete") Delete
         .modal-delete
