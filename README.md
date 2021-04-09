@@ -18,7 +18,7 @@ Before you begin, ensure you have met the following requirements:
 - Check out our [mock up](https://xd.adobe.com/view/d624d3bf-eb54-41ef-9911-aa0c0d704abf-8377/specs/)
 
 ##  Technologies
-###  Front-End
+####  Front-End
 - Javascript
 - HTML (rendering through PUG templating)
 - CSS Styling
@@ -27,23 +27,21 @@ Before you begin, ensure you have met the following requirements:
 - **Did we miss something?**
 - Hosted on Heroku
 
-### Back-End
-**include links)**  
-Our project relies on the following dependencies:
-- bcryptjs
-- cookie-parser
-- csurf
-- dotenv / dotenv-cli
-- **built with express.js**
-- express-session
-- express-validator
-- faker
-- http-errors
-- morgan
-- nodemon
-- **uses postgreSQL database**
-- pug
-- sequelize / sequelize-cli
+#### Back-End
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [cookie-parser](https://www.npmjs.com/package/cookie-parser)
+- [csurf](https://www.npmjs.com/package/csurf)
+- [dotenv](https://www.npmjs.com/package/dotenv) / [dotenv-cli](https://www.npmjs.com/package/dotenv-cli)
+- **built with [express](https://expressjs.com/)**
+- [express-session](https://www.npmjs.com/package/express-session)
+- [express-validator](https://www.npmjs.com/package/express-validator)
+- [faker](https://www.npmjs.com/package/faker)
+- [http-errors](https://www.npmjs.com/package/http-errors)
+- [morgan](https://www.npmjs.com/package/morgan)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- **uses [postgreSQL](https://www.postgresql.org/) database**
+- [pug](https://pugjs.org/api/getting-started.html)
+- [sequelize](https://www.npmjs.com/package/sequelize) / [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
 
 ## Primary Components ?
 **STRAIGHT UP STOLE THIS PART, dont actually use but use as a model** 
