@@ -47,7 +47,7 @@ Before you begin, ensure you have met the following requirements:
 - Includes csrf attack protection and performs front-end and back-end validation on forms
 
 ## Code Highlights / Challenges 
-- We quickly found a huge bug dealing with storing cookies -- when a user logged in and rerouted themselves back to welcome page that only logged out users can access, we were left hanging after trying to log back in (even though we never logged out).
+- We quickly found a huge bug dealing with storing cookies — when a user logged in and rerouted themselves back to welcome page that only logged out users can access, we were left hanging after trying to log back in (even though we never logged out).
 
 ## Future Implementations 
  - Topics / Categories / Tags
