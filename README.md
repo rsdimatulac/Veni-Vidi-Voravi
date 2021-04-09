@@ -13,7 +13,6 @@ Veni, Vidi, Voravi is inspired by [Medium](https://medium.com/) and allows users
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
-- ~~Veni Vidi Voravi is supported on Mac / Linux / Windows machines.~~
 - Read our [wiki](https://github.com/rsdimatulac/Veni-Vidi-Voravi/wiki)
 - Check out our [mock up](https://xd.adobe.com/view/d624d3bf-eb54-41ef-9911-aa0c0d704abf-8377/specs/)
 
@@ -21,10 +20,8 @@ Before you begin, ensure you have met the following requirements:
 ####  Front-End
 - Javascript
 - HTML (rendering through PUG templating)
-- CSS Styling
+- CSS
 - Font Awesome
-- Favicon ?
-- **Did we miss something?**
 - Hosted on Heroku
 
 #### Back-End
