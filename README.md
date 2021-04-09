@@ -10,21 +10,20 @@ Veni, Vidi, Voravi is inspired by [Medium](https://medium.com/) and allows users
 #### Home View
 ![Home Page View - PLACEHOLDER](/readme-images/home-page.gif)
 
-
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
 - Read our [wiki](https://github.com/rsdimatulac/Veni-Vidi-Voravi/wiki)
 - Check out our [mock up](https://xd.adobe.com/view/d624d3bf-eb54-41ef-9911-aa0c0d704abf-8377/specs/)
 
 ##  Technologies
-####  Front-End
+**Front-End**
 - Javascript
 - HTML (rendering through PUG templating)
 - CSS
 - Font Awesome
 - Hosted on Heroku
 
-#### Back-End
+**Back-End**
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 - [cookie-parser](https://www.npmjs.com/package/cookie-parser)
 - [csurf](https://www.npmjs.com/package/csurf)
@@ -41,17 +40,15 @@ Before you begin, ensure you have met the following requirements:
 - [sequelize](https://www.npmjs.com/package/sequelize) / [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
 
 ## Primary Components ?
-**STRAIGHT UP STOLE THIS PART, dont actually use but use as a model** 
+- **STRAIGHT UP STOLE THIS PART, dont actually use but use as a model** 
 -   Secure authentication using bcryptjs library
 -   Only grants access to features like saving and cupboards to authorized users
 -   Designed around a relational database schema, which allows users to save, rate, and view recipes with dynamic data and rendering
 -   Makes use of AJAX to render elements such as ratings asynchronously
 -   Includes protection from csrf attacks and performs front-end and back-end validation on forms
-- User authentication is handled using BCrypt for password hashing. Passwords are not saved to the database, only password hashes. When users log in, the password they provide is rehashed and checked against the original encrypted password hash to verify credentials. (Is this what we did verbatim??? -- **Also stole this, dont use exaclty**)
+- User authentication is handled using BCrypt for password hashing. Passwords are not saved to the database, only password hashes. When users log in, the password they provide is rehashed and checked against the original encrypted password hash to verify credentials. (Is this what we did verbatim???)
 
 ## Code Highlights / Challenges ?
-TALK ABOUT THAT BIG ASS COOKIE BUG WE CREATED
-
 - We quickly found a huge bug dealing with storing cookies -- when a user logged in and rerouted themselves back to welcome page that only logged out users can access, we were left hanging after trying to log back in (even though we never logged out).
 
 ## Future Implementations ?
