@@ -5,12 +5,65 @@
 body {
     box-sizing: border-box;
     background-color: #fff;
-
 }
 
 a {
     text-decoration: none;
 }
+
+p {
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+.nav__container {
+    padding: 0 300px;
+}
+
+.col {
+    display: grid;
+    height: inherit;
+}
+
+.author {
+    display: flex;
+    grid-row: 1 / 2;
+    align-items: center;
+    align-self: end;
+}
+
+.picture {
+    padding-right: 10px;
+}
+
+.author > a {
+    font-size: 14px;
+    color: #333;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title {
+    display: flex;
+    grid-row: 2 / 3;
+    align-items: center;
+}
+
+.title > a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.text {
+    font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+    grid-row: 3 / 4;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+
+/* MAIN COLUMN 1 */
 
 .main__container {
     display: grid;
@@ -19,11 +72,7 @@ a {
     column-gap: 31px;
     height: 500px;
     margin-top: 40px;
-}
-
-.col {
-    display: grid;
-    height: inherit;
+    padding: 0 300px;
 }
 
 .main__col1 {
@@ -41,62 +90,45 @@ a {
     grid-row: 4 / 6;
 }
 
-.author {
-    display: flex;
-    grid-row: 1 / 2;
-    align-items: center;
+.main__col1-info > .title > a {
+    font-size: 30px;
 }
 
-.picture {
-    padding-right: 10px;
+.main__col1-info > .text {
+    font-size: 18px;
+    line-height: 30px;
 }
 
-.name > a {
-    font-size: 12px;
-}
-
-.title {
-    grid-row: 2 / 3;
-}
-
-.title > a {
-    font-size: 20px;
-    font-weight: bold;
-}
+/* MAIN COLUMN 2 */
 
 .main__col2-story > .title > a {
     font-size:16px;
 }
 
-.main__col2-story > .title, 
+.main__col2-story > .title,
 .main__col2-story > .text {
     padding-right: 20px;
-}
-
-.text {
-    grid-row: 3 / 4;
-    font-size: 12px;
 }
 
 .main__col2 {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 125px);
-    grid-column: 5 / 9;
+    grid-column: 5 / 10;
+    padding: 0 50px;
     /* column-gap: 31px; */
 }
 
 .main__col2-story {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-    grid-column: 1 / 4; 
-    padding-bottom: 5px;
+    grid-column: 1 / 4;
+    /* padding-top: 20px; */
 }
 
 .image {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-bottom: 10px;
 }
 
 .main__col2-story-image-1 {
@@ -119,34 +151,86 @@ a {
     grid-column: 4 / 6;
 }
 
+/* MAIN COLUMN 3 */
+
 .main__col3 {
-    grid-column: 9 / 13;
+    grid-column: 10 / 13;
+    padding-left: 20px;
+}
+
+.follows__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.follows__header {
+    padding-bottom: 20px;
+}
+
+.follows__header > p {
+    color: rgba(41, 41, 41, 1);
+    font-weight: 700;
+    font-size: 12px;
+    margin: 0px;
+    line-height: 16px;
+    letter-spacing: 0.083em;
+    text-rendering: optimizeLegibility;
+}
+
+.follows__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3%;
+}
+
+.following__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.following__profile-image {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+
+.following__profile-name {
+    margin-top: 5px;
+    padding-bottom: 20px;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 64px;
 }
 
 /******************** BODY CONTAINER ************************/
 
 .body__container {
     display: grid;
-    padding: 0 38px;
+    padding: 0 300px;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 31px;
-    height: 1600px;
-    margin-top: 100px;
+    min-height: calc(100vh - 70px - 65px);
+    margin-top: 25px;
     margin-bottom: 100px;
+    padding-top: 50px;
+    border-top: solid 1px rgb(230, 230, 230);
 }
 
 .body__col1 {
-    grid-column: 1 / 9;
+    grid-column: 1 / 8;
     grid-template-rows: repeat(7, 1fr);
+    row-gap: 40px;
     grid-template-columns: repeat(8, 1fr);
     display: grid;
 }
 
 .body__col1-story {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 60px);
     grid-column: 1 / 5;
-    margin-bottom: 10px;
 }
 
 .story-image {
