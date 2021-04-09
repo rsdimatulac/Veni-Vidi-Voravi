@@ -39,7 +39,7 @@ Before you begin, ensure you have met the following requirements:
 - [pug](https://pugjs.org/api/getting-started.html)
 - [sequelize](https://www.npmjs.com/package/sequelize) / [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
 
-## Primary Components 
+## Features
 - User authentication is handled using bcryptjs library for password hashing.
 - Only grants access to features like creating and editing stories to authorized users.
 - Designed around a relational database schema, which allows users to create, edit, clap, and comment on stories with dynamic data and rendering.
