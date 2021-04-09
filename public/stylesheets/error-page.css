@@ -1,9 +1,7 @@
 body {
-    box-sizing: border-box
-    background-color: #fff
+    box-sizing: border-box;
+    background-color: #fff;
 }
-
-
 
 .nav__container {
     display: grid;
@@ -21,6 +19,10 @@ body {
 
 .nav__logo {
     grid-column: 1 / 2;
+}
+
+.nav__logo img {
+    height: 60px;
 }
 
 .nav__title {

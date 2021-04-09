@@ -7,6 +7,7 @@
     position: fixed;
     background-color: #FFFFFF;
     width: 100%;
+    opacity: 0.9;
 }
 
 .nav__container > * {
@@ -16,7 +17,7 @@
 
 .nav__logo {
     grid-column: 1 / 2;
-    justify-self: center;
+    /* justify-self: center; */
 }
 
 .nav__logo img {
