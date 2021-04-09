@@ -52,7 +52,7 @@ Before you begin, ensure you have met the following requirements:
 - Creating DRY Pug templates to render
 
 #### Challenges
-- We quickly found a huge bug dealing with storing cookies — when a user logged in and rerouted themselves back to welcome page that only logged out users can access, we were left hanging after trying to log back in (even though we never logged out).
+- When `npm start` was run, the localhost on the browser was not loading and left us hanging. It was caused by a session cookie that is dependent on the Demo User to login but was deleted when the database was dropped. It was fixed when we deleted the session cookie, and added the Demo User credentials as a seeded sequelize file.
 
 ## Future Implementations 
  - Topics / Categories / Tags
