@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="public/images/logo.png">
-</p>
-
 # 🍽 Welcome to Veni, Vidi, Voravi! 🍽
 
 ### **Live Link: [Veni Vidi Voravi](https://venividivoravi.herokuapp.com/users/login)**
@@ -70,5 +66,9 @@ Thanks to the following people who have contributed to this project:
 - [@B-Salinas](https://github.com/B-Salinas) 👾
 
 ---
+
+<p align="center">
+  <img src="public/images/logo.png">
+</p>
 
 _I came, I saw, I devoured._
