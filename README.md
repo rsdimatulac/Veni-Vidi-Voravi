@@ -1,8 +1,8 @@
 # Veni, Vidi, Voravi
 
-Veni, Vidi, Voravi is a [Medium Clone](https://medium.com/) that allows users to share and discover experiences from different culinary adventures. 
+Live Link: [Veni Vidi Voravi](https://venividivoravi.herokuapp.com/users/login)
 
-**Live Link: [Veni Vidi Voravi](https://venividivoravi.herokuapp.com/users/login)**
+Veni, Vidi, Voravi is a [Medium Clone](https://medium.com/) that allows users to share and discover experiences from different culinary adventures. 
 
 **Welcome View**
 ![Welcome Page View - PLACEHOLDER](/readme-images/welcome-page.png)
