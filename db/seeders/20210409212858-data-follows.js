@@ -27,7 +27,7 @@ module.exports = {
     }
     const numUsers = await User.count();
     const numFollowed = await User.count();
-    let newFollows = makeFollows(numUsers, numFollowed, 100);
+    let newFollows = makeFollows(numUsers, numFollowed, 500);
     return queryInterface.bulkInsert('Follows', newFollows, {});
   },
 
