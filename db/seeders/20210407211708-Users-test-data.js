@@ -70,7 +70,7 @@ module.exports = {
           emailAddress: 'shaggy_smells@gmail.com',
           about: 'Zoinks!',
           hashedPW: await bcrypt.hash("Test6!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/scoobydoo/images/8/82/Shaggy_Rogers.png/revision/latest?cb=20201229020708',
+          profilePic: 'https://s3.amazonaws.com/intanibase/iad_characters/981.jpg',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -80,7 +80,7 @@ module.exports = {
           emailAddress: 'scooby-doo@gmail.com',
           about: 'Ruh-roh RAGGY!!!',
           hashedPW: await bcrypt.hash("Test7!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/scoobydoo/images/5/53/Scooby-Doo.png/revision/latest/scale-to-width-down/350?cb=20201229020509',
+          profilePic: 'https://www.seekpng.com/png/detail/76-760047_zoinks-points-for-education-scooby-doo-images-scooby.png',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -110,7 +110,7 @@ module.exports = {
           emailAddress: 'ilovefood@gmail.com',
           about: ' A chef makes. A thief takes.',
           hashedPW: await bcrypt.hash("Test10!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/disney/images/9/95/Profile_-_Auguste_Gusteau.jpg/revision/latest/scale-to-width-down/350?cb=20190626003645',
+          profilePic: 'https://i.pinimg.com/474x/82/f8/35/82f83508f3cb24820441f30864806c43.jpg',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -130,7 +130,7 @@ module.exports = {
           emailAddress: 'alfredosauce@gmail.com',
           about: `I know this sounds insane, but... well, the truth sounds insane sometimes, but that doesn't mean it's not. Uh, the, the truth. And the truth is, I have no talent at all. But this rat, he's the one behind these recipes, he's the cook! The real cook.`,
           hashedPW: await bcrypt.hash("Test12!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/disney/images/1/16/Profile_-_Linguini.jpeg/revision/latest?cb=20210304151437',
+          profilePic: 'https://pbs.twimg.com/media/D1ZrPqdXQAASe8J.jpg',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -140,7 +140,7 @@ module.exports = {
           emailAddress: 'c.tatou@gmail.com',
           about: 'The toughest cook in the kitchen',
           hashedPW: await bcrypt.hash("Test13!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/disney/images/a/a4/Profile_-_Colette_Tatou.jpg/revision/latest/top-crop/width/360/height/450?cb=20190626002847',
+          profilePic: 'https://yt3.ggpht.com/ytc/AAUvwni72CIugKUGH9d8gbUerAf6AzRW-czZVBjLEsOc=s900-c-k-c0x00ffffff-no-rj',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -150,7 +150,7 @@ module.exports = {
           emailAddress: 'a.ego@gmail.com',
           about: `Amusing title... "Anyone Can Cook". What's even more amusing is that Gusteau actually seems to believe it. I, on the other hand, take cooking seriously, and no, I don't think anyone can do it.`,
           hashedPW: await bcrypt.hash("Test14!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/disney/images/9/91/Profile_-_Anton_Ego.jpg/revision/latest?cb=20190626003849',
+          profilePic: 'https://www.insidehighered.com/sites/default/server_files/media/Anton%20Ego.jpeg',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -180,7 +180,7 @@ module.exports = {
           emailAddress: 'mrpotatohead@gmail.com',
           about: 'I love Mrs. Potato Head!',
           hashedPW: await bcrypt.hash("Test18!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/disney/images/5/55/Profile_-_Mr._Potato_Head.jpeg/revision/latest/scale-to-width-down/516?cb=20190313050826',
+          profilePic: 'https://lumiere-a.akamaihd.net/v1/images/open-uri20150422-20810-enmr1e_871e8eac.jpeg?region=0,0,450,450',
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -190,7 +190,7 @@ module.exports = {
           emailAddress: 'buzzlightyear@toystory.com',
           about: 'To Infinity and Beyond!',
           hashedPW: await bcrypt.hash("Test19!", 10),
-          profilePic: 'https://static.wikia.nocookie.net/disney/images/7/74/Profile_-_Buzz_Lightyear.jpeg/revision/latest/scale-to-width-down/516?cb=20190623020017',
+          profilePic: 'https://lumiere-a.akamaihd.net/v1/images/open-uri20150422-20810-a07syh_9331bd0a.jpeg?region=0%2C0%2C450%2C450',
           createdAt: new Date(),
           updatedAt: new Date()
         },
