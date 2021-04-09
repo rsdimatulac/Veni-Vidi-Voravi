@@ -39,7 +39,7 @@ Before you begin, ensure you have met the following requirements:
 - [pug](https://pugjs.org/api/getting-started.html)
 - [sequelize](https://www.npmjs.com/package/sequelize) / [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
 
-## Primary Components ?
+## Primary Components 
 - **STRAIGHT UP STOLE THIS PART, dont actually use but use as a model** 
 -   Secure authentication using bcryptjs library
 -   Only grants access to features like saving and cupboards to authorized users
@@ -48,10 +48,10 @@ Before you begin, ensure you have met the following requirements:
 -   Includes protection from csrf attacks and performs front-end and back-end validation on forms
 - User authentication is handled using BCrypt for password hashing. Passwords are not saved to the database, only password hashes. When users log in, the password they provide is rehashed and checked against the original encrypted password hash to verify credentials. (Is this what we did verbatim???)
 
-## Code Highlights / Challenges ?
+## Code Highlights / Challenges 
 - We quickly found a huge bug dealing with storing cookies -- when a user logged in and rerouted themselves back to welcome page that only logged out users can access, we were left hanging after trying to log back in (even though we never logged out).
 
-## Future Implementations ?
+## Future Implementations 
  - Topics / Categories / Tags
 - Bookmarks
 - Claps on comments
@@ -59,7 +59,7 @@ Before you begin, ensure you have met the following requirements:
 - Display Followers/Following List on Profile Page
 
 ## Contributors
-Thanks to the following people who have contributed to this project:
+Huge shout out to those that contributed to this project:
 - [@rsdimatulac](https://github.com/rsdimatulac) 🚁
 - [@hye-kim](https://github.com/hye-kim) 🎴
 - [@ssmall1](https://github.com/ssmall1) 🌿
