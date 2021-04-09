@@ -4,7 +4,9 @@ append head
     link(rel="stylesheet" href="/stylesheets/profile.css")
     link(rel="stylesheet" href="/stylesheets/footer.css")
     link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+    link(rel="stylesheet" href="/stylesheets/modal-buttons.css")
     script(type="text/javascript" src="/javascripts/follows.js")
+    script(type="text/javascript" src="/javascripts/modals.js")
 
 block content
     .nav__container
@@ -38,16 +40,26 @@ block content
         .profile__story
             each story in userStories
                 div
-                    div.story__title-div
+                    .story__title-div
                         a(href=`/stories/${story.id}`) #{story.title}
                         //- If you are the loggedIn User, you can see the Edit/Delete Button
                         if userId === followedUserId
                             .story__button-div
-                                .story__button-edit
-                                    a(href=`/stories/${story.id}/edit`) Edit
-                                .story__button-delete
-                                    form(action=`/stories/${story.id}/delete` method="post")
-                                        button(type="submit") Delete
+                                button(id="modal__button-edit") Edit
+                                .modal-edit
+                                    .modal-content-edit
+                                        span(class="close-btn-edit")
+                                        include story-edit.pug
+                                button(id="modal__button-delete") Delete
+                                .modal-delete
+                                    .modal-content-delete
+                                        span(class="close-btn-delete")
+                                        p Are you sure you want to delete?
+                                        .modal__delete-buttons
+                                            //- you go back to the user's page when cancelled
+                                            a(href=`/users/${userId}`) Cancel
+                                            form(action=`/stories/${story.id}/delete` method="post")
+                                                button(type="submit") Delete
                     .story__timestamp
                         if moment(currentDate).diff(story.createdAt, 'years') > 0
                             p #{`${moment(currentDate).diff(story.createdAt, 'years')} years ago`}
@@ -59,5 +71,5 @@ block content
                             p #{`${moment(currentDate).diff(story.createdAt, 'minutes')} minutes ago`}
                     div
                         a(href=`/stories/${story.id}`)
-                            .story__image(style=`background-image: url('${story.imageSrc}')`)              
+                            .story__image(style=`background-image: url('${story.imageSrc}')`)        
     include footer.pug

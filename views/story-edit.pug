@@ -8,7 +8,8 @@ append head
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
 
 block content
-  include story-navbar.pug
+  //- Removed since we're using Modal instead of rendering an entire page
+  //- include story-navbar.pug
   +validationErrorSummary(errors)
   .form__container
     .form
@@ -18,5 +19,6 @@ block content
         +field('Title Image', 'titleImage', story.imageSrc, "url", "Your image URL")
         +field('Body', 'content', story.content, "textarea")
         .form__button
-          a(href='/') Cancel
+          //- You go back to the user profile if cancelled
+          a(href=`/users/${userId}`) Cancel
           button(type='submit') Publish
