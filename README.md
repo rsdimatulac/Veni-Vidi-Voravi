@@ -40,13 +40,11 @@ Before you begin, ensure you have met the following requirements:
 - [sequelize](https://www.npmjs.com/package/sequelize) / [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
 
 ## Primary Components 
-- **STRAIGHT UP STOLE THIS PART, dont actually use but use as a model** 
--   Secure authentication using bcryptjs library
--   Only grants access to features like saving and cupboards to authorized users
--   Designed around a relational database schema, which allows users to save, rate, and view recipes with dynamic data and rendering
--   Makes use of AJAX to render elements such as ratings asynchronously
--   Includes protection from csrf attacks and performs front-end and back-end validation on forms
-- User authentication is handled using BCrypt for password hashing. Passwords are not saved to the database, only password hashes. When users log in, the password they provide is rehashed and checked against the original encrypted password hash to verify credentials. (Is this what we did verbatim???)
+- User authentication is handled using BCryptjs library for password hashing.
+- Only grants access to features like creating and editing stories to authorized users.
+- Designed around a relational database schema, which allows users to create, edit, clap, and comment on stories with dynamic data and rendering.
+- Makes use of AJAX / API Routes to render elements such as clapping asynchronously.
+- Includes csrf attack protection and performs front-end and back-end validation on forms
 
 ## Code Highlights / Challenges 
 - We quickly found a huge bug dealing with storing cookies -- when a user logged in and rerouted themselves back to welcome page that only logged out users can access, we were left hanging after trying to log back in (even though we never logged out).
