@@ -6,10 +6,10 @@ append head
   link(rel="stylesheet" href="/stylesheets/story-create.css")
     //- NOTE THAT WE ARE USING STORY-CREATE.CSS HERE
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+  link(rel="stylesheet" href="/stylesheets/modal-buttons.css")
 
 block content
-  //- Removed since we're using Modal instead of rendering an entire page
-  //- include story-navbar.pug
+  include story-navbar.pug
   +validationErrorSummary(errors)
   .form__container
     .form
@@ -21,4 +21,4 @@ block content
         .form__button
           //- You go back to the user profile if cancelled
           a(href=`/users/${userId}`) Cancel
-          button(type='submit') Publish
+          button(type='submit') Publish 

@@ -199,15 +199,20 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
         }
 
     } else {
+        // validation errors are not being used because we have "Required" on the mixins in utils.pug
         const errors = validatorErrors.array().map((error) => error.msg);
-        res.render('story-edit', {
-            title: 'Edit your Story',
-            story: { ...story, id: storyId },
-            errors,
-            csrfToken: req.csrfToken(),
-            user,
-            userId
-        });
+    
+        res.redirect(`/stories/${storyId}`)
+
+        // res.render('story-edit', {
+        //     title: 'Edit your Story',
+        //     story: { ...story, id: storyId },
+        //     errors,
+        //     csrfToken: req.csrfToken(),
+        //     user,
+        //     userId
+        //     // referer: req.headers.referer.includes("stories")
+        // });
     }
 }));
 
