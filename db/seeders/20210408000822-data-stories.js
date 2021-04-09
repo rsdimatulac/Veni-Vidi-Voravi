@@ -132,7 +132,7 @@ Directions: Keep the beef and chicken separate when seasoning. Season the chicke
           updatedAt: new Date()
         },
         {
-          title: "Can't Believe It's Not Meat - come for the burger, but stay for the philly cheese steak egg roll",
+          title: "Can't Believe It's Not Meat!",
           imageSrc: "https://cdn.vox-cdn.com/thumbor/SNC3q2Gy-SGvzHyI1acyif5Usfo=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22290420/IMG_0195.jpg",
           content: `Another iteration of the increasingly popular 'vegan restaurant for meat eaters' archetype, this restaurant does not disappoint if you're looking for greasy goodness. I would definitely recommend you try going there at least once because the philly cheesesteak egg roll is unlike anything you've ever tried before. They have a number of other kooky creations you likely won't see anywhere else.`,
           userId: 10,
@@ -140,7 +140,7 @@ Directions: Keep the beef and chicken separate when seasoning. Season the chicke
           updatedAt: new Date('2016-12-26')
         },
         {
-          title: "Tico's Juice Bar - Wow. Just. Wow",
+          title: "Tico's Juice Bar WOW",
           imageSrc: "https://pbs.twimg.com/media/EBdEHtFXYAEpQLU.jpg",
           content: `This was literally the most loaded, decadent smoothie bowl I have ever had in my entire life. It's definitely not cheap but so worth it. You will never want another bowl after you've had this one and you will probably want peanut butter on every other smoothie bowl you eat for the rest of your life.`,
           userId: 6,
@@ -148,7 +148,7 @@ Directions: Keep the beef and chicken separate when seasoning. Season the chicke
           updatedAt: new Date()
         },
         {
-          title: "Jubilee Juice - Too Many Amazing Smoothies...Gotta try em all!!!",
+          title: "Jubilee Juice",
           imageSrc: "https://b.zmtcdn.com/data/pictures/2/16735372/72062b8a49cb40c58b13c48b197299f2_featured_v2.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
           content: `Ok so I know the picture is not the best but trust me when I tell you this place knows their smoothies. The sheer selection is enough to make you tremble in your boots because you know you can only get one (these things are massive even when you get the regular size). I myself have tried Blueberry Banana, Mango Madness, and Razzleberry. I can confirm all are splendid. The fries are also pretty delicious and make for a nice contrast to the cool, refreshing smoothie. This place is open late so it's perfect for a postgame snack.`,
           userId: 5,
@@ -156,7 +156,7 @@ Directions: Keep the beef and chicken separate when seasoning. Season the chicke
           updatedAt: new Date('2017-03-22')
         },
         {
-          title: "Coral Tree Cafe - Best Dirty Chai Ever",
+          title: "Coral Tree Cafe",
           imageSrc: "https://s3-media0.fl.yelpcdn.com/bphoto/-GBe81IBEIUmNTWWZHRscQ/o.jpg",
           content: `Coral Tree looks like a bougie, Brentwood spot, and it is, but they do not cut any corners when it comes to the quality and presentation of their food. I mean just look at that picture!! The dirty chai was the best one I've had in my life and I've tasted more than a few in my day. The potatoes also might be the best I've ever had. I would honestly go there for just a plate of potatoes. The omelette was still delicious and the avocado was wonderfully ripe. Pancakes were good but not anything I would call home about. You can get ones just as good, but for half the price at IHOP...`,
           userId: 4,

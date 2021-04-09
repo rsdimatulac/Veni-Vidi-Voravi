@@ -17,7 +17,7 @@ p {
 }
 
 .nav__container {
-    padding: 0 300px;
+    padding: 0 10vw;
 }
 
 .col {
@@ -72,7 +72,7 @@ p {
     column-gap: 31px;
     height: 500px;
     margin-top: 40px;
-    padding: 0 300px;
+    padding: 0 10vw;
 }
 
 .main__col1 {
@@ -82,6 +82,7 @@ p {
 
 .main__col1-image {
     grid-row: 1 / 4;
+    margin-bottom: 20px;
 }
 
 .main__col1-info {
@@ -105,7 +106,7 @@ p {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 125px);
     grid-column: 5 / 10;
-    padding: 0 100px;
+    padding: 0 3vw;
     /* column-gap: 31px; */
     border-right: 1px solid rgba(230, 230, 230, 1);
 }
@@ -210,7 +211,7 @@ p {
 
 .body__container {
     display: grid;
-    padding: 0 300px;
+    padding: 0 10vw;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 31px;
     min-height: calc(100vh - 70px - 65px);
