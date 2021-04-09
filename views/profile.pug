@@ -13,6 +13,7 @@ block content
                 p LOGO HERE
         div(class="nav__title" id="nav__username") #{followedUser.firstName} #{followedUser.lastName}
             div
+                //- If you are the loggedIn User, you cannot see the Follow Button
                 if userId !== followedUserId
                     if isFollowing
                         button(class=`${userId} ${followedUserId} nav__follow-button nav__followed` type="submit") Following
@@ -25,8 +26,6 @@ block content
                 button(class="logout-button" type="submit") Log Out
             a(href=`/users/${user.id}`)
                 img(class="profile-pic" src=`${user.profilePic}`)
-            //- whoever is the logged in user, must have the picture here
-
     .profile__container
         .profile__user
             div
@@ -41,12 +40,14 @@ block content
                 div
                     div.story__title-div
                         a(href=`/stories/${story.id}`) #{story.title}
-                        .story__button-div
-                            .story__button-edit
-                                a(href=`/stories/${story.id}/edit`) Edit
-                            .story__button-delete
-                                form(action=`/stories/${story.id}/delete` method="post")
-                                    button(type="submit") Delete
+                        //- If you are the loggedIn User, you can see the Edit/Delete Button
+                        if userId === followedUserId
+                            .story__button-div
+                                .story__button-edit
+                                    a(href=`/stories/${story.id}/edit`) Edit
+                                .story__button-delete
+                                    form(action=`/stories/${story.id}/delete` method="post")
+                                        button(type="submit") Delete
                     .story__timestamp
                         if moment(currentDate).diff(story.createdAt, 'years') > 0
                             p #{`${moment(currentDate).diff(story.createdAt, 'years')} years ago`}

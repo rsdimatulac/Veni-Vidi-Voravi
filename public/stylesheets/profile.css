@@ -53,7 +53,8 @@ body {
 .profile__story a {
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .profile__story > div {
@@ -64,6 +65,7 @@ body {
 .story__timestamp {
     font-size: 14px;
     margin: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* EDIT AND DELETE BUTTONS */
@@ -76,6 +78,7 @@ body {
     padding: 0px 5px;
     color: lightgray;
     font-size: 16px;
+    font-weight: normal;
 }
 
 .story__button-delete button {
@@ -128,4 +131,8 @@ body {
     border: 1px solid rgb(47, 108, 250);
     padding: 8px 10px;
     font-size: 13px;
+}
+
+.nav__container {
+    font-family: 'Roboto', sans-serif;
 }
