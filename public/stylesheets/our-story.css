@@ -1,15 +1,15 @@
 .stories {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(5, 1fr);
     column-gap: 31px;
     padding: 0 38px;
+    min-height: calc(100vh - 70px - 65px);
 }
 
 .developers {
     grid-column: 2 / 12;
     /* grid-row: 2 / 4; */
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     padding-top: 100px;
 }
 

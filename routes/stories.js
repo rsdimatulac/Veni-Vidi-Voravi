@@ -1,7 +1,7 @@
 
 const express = require('express');
 const { check, validationResult } = require('express-validator');
-const { requireAuth, restoreUser } = require("../auth");
+const { requireAuth } = require("../auth");
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 
@@ -190,7 +190,7 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
 
     if (validatorErrors.isEmpty()) {
         await storyToUpdate.update(story);
-        
+
         //If you're on the view story page, you must redirect back to the view story
         if (req.headers.referer.includes("stories")) {
             res.redirect(`/stories/${storyId}`)
@@ -223,7 +223,7 @@ router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
     const story = await db.Story.findByPk(storyId);
     const { userId } = req.session.auth;
     await story.destroy();
-    
+
     if (req.headers.referer.includes("stories")) {
         res.redirect(`/`)
     } else { // you go back to the user's page when delete button is clicked

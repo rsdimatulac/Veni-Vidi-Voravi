@@ -1,3 +1,7 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 .nav__container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -87,4 +91,25 @@
 
 .register-button:hover {
     background: gray;
+}
+
+.logout-button {
+    background-color: inherit;
+    border: none;
+    text-decoration: none;
+    padding: 0px 0px 0px 25px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
 }
