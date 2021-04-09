@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { requireAuth, restoreUser } = require("../auth");
-const { db } = require('../db/models');
+const db = require('../db/models');
 const { asyncHandler } = require('./utils');
 
 /* GET home page. */
