@@ -8,7 +8,10 @@ const { asyncHandler } = require('./utils');
 router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
   const stories = await db.Story.findAll({
     order: [['createdAt', 'DESC']],
-    include: db.User
+    include: [
+      { model: db.User },
+      { model: db.Clap }
+    ]
   });
 
   const { userId } = req.session.auth
@@ -29,6 +32,7 @@ router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
     follows.push(await await db.User.findByPk(followedUserIds[i]))
   }
 
+  stories.sort((a, b) => b.Claps.length - a.Claps.length)
 
   res.render('index', { follows, stories });
 }));
