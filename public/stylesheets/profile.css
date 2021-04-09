@@ -11,6 +11,7 @@ body {
     padding: 50px 38px 10px 38px;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 31px;
+    min-height: calc(100vh - 70px - 65px);
 }
 
 .profile__user {
@@ -124,5 +125,5 @@ body {
     outline: none;
     border: 1px solid rgb(47, 108, 250);
     padding: 8px 10px;
-    font-size: 13px; 
+    font-size: 13px;
 }
