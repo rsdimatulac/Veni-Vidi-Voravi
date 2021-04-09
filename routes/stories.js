@@ -88,7 +88,7 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
 
-    const userClap = await db.Clap.findOne({ where: { storyId, userId }});
+    const userClap = await db.Clap.findOne({ where: { storyId, userId } });
 
     res.render('story-view', {
         title: story.title,
@@ -190,12 +190,9 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
 
     if (validatorErrors.isEmpty()) {
         await storyToUpdate.update(story);
-
-        console.log("URLLLLL", res.local.url)
-        // TODO: If you're on the view story page, you must redirect back to the view story
-        // TODO: If you're on the profile page, you must redirect back to the profile page
         
-        if (req.baseUrl === "/stories") {
+        //If you're on the view story page, you must redirect back to the view story
+        if (req.headers.referer.includes("stories")) {
             res.redirect(`/stories/${storyId}`)
         } else {
             res.redirect(`/users/${userId}`);
@@ -217,12 +214,16 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
 // DELETING A STORY
 
 router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
-        const storyId = parseInt(req.params.id, 10);
-        const story = await db.Story.findByPk(storyId);
-        const { userId } = req.session.auth;
-        await story.destroy();
-        // you go back to the user's page when delete button is clicked
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    const { userId } = req.session.auth;
+    await story.destroy();
+    
+    if (req.headers.referer.includes("stories")) {
+        res.redirect(`/`)
+    } else { // you go back to the user's page when delete button is clicked
         res.redirect(`/users/${userId}`);
+    }
 }));
 
 module.exports = router;
