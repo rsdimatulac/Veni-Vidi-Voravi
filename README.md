@@ -41,9 +41,9 @@ Before you begin, ensure you have met the following requirements:
 
 ## Features
 - User authentication is handled using bcryptjs library for password hashing.
-- Only grants access to features like creating and editing stories to authorized users.
+- Grants access to features like creating and editing stories to authorized users only.
 - Designed around a relational database schema, which allows users to create, edit, clap, and comment on stories with dynamic data and rendering.
-- Makes use of AJAX / API Routes to render elements such as clapping asynchronously.
+- Makes use of AJAX / API Routes to render elements such as clapping and commenting asynchronously.
 - Includes csrf attack protection and performs front-end and back-end validation on forms
 
 ## Code Highlights / Challenges 
