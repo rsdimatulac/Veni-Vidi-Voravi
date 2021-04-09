@@ -1,6 +1,6 @@
 # Welcome to Veni, Vidi, Voravi
 
-**Live Link: [Veni Vidi Voravi](https://venividivoravi.herokuapp.com/users/login)
+**Live Link: [Veni Vidi Voravi](https://venividivoravi.herokuapp.com/users/login)**
 
 Veni, Vidi, Voravi is inspired by [Medium](https://medium.com/) and allows users to share and discover experiences from different culinary adventures. Users can browse, create, and edit their own stories, and leave comments or claps on other stories they found enjoyable. 
 
