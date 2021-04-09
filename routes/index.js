@@ -11,18 +11,26 @@ router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
     include: db.User
   });
 
-  // const stories = await sequelize.query(`
-  // SELECT
-  //   "Stories".*, "Users".*,
-  //   (SELECT COUNT(*) FROM "Claps" WHERE "Claps"."storyId" = "Stories".id) AS "ClapCount"
-  // FROM
-  //   "Stories"
-  // JOIN
-  //   "Users" ON "Stories"."userId" = "Users".id
-  // ORDER BY
-  //   "ClapCount" DESC`)
+  const { userId } = req.session.auth
 
-  res.render('index', { stories, title: 'a/A Express Skeleton Home' });
+  const followedUsers = await db.Follow.findAll({
+    where: {
+        userId
+    },
+    order: [['createdAt', 'DESC']],
+    limit: 16
+  });
+
+  const followedUserIds = followedUsers.map(el => el.followedUserId)
+
+  const follows = []
+
+  for (let i = 0; i < followedUserIds.length; i++) {
+    follows.push(await await db.User.findByPk(followedUserIds[i]))
+  }
+
+
+  res.render('index', { follows, stories });
 }));
 
 module.exports = router;
