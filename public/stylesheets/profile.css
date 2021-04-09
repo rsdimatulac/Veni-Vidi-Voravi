@@ -53,7 +53,8 @@ body {
 .profile__story a {
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .profile__story > div {
@@ -64,6 +65,7 @@ body {
 .story__timestamp {
     font-size: 14px;
     margin: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* EDIT AND DELETE BUTTONS */
@@ -76,16 +78,18 @@ body {
     padding: 0px 5px;
     color: lightgray;
     font-size: 16px;
+    font-weight: normal;
 }
 
-.story__button-delete > a {
-    padding: 0px 5px;
+.story__button-delete button {
+    border: none;
+    background-color: inherit;
     font-size: 16px;
     color: lightgray;
 }
 
 .story__button-edit > a:hover,
-.story__button-delete > a:hover {
+.story__button-delete button:hover {
     text-decoration: underline;
     color: darkgray;
 }
@@ -112,10 +116,11 @@ body {
     border: none;
     padding: 8px 10px;
     font-size: 13px;
+    margin-left: 20px;
 }
 
 #nav__username {
-    grid-column: 2 / span 2;
+    grid-column: 2 / span 5;
 }
 
 .nav__followed {
@@ -126,4 +131,8 @@ body {
     border: 1px solid rgb(47, 108, 250);
     padding: 8px 10px;
     font-size: 13px;
+}
+
+.nav__container {
+    font-family: 'Roboto', sans-serif;
 }
