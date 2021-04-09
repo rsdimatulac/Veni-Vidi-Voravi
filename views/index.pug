@@ -22,7 +22,7 @@ block content
           a(href=`/users/${stories[0].User.id}`) #{stories[0].User.firstName} #{stories[0].User.lastName}
         .title
           a(href=`/stories/${stories[0].id}`) #{stories[0].title}
-        .text #{stories[0].content.split(" ").splice(0, 30).join(" ")+"..."}
+        .text #{stories[0].content.split(" ").splice(0, 22).join(" ")+"..."}
         //- .text #{stories[0].content}
 
     .main__col2.col
@@ -69,7 +69,7 @@ block content
             a(href=`/users/${stories[n].User.id}`) #{stories[n].User.firstName} #{stories[n].User.lastName}
           .title
             a(href=`/stories/${stories[n].id}`) #{stories[n].title}
-          .text #{stories[n].content.split(" ").splice(0, 30).join(" ")+"..."}
+          .text #{stories[n].content.split(" ").splice(0, 24).join(" ")+"..."}
           //- .text #{stories[n].content}
         div(class=`body__col1-story-image-${n}` style="margin-top: 20px;")
           a(href=`/stories/${stories[n].id}`)
