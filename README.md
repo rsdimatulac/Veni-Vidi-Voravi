@@ -1,4 +1,4 @@
-# Welcome to Veni, Vidi, Voravi! <img align="right" src="public/images/logo.png" width="20" height="20">  
+# Welcome to Veni, Vidi, Voravi! <img align="right" src="public/images/logo.png" width="25" height="25">  
 
 ### **Live Link: [Veni Vidi Voravi](https://venividivoravi.herokuapp.com/users/login)**
 
