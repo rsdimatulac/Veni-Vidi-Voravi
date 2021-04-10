@@ -1,21 +1,21 @@
-.errors > * {
-    padding-left: 10px;
+.errors>* {
     color: #721c24;
 }
 
-.errors > p {
+.errors>p {
     font-weight: bold;
 }
 
 .errors li {
     list-style: inside;
     padding-left: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .errors {
+    padding: 10px 15px;
     font-family: 'Roboto', sans-serif;
-    color: #721c24
+    color: #721c24;
     height: auto;
     width: 833px;
     background: #f8d7da;

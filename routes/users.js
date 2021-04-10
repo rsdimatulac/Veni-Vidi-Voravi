@@ -13,11 +13,15 @@ const userValidators = [
   check('firstName')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for First Name')
+    .isAlpha()
+    .withMessage('First Name must only contain letters')
     .isLength({ max: 50 })
     .withMessage('First Name must not be more than 50 characters long'),
   check('lastName')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Last Name')
+    .isAlpha()
+    .withMessage('Last Name must only contain letters')
     .isLength({ max: 50 })
     .withMessage('Last Name must not be more than 50 characters long'),
   check('emailAddress')
@@ -119,24 +123,28 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
     password
   } = req.body;
 
-  const validatorErrors = validationResult(req)
+  const validatorErrors = validationResult(req);
   let errors = [];
 
-  if (validatorErrors.isEmpty()) {
+  if (validatorErrors.isEmpty()) { // if empty
 
     const user = await db.User.findOne({ where: { emailAddress } });
-    if (user !== null) {
+    if (user !== null) { // if user's email exist
       const isPassword = await bcrypt.compare(password, user.hashedPW.toString());
-      if (isPassword) {
+      if (isPassword) { // if passwords match
         loginUser(req, res, user);
         res.redirect("/");
-      } else {
-        errors.push("Login failed for the provided email address and password")
+      } else { // if passwords doesn't match
+        errors.push("Login failed for the provided email address and password");
       }
+    } else { // if user's email does not exist
+      errors.push("Account does not exist. Please register.")
     }
-  } else {
+
+  } else { // if not empty
     errors = validatorErrors.array().map(error => error.msg)
   };
+
   res.render("user-login", {
     errors,
     title: "Login",

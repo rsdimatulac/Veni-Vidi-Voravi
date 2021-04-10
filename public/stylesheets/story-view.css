@@ -52,7 +52,7 @@ p {
     align-items: center;
 }
 
-.story__author > a {
+.story__author>a {
     text-decoration: none;
     color: #1A8917;
     padding: 0px 15px;
@@ -87,25 +87,24 @@ p {
     padding-right: 10px;
 }
 
-.story__claps-comments > img {
+.story__claps-comments>img {
     height: 20px;
 }
 
 /* COMMENT FORM */
 
-.form {
+.form.comment-form {
     padding-top: 30px;
     grid-column: 4 / 10;
     justify-self: start;
     width: 100%;
 }
 
-form * {
+/* input and button */
+
+.form__inputs-button {
     display: flex;
     flex-direction: row;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 0;
 }
 
 .form__comment-div {
@@ -113,7 +112,7 @@ form * {
     width: 100%;
 }
 
-.form__comment-div > input {
+.form__comment-div>input {
     font-weight: 400;
     padding-left: 10px;
     border-radius: 20px;
@@ -136,16 +135,16 @@ form * {
     font-weight: 400;
 }
 
-.form__button > a {
+.form__button>a {
     text-decoration: none;
     font-size: 22px;
 }
 
-.form__button > a:hover {
+.form__button>a:hover {
     text-decoration: underline;
 }
 
-.form__button > button {
+.form__button>button {
     border-radius: 22px;
     font-size: 20px;
     background-color: #929292;
@@ -156,7 +155,7 @@ form * {
     font-weight: bold;
 }
 
-.form__button > button:hover {
+.form__button>button:hover {
     background-color: #2ece8b;
 }
 
@@ -188,14 +187,14 @@ form * {
     padding-top: 10px;
 }
 
-.comments__name > p {
+.comments__name>p {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: rgba(117, 117, 117, 1)
 }
 
-.comments__name > a {
+.comments__name>a {
     text-decoration: none;
     color: black;
     font-weight: bold;
@@ -207,7 +206,6 @@ form * {
     padding-left: 10px;
     padding-right: 10px;
 }
-
 
 /* FOOTER */
 
