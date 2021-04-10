@@ -27,7 +27,8 @@ module.exports = {
     }
     const numUsers = await User.count();
     const numStories = await Story.count();
-    let newClaps = makeClaps(numUsers, numStories, 1500);
+    let newClaps = makeClaps(numUsers, 23, 1500);
+    newClaps.push(...makeClaps(numUsers, numStories, 2000))
     return queryInterface.bulkInsert('Claps', newClaps, {});
   },
 
