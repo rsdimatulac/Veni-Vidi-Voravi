@@ -13,11 +13,15 @@ const userValidators = [
   check('firstName')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for First Name')
+    .isAlpha()
+    .withMessage('First Name must only contain letters')
     .isLength({ max: 50 })
     .withMessage('First Name must not be more than 50 characters long'),
   check('lastName')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Last Name')
+    .isAlpha()
+    .withMessage('Last Name must only contain letters')
     .isLength({ max: 50 })
     .withMessage('Last Name must not be more than 50 characters long'),
   check('emailAddress')
@@ -140,7 +144,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
   } else { // if not empty
     errors = validatorErrors.array().map(error => error.msg)
   };
-  
+
   res.render("user-login", {
     errors,
     title: "Login",
