@@ -131,11 +131,11 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
     const user = await db.User.findOne({ where: { emailAddress } });
     if (user !== null) { // if user's email exist
       const isPassword = await bcrypt.compare(password, user.hashedPW.toString());
-      if (isPassword) {
+      if (isPassword) { // if passwords match
         loginUser(req, res, user);
         res.redirect("/");
-      } else {
-        errors.push("Login failed for the provided email address and password")
+      } else { // if passwords doesn't match
+        errors.push("Login failed for the provided email address and password");
       }
     } else { // if user's email does not exist
       errors.push("Account does not exist. Please register.")
