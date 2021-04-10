@@ -19,7 +19,7 @@ block content
                 if userId !== followedUserId
                     if isFollowing
                         button(class=`${userId} ${followedUserId} nav__follow-button nav__followed` type="submit") Following
-                    else    
+                    else
                         button(class=`${userId} ${followedUserId} nav__follow-button` type="submit") Follow
         div(class="nav__links")
             a(href="/our-story") Our Story
@@ -50,6 +50,8 @@ block content
                                     .modal-content-edit
                                         span(class="close-btn-edit")
                                         include story-edit.pug
+                                            a(href=`/users/${userId}`) Cancel
+                                                button(type='submit') Publish
                                 button(id="modal__button-delete") Delete
                                 .modal-delete
                                     .modal-content-delete
@@ -71,5 +73,5 @@ block content
                             p #{`${moment(currentDate).diff(story.createdAt, 'minutes')} minutes ago`}
                     div
                         a(href=`/stories/${story.id}`)
-                            .story__image(style=`background-image: url('${story.imageSrc}')`)        
+                            .story__image(style=`background-image: url('${story.imageSrc}')`)
     include footer.pug

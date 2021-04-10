@@ -7,6 +7,7 @@ append head
   link(rel="stylesheet" href="/stylesheets/story-create.css")
   link(rel="stylesheet" href="/stylesheets/story-view.css")
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+  link(rel="stylesheet" href="/stylesheets/story-create.css")
   link(rel="stylesheet" href="/stylesheets/footer.css")
   link(rel="stylesheet" href="/stylesheets/modal-buttons.css")
   script(type="text/javascript" src="/javascripts/display-comments.js")
@@ -26,7 +27,6 @@ block content
           .modal-content-edit
             span(class="close-btn-edit")
             //- include story-edit.pug
-            +validationErrorSummary(errors)
             .form__container
               .form
                 form(action=`/stories/${story.id}/edit` method='post')
