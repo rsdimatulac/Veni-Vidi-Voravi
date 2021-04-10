@@ -3,6 +3,8 @@ extends layout.pug
 include utils.pug
 
 append head
+  //- MODAL forms are inheriting the CSS styling from story-create
+  link(rel="stylesheet" href="/stylesheets/story-create.css")
   link(rel="stylesheet" href="/stylesheets/story-view.css")
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
   link(rel="stylesheet" href="/stylesheets/story-create.css")
@@ -46,7 +48,6 @@ block content
               //- you go back to Viewing that story
               a(href=`/stories/${story.id}`) Cancel
               form(action=`/stories/${story.id}/delete` method="post")
-                //- TO FIX: THE Publish takes you back to your Profile
                 button(type="submit") Delete
     .story__author
       img(id="profile-pic-story" src=`${story.User.profilePic}`)
@@ -75,7 +76,7 @@ block content
     .form.hidden.comment-form
       form(action=`/stories/${story.id}/comments` method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
-        .form__inputs
+        .form__inputs-button
             .form__comment-div
               input(type="text" name="comment" placeholder="Your comment")
             .form__button

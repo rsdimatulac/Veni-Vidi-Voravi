@@ -48,7 +48,7 @@
 }
 
 .nav__links {
-    grid-column: 9 / 13;
+    grid-column: 8 / 13;
     height: inherit;
     justify-self: end;
 }
