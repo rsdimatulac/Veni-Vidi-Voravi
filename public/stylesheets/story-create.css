@@ -26,7 +26,7 @@ button {
     padding: 0 38px;
 }
 
-.nav__container > * {
+.nav__container>* {
     display: flex;
     align-items: center;
 }
@@ -39,7 +39,6 @@ button {
     grid-column: 2 / span 5;
     font-size: 25px;
     font-weight: bold;
-
 }
 
 .nav__links {
@@ -79,6 +78,11 @@ button {
     padding: 0 38px;
 }
 
+::placeholder {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #B3B3B1;
+}
+
 form * {
     display: flex;
     flex-direction: column;
@@ -89,6 +93,7 @@ form * {
 
 .form {
     grid-column: 2 / 12;
+    padding-top: 20px;
 }
 
 .form__title {
@@ -96,15 +101,16 @@ form * {
     border-bottom: solid 1px #929292;
 }
 
-.form__inputs > input {
+.form__inputs>input {
     font-weight: 400;
     padding-left: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.form__inputs > textarea {
+.form__inputs>textarea {
     font-weight: 400;
-    padding-left: 10px;
-    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .form__button {
@@ -123,16 +129,16 @@ form * {
     font-weight: 400;
 }
 
-.form__button > a {
+.form__button>a {
     text-decoration: none;
     font-size: 22px;
 }
 
-.form__button > a:hover {
+.form__button>a:hover {
     text-decoration: underline;
 }
 
-.form__button > button {
+.form__button>button {
     border-radius: 22px;
     font-size: 20px;
     background-color: #929292;
@@ -143,6 +149,6 @@ form * {
     font-weight: bold;
 }
 
-.form__button > button:hover {
+.form__button>button:hover {
     background-color: #2ece8b;
 }

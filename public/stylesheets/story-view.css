@@ -114,9 +114,15 @@ p {
 
 .form__comment-div>input {
     font-weight: 400;
-    padding-left: 10px;
+    padding-left: 15px;
     border-radius: 20px;
     width: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+::placeholder {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #B3B3B1;
 }
 
 .form__button {
