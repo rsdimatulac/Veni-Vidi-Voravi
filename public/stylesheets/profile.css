@@ -78,34 +78,3 @@ body {
     border-radius: 1%;
     background-position: center;
 }
-
-/******* NAV STYLES **********/
-
-.nav__follow-button {
-    background-color: rgb(47, 108, 250);
-    color: white;
-    border-radius: 22px;
-    outline: none;
-    border: none;
-    padding: 8px 10px;
-    font-size: 13px;
-    margin-left: 20px;
-}
-
-#nav__username {
-    grid-column: 2 / span 5;
-}
-
-.nav__followed {
-    background-color: white;
-    color: rgb(47, 108, 250);
-    border-radius: 22px;
-    outline: none;
-    border: 1px solid rgb(47, 108, 250);
-    padding: 8px 10px;
-    font-size: 13px;
-}
-
-.nav__container {
-    font-family: 'Roboto', sans-serif;
-}

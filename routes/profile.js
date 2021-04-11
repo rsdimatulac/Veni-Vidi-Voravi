@@ -9,11 +9,11 @@ const router = express.Router();
 router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const followedUserId = parseInt(req.params.id, 10);
     const followedUser = await db.User.findByPk(followedUserId);
-    
-    
+
+
     // FOR THE FOLLOWS
     const { userId } = req.session.auth; // user who's logged in
-    
+
     const user = await db.User.findByPk(userId)
 
     const userStories = await db.Story.findAll({
@@ -27,16 +27,24 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
         where: { userId, followedUserId }
     });
 
-    res.render('profile', { 
-        title: "Profile Page", 
+    const followers = await db.Follow.findAll({
+        where: {
+            followedUserId
+        },
+        include: db.User
+    })
+
+    res.render('profile', {
+        title: "Profile Page",
         followedUser,
-        userStories, 
+        userStories,
         csrfToken: req.csrfToken(),
         currentDate: Date.now(),
         userId,
         followedUserId,
         isFollowing,
-        user
+        user,
+        followers
     });
 }));
 
