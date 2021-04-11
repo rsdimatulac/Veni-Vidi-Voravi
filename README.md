@@ -44,9 +44,28 @@ Before you begin, ensure you have met the following requirements:
 
 #### Highlights 
 - Creating DRY Pug templates to render.
+```pug
+.main__col2.col
+      - var m = 1;
+        while m < 5
+          div(class=`main__col2-story`)
+            .author
+              .picture
+                a(href=`/users/${stories[m].User.id}`)
+                  img(src=`${stories[m].User.profilePic}` class="profile-pic")
+              //- .name
+              a(href=`/users/${stories[m].User.id}`) #{stories[m].User.firstName} #{stories[m].User.lastName}
+            .title
+              a(href=`/stories/${stories[m].id}`) #{stories[m].title}
+            //- .text #{stories[m].content.split(" ").splice(0, 10).join(" ")+"..."}
+          div(class=`main__col2-story-image-${m}` style="margin-bottom: 20px;")
+            a(href=`/stories/${stories[m].id}`)
+              div(class="image story-image" style=`background-image: url('${stories[m].imageSrc}')`)
+          - m++
+```
 
 - Adding `CASCADE` to our Story Model so that we can delete stories with comments / claps, without deleting the comments / claps first. 
-```
+```js
 Story.associate = function(models) {
     Story.belongsTo(models.User, { foreignKey: "userId" });
     Story.hasMany(models.Comment, {
