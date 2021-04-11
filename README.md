@@ -13,7 +13,7 @@ _Veni Vidi Voravi_ is inspired by [Medium](https://medium.com/) and allows users
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
 - Read our [wiki](https://github.com/rsdimatulac/Veni-Vidi-Voravi/wiki)
-- Check out our [mock up](https://xd.adobe.com/view/d624d3bf-eb54-41ef-9911-aa0c0d704abf-8377/specs/)
+- Check out our [mock up](https://xd.adobe.com/view/d2379a4a-1d94-46e5-8f09-316f9bebba7c-8764/)
 
 ##  Technologies
 #### Front-End
@@ -44,6 +44,23 @@ Before you begin, ensure you have met the following requirements:
 
 #### Highlights 
 - Creating DRY Pug templates to render.
+
+- Adding `CASCADE` to our Story Model so that we can delete stories with comments / claps, without deleting the comments / claps first. 
+```
+Story.associate = function(models) {
+    Story.belongsTo(models.User, { foreignKey: "userId" });
+    Story.hasMany(models.Comment, {
+      foreignKey: "storyId",
+      onDelete: 'cascade',
+      hooks: true
+    });
+    Story.hasMany(models.Clap, {
+      foreignKey: "storyId",
+      onDelete: 'cascade',
+      hooks: true
+    });
+}
+```
 
 #### Challenges
 - When `npm start` was run, the localhost on the browser was not loading and left us hanging. It was caused by a session cookie that is dependent on the Demo User to login but was deleted when the database was dropped. It was fixed when we deleted the session cookie, and added the Demo User credentials as a seeded sequelize file.
