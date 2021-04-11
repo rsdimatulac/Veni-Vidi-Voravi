@@ -135,6 +135,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
       if (isPassword) { // if passwords match
         loginUser(req, res, user);
         res.redirect("/");
+        return
       } else { // if passwords doesn't match
         errors.push("Login failed for the provided email address and password");
       }
