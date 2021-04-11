@@ -16,15 +16,22 @@
     color: rgba(41, 41, 41, 1);
 }
 
+.username {
+    font-size: 25px;
+    font-weight: 700;
+}
+
 .followers {
     margin-top: 4px;
 }
 
-.followers a {
+.followers a,
+.following a {
     text-decoration: none;
 }
 
-.followers a:hover {
+.followers a:hover,
+.following a:hover {
     text-decoration: underline;
 }
 

@@ -1,0 +1,37 @@
+extends layout
+
+append head
+    link(rel="stylesheet" href="/stylesheets/profile.css")
+    link(rel="stylesheet" href="/stylesheets/footer.css")
+    link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+    link(rel="stylesheet", href="/stylesheets/profile-navbar.css")
+    link(rel="stylesheet" href="/stylesheets/modal-buttons.css")
+    link(rel="stylesheet", href="/stylesheets/followers.css")
+    script(type="text/javascript" src="/javascripts/follows.js")
+    script(type="text/javascript" src="/javascripts/modals.js")
+
+block content
+    include profile-navbar.pug
+    .page-content
+        .followers__container
+            div.h2
+                h2 #{following.length} Following
+                div
+                    ul
+                        each follower in following
+                            li(class="follower")
+                                .follower__profile-pic
+                                    a(href=`/users/${follower.Follower.id}`)
+                                        img(src=follower.Follower.profilePic)
+                                section(class="follower__profile-info")
+                                    span(class="follower__profile-name")
+                                        a(href=`/users/${follower.Follower.id}`)
+                                            h3 #{follower.Follower.firstName} #{follower.Follower.lastName}
+                                    p(class="follower__profile-about") #{follower.Follower.about}
+                                .follower__button
+                                    if user.id !== follower.Follower.id
+                                        if currentUserFollowing.includes(follower.Follower.id)
+                                            button(class=`${userId} ${follower.Follower.id} nav__follow-button nav__followed` type="submit") Following
+                                        else
+                                            button(class=`${userId} ${follower.Follower.id} nav__follow-button` type="submit") Follow
+    include footer.pug
