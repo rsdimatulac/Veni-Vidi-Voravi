@@ -1,0 +1,37 @@
+extends layout
+
+append head
+    link(rel="stylesheet" href="/stylesheets/profile.css")
+    link(rel="stylesheet" href="/stylesheets/footer.css")
+    link(rel="stylesheet" href="/stylesheets/story-navbar.css")
+    link(rel="stylesheet", href="/stylesheets/profile-navbar.css")
+    link(rel="stylesheet" href="/stylesheets/modal-buttons.css")
+    link(rel="stylesheet", href="/stylesheets/followers.css")
+    script(type="text/javascript" src="/javascripts/follows.js")
+    script(type="text/javascript" src="/javascripts/modals.js")
+
+block content
+    include profile-navbar.pug
+    .page-content
+        .followers__container
+            div.h2
+                h2 #{followers.length} Followers
+                div
+                    ul
+                        each follower in followers
+                            li(class="follower")
+                                .follower__profile-pic
+                                    a(href=`/users/${follower.User.id}`)
+                                        img(src=follower.User.profilePic)
+                                section(class="follower__profile-info")
+                                    span(class="follower__profile-name")
+                                        a(href=`/users/${follower.User.id}`)
+                                            h3 #{follower.User.firstName} #{follower.User.lastName}
+                                    p(class="follower__profile-about") #{follower.User.about}
+                                .follower__button
+                                    if user.id !== follower.User.id
+                                        if currentUserFollowing.includes(follower.User.id)
+                                            button(class=`${userId} ${follower.User.id} nav__follow-button nav__followed` type="submit") Following
+                                        else
+                                            button(class=`${userId} ${follower.User.id} nav__follow-button` type="submit") Follow
+    include footer.pug

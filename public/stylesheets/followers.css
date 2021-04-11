@@ -1,0 +1,81 @@
+.page-content {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 70px - 65px);
+}
+
+.followers__container {
+    box-sizing: border-box;
+    margin: 0 64px;
+    width: 680px;
+}
+
+.h2 {
+    margin-top: 64px;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    color: rgba(41, 41, 41, 1);
+    letter-spacing: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.follower {
+    border-top: solid 1px rgb(230, 230, 230);
+    border-bottom: solid 1px rgb(230, 230, 230);
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    list-style: none;
+    padding-top: 24px;
+    padding-bottom: 34px;
+}
+
+.follower__profile-pic {
+    padding-right: 20px;
+}
+
+.follower__profile-pic img {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+.follower__profile-info {
+    padding-top: 15px;
+}
+
+.follower__profile-name {
+    display: block;
+    margin-bottom: 24px;
+    padding-right: 10px;
+}
+
+.follower__profile-name a {
+    text-decoration: none;
+}
+
+.follower__profile-name a:hover {
+    text-decoration: underline;
+}
+
+.follower__profile-name h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.follower__profile-about {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(117, 117, 117, 1);
+    margin-bottom: -10px;
+    margin-top: -6px;
+}
