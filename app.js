@@ -45,6 +45,7 @@ app.use(
     store,
     saveUninitialized: false,
     resave: false,
+    name: 'vvv.sid'
   })
 );
 
