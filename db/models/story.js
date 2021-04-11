@@ -21,8 +21,16 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Story.associate = function(models) {
     Story.belongsTo(models.User, { foreignKey: "userId" });
-    Story.hasMany(models.Comment, { foreignKey: "storyId" });
-    Story.hasMany(models.Clap, { foreignKey: "storyId" });
+    Story.hasMany(models.Comment, {
+      foreignKey: "storyId",
+      onDelete: 'cascade',
+      hooks: true
+    });
+    Story.hasMany(models.Clap, {
+      foreignKey: "storyId",
+      onDelete: 'cascade',
+      hooks: true
+    });
   };
   return Story;
 };
