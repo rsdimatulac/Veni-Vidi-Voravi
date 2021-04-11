@@ -77,6 +77,12 @@ block content
         - n++
 
     .body__col2
+      .body__col2-title Check Out All Our Stories
+      .body__col2-stories
+        each story in stories
+          div 
+            .story__title-div
+              a(href=`/stories/${story.id}`) #{story.title}
 
   include footer.pug
 
