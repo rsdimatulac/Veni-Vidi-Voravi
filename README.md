@@ -36,9 +36,9 @@ Before you begin, ensure you have met the following requirements:
 ## Features
 - User authentication is handled using bcryptjs library for password hashing.
 - Grants access to features like creating and editing stories to authorized users only.
-- Designed around a relational database schema, which allows users to create, edit, clap, and comment on stories with dynamic data and rendering.
-- Makes use of AJAX / API Routes to render elements such as clapping and commenting asynchronously.
-- Includes csrf attack protection and performs front-end and back-end validation on forms
+- Designed around a relational database schema, which allows users to create, edit, clap, and comment on stories and follow other users with dynamic data and rendering.
+- Makes use of AJAX / API Routes to render elements such as clapping and following other users asynchronously.
+- Includes csrf attack protection and performs front-end and back-end validation on forms.
 
 ## Code Highlights / Challenges 
 
@@ -53,37 +53,46 @@ Before you begin, ensure you have met the following requirements:
               .picture
                 a(href=`/users/${stories[m].User.id}`)
                   img(src=`${stories[m].User.profilePic}` class="profile-pic")
-              //- .name
               a(href=`/users/${stories[m].User.id}`) #{stories[m].User.firstName} #{stories[m].User.lastName}
             .title
               a(href=`/stories/${stories[m].id}`) #{stories[m].title}
-            //- .text #{stories[m].content.split(" ").splice(0, 10).join(" ")+"..."}
           div(class=`main__col2-story-image-${m}` style="margin-bottom: 20px;")
             a(href=`/stories/${stories[m].id}`)
               div(class="image story-image" style=`background-image: url('${stories[m].imageSrc}')`)
           - m++
 ```
 
-- Adding `CASCADE` to our Story Model so that we can delete stories with comments / claps, without deleting the comments / claps first. 
+- Using AJAX to update our claps functionality without a full-page reload.
 ```js
-Story.associate = function(models) {
-    Story.belongsTo(models.User, { foreignKey: "userId" });
-    Story.hasMany(models.Comment, {
-      foreignKey: "storyId",
-      onDelete: 'cascade',
-      hooks: true
+document.addEventListener("DOMContentLoaded", () => {
+    const clapButton = document.getElementById('clap-button')
+    clapButton.addEventListener('click', async () => {
+        const storyId = parseInt(clapButton.classList[0], 10);
+        const clapImage = document.getElementById('clap-button');
+        const clapCount = document.getElementById('clap-count');
+        if (clapImage.classList.contains("has-been-clapped")) {
+            clapImage.src = '../images/unclapped.png'; 
+            clapImage.classList.remove('has-been-clapped');
+            clapCount.innerHTML--;
+        } else { 
+            clapImage.src = '../images/clapped.png';
+            clapImage.classList.add('has-been-clapped');
+            clapCount.innerHTML++;
+        }
+        await fetch(`/stories/${storyId}/claps`, { method: 'POST' })
+        return
     });
-    Story.hasMany(models.Clap, {
-      foreignKey: "storyId",
-      onDelete: 'cascade',
-      hooks: true
-    });
-}
+});
 ```
 
 #### Challenges
 - When `npm start` was run, the localhost on the browser was not loading and left us hanging. It was caused by a session cookie that is dependent on the Demo User to login but was deleted when the database was dropped. It was fixed when we deleted the session cookie, and added the Demo User credentials as a seeded sequelize file.
-- Initially hosting to Heroku. When we ran into problems locally, we solved this by dropping our databases and re-migrating and seeding. Dropping databases was not recommended on Heroku so we had to work around this. 
+- Initially hosting to Heroku. When we ran into problems locally, we solved this by dropping our databases and re-migrating and seeding. Dropping databases was not recommended on Heroku so we worked around this by:
+      - moving our project into the root directory instead of a subfolder within and recreated our .env, .env.example, and .sequelizerc files. 
+      - simplified our references in our Migration models.
+      - added the `dialectOptions` key to our `config/database.js` folder.
+      - updated the value of our `use_env_database` key.
+      - Rebuilt our website using `git push heroku` and re-migrated and seeded. 
 
 ## Future Implementations 
  - Topics / Categories / Tags
