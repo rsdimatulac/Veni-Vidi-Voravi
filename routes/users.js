@@ -91,7 +91,7 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
     firstName,
     lastName,
     emailAddress,
-    profilePic: "../images/default-profile-picture.jpg"
+    profilePic: "/images/default-profile-picture.jpg"
   });
 
   const validatorErrors = validationResult(req);
