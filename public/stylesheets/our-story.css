@@ -62,10 +62,11 @@ li {
 }
 
 .developer__text {
-    grid-column: 2 / 7;
+    grid-column: 2 / 8;
     grid-row: 2 / 2;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 17px;
+    padding-right: 20px;
 }
 
 .developer__image {
@@ -93,5 +94,42 @@ li {
     grid-column: 2 / 7;
     grid-row: 1 / 4;
     text-align: left;
-    padding-top: 65px;
+    padding-top: 40px;
+}
+
+/* ADDED BY REN */
+
+.developer__title.title.bianca {
+    padding-top: 100px;
+}
+
+.developer__title.title.right.david {
+    padding-top: 70px;
+}
+
+.developer__title.title.renerose {
+    padding-top: 20px;
+}
+
+.developer__image.image.renerose {
+    padding-top: 40px;
+}
+
+.developer__title.title.right.schuler {
+    padding-top: 20px;
+}
+
+.developer__links i {
+    font-size: 40px;
+    padding-top: 25px;
+    padding-right: 10px;
+    color: black;
+}
+
+.fab.fa-github:hover {
+    color: #238636;
+}
+
+.fab.fa-linkedin-in:hover {
+    color: #0A66C2;
 }
