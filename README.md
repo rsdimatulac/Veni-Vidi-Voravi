@@ -61,7 +61,7 @@ Huge shout out to those that contributed to this project:
 - [@rsdimatulac](https://github.com/rsdimatulac) 🚁
 - [@hye-kim](https://github.com/hye-kim) 🎴
 - [@ssmall1](https://github.com/ssmall1) 🌿
-- [@B-Salinas](https://github.com/B-Salinas) 👾
+- [@B-Salinas](https://github.com/B-Salinas) 🌀
 
 ---
 
