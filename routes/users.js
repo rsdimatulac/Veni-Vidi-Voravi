@@ -134,15 +134,20 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
       const isPassword = await bcrypt.compare(password, user.hashedPW.toString());
       if (isPassword) { // if passwords match
         loginUser(req, res, user);
-        res.redirect("/");
-        return
+        return res.redirect("/");
+        // return
       } else { // if passwords doesn't match
         errors.push("Login failed for the provided email address and password");
       }
     } else { // if user's email does not exist
       errors.push("Account does not exist. Please register.")
     }
-
+    // res.render("user-login", {
+    //   errors,
+    //   title: "Login",
+    //   emailAddress,
+    //   csrfToken: req.csrfToken()
+    // });
   } else { // if not empty
     errors = validatorErrors.array().map(error => error.msg)
   };
