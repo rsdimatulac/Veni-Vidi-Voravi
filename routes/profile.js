@@ -30,7 +30,20 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
         where: {
             followedUserId
         },
-        include: db.User
+        include: {
+            model: db.User,
+            as: 'User'
+        }
+    })
+
+    const following = await db.Follow.findAll({
+        where: {
+            userId: followedUserId
+        },
+        include: {
+            model: db.User,
+            as: 'Follower',
+        }
     })
 
     res.render('profile', {
@@ -43,7 +56,8 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
         followedUserId,
         isFollowing,
         user,
-        followers
+        followers,
+        following
     });
 }));
 
