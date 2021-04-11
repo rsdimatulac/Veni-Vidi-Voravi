@@ -14,6 +14,10 @@ a {
     align-items: center;
 }
 
+::placeholder {
+    color: #B3B3B1;
+}
+
 .container {
     margin: auto;
     margin-top: 5%;
