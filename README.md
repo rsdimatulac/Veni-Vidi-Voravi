@@ -5,10 +5,10 @@
 _Veni Vidi Voravi_ is inspired by [Medium](https://medium.com/) and allows users to share and discover experiences from different culinary adventures. Users can browse, create, and edit their own stories, and leave comments or claps on other stories they found enjoyable. 
 
 ### Welcome View
-![Welcome Page View - PLACEHOLDER](public/images/welcome-page.gif)
+![Welcome Page View - PLACEHOLDER](public/images/welcome-page-2.gif)
 
 ### Home View
-![Home Page View - PLACEHOLDER](/public/images/home-page.gif)
+![Home Page View - PLACEHOLDER](/public/images/home-page-2.gif)
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
@@ -24,19 +24,13 @@ Before you begin, ensure you have met the following requirements:
 - Hosted on Heroku
 
 #### Back-End
-- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
-- [cookie-parser](https://www.npmjs.com/package/cookie-parser)
-- [csurf](https://www.npmjs.com/package/csurf)
-- [dotenv](https://www.npmjs.com/package/dotenv) / [dotenv-cli](https://www.npmjs.com/package/dotenv-cli)
+- [cookie-parser](https://www.npmjs.com/package/cookie-parser) / [csurf](https://www.npmjs.com/package/csurf)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs) for user authentication
 - **built with [express](https://expressjs.com/)**
 - [express-session](https://www.npmjs.com/package/express-session)
 - [express-validator](https://www.npmjs.com/package/express-validator)
-- [faker](https://www.npmjs.com/package/faker)
-- [http-errors](https://www.npmjs.com/package/http-errors)
-- [morgan](https://www.npmjs.com/package/morgan)
-- [nodemon](https://www.npmjs.com/package/nodemon)
+- [faker](https://www.npmjs.com/package/faker) for generating large amounts of fake data
 - **uses [postgreSQL](https://www.postgresql.org/) database**
-- [pug](https://pugjs.org/api/getting-started.html)
 - [sequelize](https://www.npmjs.com/package/sequelize) / [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
 
 ## Features
