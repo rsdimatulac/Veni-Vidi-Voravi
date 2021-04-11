@@ -16,7 +16,7 @@ li {
 }
 
 .grid {
-    height: 650px;
+    height: 600px;
     display: grid;
     padding: 0 38px;
     grid-template-columns: repeat(12, 1fr);
@@ -58,11 +58,14 @@ li {
 .developer__title {
     grid-column: 2 / 7;
     grid-row: 1 / 1;
+    font-size: 45px;
 }
 
 .developer__text {
     grid-column: 2 / 7;
     grid-row: 2 / 2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
 }
 
 .developer__image {

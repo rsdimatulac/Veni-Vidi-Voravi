@@ -3,13 +3,12 @@ const { requireAuth } = require("../auth");
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 
-
 const router = express.Router();
+
 // GETTING PROFILE
 router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const followedUserId = parseInt(req.params.id, 10);
     const followedUser = await db.User.findByPk(followedUserId);
-    
     
     // FOR THE FOLLOWS
     const { userId } = req.session.auth; // user who's logged in
@@ -39,8 +38,6 @@ router.get('/users/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (
         user
     });
 }));
-
-
 
 ///////////////// EXPORTS //////////////////////
 module.exports = router;

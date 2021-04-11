@@ -7,7 +7,6 @@ append head
   link(rel="stylesheet" href="/stylesheets/story-create.css")
   link(rel="stylesheet" href="/stylesheets/story-view.css")
   link(rel="stylesheet" href="/stylesheets/story-navbar.css")
-  link(rel="stylesheet" href="/stylesheets/story-create.css")
   link(rel="stylesheet" href="/stylesheets/footer.css")
   link(rel="stylesheet" href="/stylesheets/modal-buttons.css")
   script(type="text/javascript" src="/javascripts/display-comments.js")
@@ -26,6 +25,7 @@ block content
         .modal-edit
           .modal-content-edit
             span(class="close-btn-edit")
+            //- NOT including because of the "Cancel" href route
             //- include story-edit.pug
             .form__container
               .form
@@ -37,7 +37,7 @@ block content
                   .form__button
                     //- You go back to the Viewing that same story
                     a(href=`/stories/${story.id}`) Cancel
-                    //- TO FIX: THE Publish takes you back to your Profile
+
                     button(type='submit' class="publish-button") Publish
         button(id="modal__button-delete") Delete
         .modal-delete
@@ -78,7 +78,7 @@ block content
         input(type='hidden' name='_csrf' value=csrfToken)
         .form__inputs-button
             .form__comment-div
-              input(type="text" name="comment" placeholder="Your comment")
+              input(type="text" name="comment" placeholder="Leave a comment here")
             .form__button
               button(type="submit") Post
     .comments__container.hidden
