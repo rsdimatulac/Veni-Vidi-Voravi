@@ -113,9 +113,10 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
   }
 }));
 
-router.get('/login', csrfProtection, asyncHandler(async(req, res) => {
+// asynchandler (async) removed
+router.get('/login', csrfProtection, (req, res) => {
   res.render('user-login', { title: "Login", csrfToken: req.csrfToken() });
-}));
+});
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const {
@@ -157,11 +158,11 @@ router.post('/logout', (req, res) => {
   logoutUser(req, res);
   res.redirect('/welcome');
 });
-
-router.post('/demouser', asyncHandler(async(req, res)=>{
+// asynchandler (async) removed
+router.post('/demouser', (req, res)=>{
   req.session.auth = { userId: 1 };
   res.redirect('/');
-}))
+});
 
 /********************************** EXPORTS *****************************************/
 module.exports = router;

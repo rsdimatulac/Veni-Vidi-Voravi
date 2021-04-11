@@ -46,10 +46,10 @@ app.use(
     saveUninitialized: false,
     resave: false,
   })
-  );
+);
 
-  // create Session table if it doesn't already exist
-  store.sync();
+// create Session table if it doesn't already exist
+store.sync();
 
 app.use(restoreUser);
 app.use('/', indexRouter);
@@ -62,12 +62,13 @@ app.use(profileRouter);
 app.use(followRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(async (req, res, next) => {
   next(createError(404));
+  return // return added
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(async (err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -75,6 +76,7 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error-page');
+  return // return added
 });
 
 /********************************** EXPORTS *****************************************/

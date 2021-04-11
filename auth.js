@@ -17,7 +17,7 @@ const requireAuth = (req, res, next) => {
     }
     return next();
   } catch (err) {
-    next(err);
+    return next(err); // return added
   }
 };
 
@@ -32,15 +32,15 @@ const restoreUser = async (req, res, next) => {
       if (user) {
         res.locals.authenticated = true;
         res.locals.user = user;
-        next();
+        return next(); // return added
       }
     } catch (err) {
       res.locals.authenticated = false;
-      next(err);
+      return next(err); // return added
     }
   } else {
     res.locals.authenticated = false;
-    next();
+    return next(); // return added
   }
 };
 
