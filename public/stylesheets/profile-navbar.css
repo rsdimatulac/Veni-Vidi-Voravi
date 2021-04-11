@@ -9,7 +9,7 @@
 }
 
 .nav__title {
-    grid-column: 2 / 5;
+    grid-column: 2 / 9;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,6 +31,11 @@
 .nav__username {
     font-size: 25px;
     font-weight: bold;
+}
+
+.nav__username div {
+    display: inline;
+    padding: 0 10px;
 }
 
 .nav__followed {

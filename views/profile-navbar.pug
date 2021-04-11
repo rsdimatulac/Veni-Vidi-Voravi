@@ -4,10 +4,10 @@
             img(src="/images/logo.png")
     div(class="nav__title" id="nav__username")
         .nav__username #{followedUser.firstName} #{followedUser.lastName}
-        div(class="followers")
-            a(href=`/users/${followedUser.id}/followers`)
-                span #{followers.length} Followers
-        div
+            div(class="followers")
+                a(href=`/users/${followedUser.id}/followers`)
+                    span #{followers.length} Followers
+            //- div
             //- If you are the loggedIn User, you cannot see the Follow Button
             if userId !== followedUserId
                 if isFollowing
