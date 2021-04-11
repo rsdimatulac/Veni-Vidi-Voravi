@@ -13,6 +13,6 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
   div(class='form__inputs')
     label(for=fieldName)= labelText
     if fieldType === 'textarea'
-      textarea(required id=fieldName name=fieldName class='form__input-field' rows='5')= fieldValue
+      textarea(required id=fieldName name=fieldName class='form__input-field' rows='6' placeholder="Tell your story")= fieldValue
     else
       input(required type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form__input-field')

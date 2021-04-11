@@ -29,7 +29,7 @@ block content
                                             h3 #{follower.User.firstName} #{follower.User.lastName}
                                     p(class="follower__profile-about") #{follower.User.about}
                                 .follower__button
-                                    if user !== follower.User.id
+                                    if user.id !== follower.User.id
                                         if currentUserFollowing.includes(follower.User.id)
                                             button(class=`${userId} ${follower.User.id} nav__follow-button nav__followed` type="submit") Following
                                         else

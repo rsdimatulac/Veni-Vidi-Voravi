@@ -27,8 +27,6 @@ router.get('/users/:id(\\d+)/followers', requireAuth, asyncHandler(async (req, r
 
     let currentUserFollowing = user.Follows.map(followEntry => followEntry.followedUserId)
 
-    console.log(currentUserFollowing)
-
     res.render('followers', {
         user,
         userId,

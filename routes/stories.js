@@ -123,7 +123,7 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
             storyId
         },
         order: [['createdAt', 'DESC']],
-        include: db.User // ADDED
+        include: db.User
     });
 
     const newComment = db.Comment.build({
@@ -150,29 +150,6 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
         });
     }
 }))
-
-// COMMENTED OUT SINCE WE'RE USING A MODAL INSTEAD OF RENDERING A WHOLE PAGE
-// GET THE EDIT FORM
-// router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
-//     const storyId = parseInt(req.params.id, 10);
-//     const story = await db.Story.findByPk(storyId);
-//     const { userId } = req.session.auth;
-//     const user = await db.User.findByPk(userId);
-
-//     // to check if the user made that story
-//     if ( userId !== story.userId ) {
-//         res.status(403); // Forbidden
-//         throw new Error("Forbidden")
-//         // TODO: Instead to throw error, redirect to a stylized Error Page
-//     };
-
-//     res.render('story-edit', {
-//         title: 'Edit your Story',
-//         story,
-//         csrfToken: req.csrfToken(),
-//         user
-//     });
-// }));
 
 // EDITING AND UPDATING THE STORY
 
@@ -204,6 +181,7 @@ router.post('/:id(\\d+)/edit', csrfProtection, storyValidators, asyncHandler(asy
     
         res.redirect(`/stories/${storyId}`)
 
+        // NOT RENDERING STORY-PUG BECAUSE OF MODALS AND "REQUIRED" on input tags
         // res.render('story-edit', {
         //     title: 'Edit your Story',
         //     story: { ...story, id: storyId },
@@ -232,3 +210,27 @@ router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
 }));
 
 module.exports = router;
+
+// COMMENTED OUT SINCE WE'RE USING A MODAL INSTEAD OF RENDERING A WHOLE PAGE
+// GET THE EDIT FORM
+// router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+//     const storyId = parseInt(req.params.id, 10);
+//     const story = await db.Story.findByPk(storyId);
+//     const { userId } = req.session.auth;
+//     const user = await db.User.findByPk(userId);
+
+//     // to check if the user made that story
+//     if ( userId !== story.userId ) {
+//         res.status(403); // Forbidden
+//         throw new Error("Forbidden")
+//         // TODO: Instead to throw error, redirect to a stylized Error Page
+//     };
+
+//     res.render('story-edit', {
+//         title: 'Edit your Story',
+//         story,
+//         csrfToken: req.csrfToken(),
+//         user
+//     });
+// }));
+

@@ -21,6 +21,7 @@ body {
 .profile-pic-main {
     height: 175px;
     width: 175px;
+    border-radius: 20px;
 }
 
 .user__name {
