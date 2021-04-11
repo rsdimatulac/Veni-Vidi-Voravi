@@ -43,10 +43,11 @@ Before you begin, ensure you have met the following requirements:
 ## Code Highlights / Challenges 
 
 #### Highlights 
-- Creating DRY Pug templates to render
+- Creating DRY Pug templates to render.
 
 #### Challenges
 - When `npm start` was run, the localhost on the browser was not loading and left us hanging. It was caused by a session cookie that is dependent on the Demo User to login but was deleted when the database was dropped. It was fixed when we deleted the session cookie, and added the Demo User credentials as a seeded sequelize file.
+- Initially hosting to Heroku. When we ran into problems locally, we solved this by dropping our databases and re-migrating and seeding. Dropping databases was not recommended on Heroku so we had to work around this. 
 
 ## Future Implementations 
  - Topics / Categories / Tags
