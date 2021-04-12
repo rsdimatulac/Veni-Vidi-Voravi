@@ -8,7 +8,7 @@ _Veni Vidi Voravi_ is inspired by [Medium](https://medium.com/) and allows users
 ![Welcome Page View - PLACEHOLDER](public/images/welcome-page-2.gif)
 
 ### Home View
-![Home Page View - PLACEHOLDER](/public/images/home-page-2.gif)
+![Home Page View - PLACEHOLDER](/public/images/home-page-3.gif)
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
