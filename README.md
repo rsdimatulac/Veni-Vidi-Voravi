@@ -21,6 +21,7 @@ Before you begin, ensure you have met the following requirements:
 - HTML (rendering through PUG templating)
 - CSS
 - Font Awesome
+- SVGs provided by [Katerina Limpitsouni](https://undraw.co/)
 - Hosted on Heroku
 
 #### Back-End
