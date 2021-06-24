@@ -109,6 +109,8 @@ router.post('/users/:id(\\d+)/follows', asyncHandler(async (req, res) => {
     } else {
         follow.destroy();
     }
+
+    return res.json({follow})
 }));
 
 

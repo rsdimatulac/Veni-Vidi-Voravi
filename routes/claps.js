@@ -17,6 +17,8 @@ router.post('/stories/:id(\\d+)/claps', asyncHandler(async (req, res) => {
     } else { // we remove that clap
         clap.destroy();
     }
+
+    return res.json({clap})
 }));
 
 /////////////// MODULE EXPORTS ///////////////////
